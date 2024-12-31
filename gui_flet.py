@@ -1,8 +1,13 @@
 import flet as ft
 
+# Función principal para crear la ventana principal de nuestro programa o app con algunas configuraciones en ella como alineacion en horizontal, color de fondo, medida minima en alto y ancho, tema predeterminado y título
+
 def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.colors.BLUE_GREY_900
+    page.window_min_height = 720
+    page.window_min_width = 480
+    page.theme_mode = ft.ThemeMode.SYSTEM
     page.title = "Gestor de Insumos"
 
     # Functions
@@ -23,8 +28,6 @@ def main(page: ft.Page):
         texto_2.color = "black"
         themeText.value = "Modo Oscuro"
         themeText.color = "black"
-        themeButton.icon = "MODE_NIGHT"
-        themeButton.icon_color = "black"
         texto_4 = ft.Text("Modo Claro Activado", size=10, color="black")
         page.add(texto_4)
         
@@ -44,10 +47,19 @@ def main(page: ft.Page):
     # Widgets
 
     themeText = ft.Text("Modo Claro", size= 13, color="cyan")
-    themeButton = ft.IconButton(ft.icons.SUNNY, icon_color="yellow", tooltip="Modo Claro", focus_color="red", on_click=tema_Claro, icon_size=20)
+    # themeButton = ft.IconButton(ft.icons.SUNNY, icon_color="yellow", tooltip="Modo Claro", focus_color="red", on_click=tema_Claro, icon_size=20)
+    switchTheme = ft.Switch(
+        value=True,
+        thumb_color="yellow",
+        inactive_thumb_color="yellow",
+        thumb_icon={
+            ft.MaterialState.DEFAULT: ft.icons.DARK_MODE,
+            ft.MaterialState.SELECTED: ft.icons.LIGHT_MODE
+        }
+    )
 
     filaCambioTema = ft.Row(
-        controls=[themeText, themeButton],
+        controls=[themeText, switchTheme],
         alignment=ft.MainAxisAlignment.END
     )
     page.add(filaCambioTema)
