@@ -35,7 +35,7 @@ class UI(ft.UserControl):
                         alignment=ft.alignment.center,
                         expand=True,
                         content=ft.NavigationRail(
-                            bgcolor="black",
+                            bgcolor=self.color_teal,
                             expand=True,
                             selected_index=0,
                             destinations=[
@@ -43,13 +43,13 @@ class UI(ft.UserControl):
                                     icon = ft.icons.HOME,
                                 ),
                                 ft.NavigationDestination(
+                                    icon = ft.icons.POINT_OF_SALE_SHARP
+                                ),
+                                ft.NavigationDestination(
                                     icon = ft.icons.ACCOUNT_TREE_ROUNDED
                                 ),
                                 ft.NavigationDestination(
-                                    icon = ft.icons.LOCATION_ON_OUTLINED
-                                ),
-                                ft.NavigationDestination(
-                                    icon = ft.icons.CALENDAR_MONTH_SHARP
+                                    icon = ft.icons.INVENTORY
                                 )
                             ]
                         )
@@ -79,7 +79,63 @@ class UI(ft.UserControl):
             col=6,
             bgcolor=self.color_teal,
             border_radius=10,
-            content=ft.Column()
+            content=ft.Column(
+                controls=[
+                    ft.Row(
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        controls=[
+                            ft.Text(value="CONTROL DE FRESA Y CREMAS", color="black")
+                        ]
+                    ),
+                    ft.Row(
+                        controls=[
+                            ft.Text(value="Fresa", color="black"),
+                            ft.TextField(value="", bgcolor="green", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black")
+                        ]
+                    ),
+                    ft.Row(
+                        controls=[
+                            ft.Text(value="Crema Original", color="black"),
+                            ft.TextField(value="", bgcolor="green", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black")
+                        ]
+                    ),
+                    ft.Row(
+                        controls=[
+                            ft.Text(value="Crema Chocolate", color="black"),
+                            ft.TextField(value="", bgcolor="green", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black")
+                        ]
+                    ),
+                    ft.Row(
+                        controls=[
+                            ft.Text(value="Crema Cafe", color="black"),
+                            ft.TextField(value="", bgcolor="green", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black")
+                        ]
+                    ),
+                    ft.Row(
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        controls=[
+                            ft.FilledButton("Enviar", bgcolor="black", color="white", width=100),
+                        ]
+                    ),
+                    # ft.Container(
+                    #     expand=True,
+                    #     bgcolor="red",
+                    #     content=ft.Column(
+                    #         alignment=ft.MainAxisAlignment.CENTER,
+                    #         controls=[
+                    #                 ft.Text(value="Fresas"),
+                    #                 ft.Text(value="Crema Original"),
+                    #                 ft.Text(value="Crema Chocolate"),
+                    #                 ft.Text(value="Crema Cafe"),
+                    #             ]
+                    #     )
+                    # ),
+                    ft.Container(
+                        expand=True,
+                        bgcolor="black"
+                    ),
+                ]
+            )
         )
 
         self.view_report = ft.Container(
@@ -90,7 +146,6 @@ class UI(ft.UserControl):
         )
 
         self.gral_container = ft.ResponsiveRow(
-            
             controls=[
                 self.navigation_bar,
                 self.insumos,
@@ -107,10 +162,12 @@ class UI(ft.UserControl):
 def main(page: ft.Page):
     # page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.colors.BLUE_GREY_900
-    page.window_min_height = 580
-    page.window_min_width = 580
-    page.window_max_height = 580
-    page.window_max_width = 820
+    page.window_min_height = 520
+    page.window_min_width = 680
+    page.window_max_height = 520
+    page.window_max_width = 680
+    # page.window_max_height = 580
+    # page.window_max_width = 820
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.title = "Gestor de Insumos"
     page.add(UI(page))
@@ -140,7 +197,8 @@ def main(page: ft.Page):
     # page.add(filaCambioTema)
 
 
+# Web Mode
+# ft.app(target=main, view=ft.WEB_BROWSER)
 
-
-
-ft.app(main)
+# Desktop Mode
+ft.app(target=main)
