@@ -32,7 +32,7 @@ class UI(ft.UserControl):
             content=ft.Column(
                 controls=[
                     ft.Container(
-                        alignment=ft.alignment.center,
+                        # alignment=ft.alignment.center,
                         expand=True,
                         content=ft.NavigationRail(
                             bgcolor=self.color_teal,
@@ -55,7 +55,7 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
-                        alignment=ft.alignment.center,
+                        # alignment=ft.alignment.center,
                         expand=True,
                         content=ft.Column(
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -82,6 +82,7 @@ class UI(ft.UserControl):
             content=ft.Column(
                 controls=[
                     ft.Container(
+                        height=30,
                         bgcolor=self.color_teal,
                         border_radius=4,
                         content=ft.Row(
@@ -94,8 +95,8 @@ class UI(ft.UserControl):
                     ft.Row(
                             controls=[
                                 ft.Container(
-                                    # bgcolor="black",
-                                    padding=ft.Padding(top=0, bottom=0, left=20, right=0),
+                                    margin=ft.margin.only(bottom=10),
+                                    padding=ft.padding.only(left=25),
                                     expand=True,
                                     content=ft.Column(
                                         controls=[
@@ -108,16 +109,16 @@ class UI(ft.UserControl):
                                     ),
                                 ),
                                 ft.Container(
-                                    # bgcolor="red",
-                                    padding=ft.Padding(top=0, bottom=0, left=25, right=0),
+                                    # margin=ft.margin.only(bottom=0),
+                                    padding=ft.padding.only(left=25),
                                     expand=True,
                                     content=ft.Column(
                                         controls=[
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=13, text_align="center", content_padding=26, color="black")
+                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink")
                                         ]
                                     ),
                                 ),
@@ -126,11 +127,18 @@ class UI(ft.UserControl):
                     ft.Row(
                         alignment=ft.MainAxisAlignment.CENTER,
                          controls=[
-                            ft.FilledButton("Enviar", bgcolor="pink", width=100, color="black")
+                            ft.FilledButton("Capturar", bgcolor="white", width=100, color="black")
                         ]
                     ),
 
                     ft.Container(
+                        alignment=ft.alignment.center,
+                        # margin=10,
+                        ink=True,
+                        ink_color="red",
+                        margin=ft.margin.only(top=10),
+                        height=30,
+                        padding=ft.Padding(top=0, bottom=0, left=0, right=0),
                         bgcolor=self.color_teal,
                         border_radius=4,
                         content=ft.Row(
@@ -141,61 +149,72 @@ class UI(ft.UserControl):
                         ),
                     ),
                     ft.Row(
+                        expand=True,
                         alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                         controls=[
                             ft.Container(
-                                bgcolor="red",
+                                # bgcolor="red",
                                 content=ft.Column(
+                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                     controls=[
-                                        ft.Text(value="Nuez", color="white", size=10),
-                                        ft.Text(value="Almendra", color="white", size=10),
-                                        ft.Text(value="Oreo", color="white", size=10),
-                                        ft.Text(value="Bombon", color="white", size=10),
-                                        ft.Text(value="Bombon", color="white", size=10),
-                                        ft.Text(value="Bombon", color="white", size=10),
-                                        ft.Text(value="Bombon", color="white", size=10),
+                                        ft.Text(value="Almendra", color="white", size=13),
+                                        ft.Text(value="Canela", color="white", size=13),
+                                        ft.Text(value="Chispa Ch", color="white", size=13),
+                                        ft.Text(value="Coco Rayado", color="white", size=13),
+                                        ft.Text(value="Gotita Ch", color="white", size=13),
+                                        ft.Text(value="Kranky", color="white", size=13),
+                                        ft.Text(value="Luneta Ch", color="white", size=13),
+                                        ft.Text(value="Mazapan", color="white", size=13),
+                                        ft.Text(value="Oreo", color="white", size=13),
                                     ]
                                 )
                             ),
                             ft.Container(
-                                bgcolor="red",
+                                # bgcolor="red",
                                 content=ft.Column(
+                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                     controls=[
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black")
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0))
                                     ]
                                 )
                             ),
                             ft.Container(
-                                bgcolor="black",
+                                # bgcolor="black",
                                 content=ft.Column(
+                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                     controls=[
-                                        ft.Text(value="Luneta", color="white", size=10),
-                                        ft.Text(value="Chocoreta", color="white", size=10),
-                                        ft.Text(value="Chispa Choc", color="white", size=10),
-                                        ft.Text(value="Coco", color="white", size=10),
-                                        ft.Text(value="Coco", color="white", size=10),
-                                        ft.Text(value="Coco", color="white", size=10),
-                                        ft.Text(value="Coco", color="white", size=10),
+                                        ft.Text(value="Bombon", color="white", size=13),
+                                        ft.Text(value="Chispa Arc", color="white", size=13),
+                                        ft.Text(value="Chocoreta", color="white", size=13),
+                                        ft.Text(value="Emperador", color="white", size=13),
+                                        ft.Text(value="Granola", color="white", size=13),
+                                        ft.Text(value="Luneta Yog", color="white", size=13),
+                                        ft.Text(value="Nuez Gr", color="white", size=13),
+                                        ft.Text(value="Panditas", color="white", size=13),
                                     ]
                                 )
                             ),
                             ft.Container(
-                                bgcolor="black",
+                                # bgcolor="black",
                                 content=ft.Column(
+                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                     controls=[
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black"),
-                                        ft.TextField(value="", bgcolor="pink", width=50, height=15, text_size=11, text_align="center", content_padding=26, color="black")
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0)),
+                                        ft.TextField(value="", bgcolor="pink", width=50, height=18, text_size=12, text_align="center", color="black", border_color="pink", content_padding=ft.padding.only(0))
                                     ]
                                 )
                             ),
@@ -205,8 +224,7 @@ class UI(ft.UserControl):
                         alignment=ft.MainAxisAlignment.CENTER,
                          controls=[
                             ft.Container(
-                                padding=ft.Padding(top=10, bottom=0, left=0, right=0),
-                                content=ft.FilledButton("Enviar", bgcolor=self.color_teal, width=100, color="black")
+                                content=ft.FilledButton("Capturar", bgcolor="white", width=100, color="black")
                             )
                         ]
                     ),
@@ -243,9 +261,9 @@ class UI(ft.UserControl):
 def main(page: ft.Page):
     # page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.colors.BLUE_GREY_900
-    page.window_min_height = 520
+    page.window_min_height = 620
     page.window_min_width = 680
-    page.window_max_height = 520
+    page.window_max_height = 620
     page.window_max_width = 680
     # page.window_max_height = 580
     # page.window_max_width = 820
