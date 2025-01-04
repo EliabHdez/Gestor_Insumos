@@ -9,7 +9,7 @@ class UI(ft.UserControl):
         self.mode_switch = ft.Switch(
             tooltip="Modo Nocturno",
             value=True,
-            # thumb_color="black",
+            thumb_color="black",
             thumb_icon={
                 ft.MaterialState.DEFAULT: ft.icons.DARK_MODE,
                 ft.MaterialState.SELECTED: ft.icons.DARK_MODE
@@ -86,7 +86,7 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
-                        # alignment=ft.alignment.center,
+                        alignment=ft.alignment.center,
                         expand=True,
                         content=ft.Column(
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -128,37 +128,35 @@ class UI(ft.UserControl):
                         ),
                     ),
                     ft.Row(
-                            controls=[
-                                ft.Container(
-                                    margin=ft.margin.only(bottom=10),
-                                    padding=ft.padding.only(left=30),
-                                    expand=True,
-                                    content=ft.Column(
-                                        controls=[
-                                            ft.Text(value="Fresa", color="white"),
-                                            ft.Text(value="Uva", color="white"),
-                                            ft.Text(value="Crema Original", color="white"),
-                                            ft.Text(value="Crema Chocolate", color="white"),
-                                            ft.Text(value="Crema Cafe", color="white"),
-                                        ]
-                                    ),
+                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                        controls=[
+                            ft.Container(
+                                margin=ft.margin.only(bottom=10),
+                                padding=ft.padding.only(left=32),
+                                content=ft.Column(
+                                    controls=[
+                                        ft.Text(value="Fresa", color="white"),
+                                        ft.Text(value="Uva", color="white"),
+                                        ft.Text(value="Crema Original", color="white"),
+                                        ft.Text(value="Crema Chocolate", color="white"),
+                                        ft.Text(value="Crema Cafe", color="white"),
+                                    ]
                                 ),
-                                ft.Container(
-                                    # margin=ft.margin.only(bottom=0),
-                                    padding=ft.padding.only(left=35),
-                                    expand=True,
-                                    content=ft.Column(
-                                        controls=[
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
-                                            ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink")
-                                        ]
-                                    ),
+                            ),
+                            ft.Container(
+                                padding=ft.padding.only(right=32),
+                                content=ft.Column(
+                                    controls=[
+                                        ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                        ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                        ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                        ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink"),
+                                        ft.TextField(value="", bgcolor="pink", width=100, height=20, text_size=15, text_align="center", content_padding=ft.padding.only(0), color="black", border_color="pink")
+                                    ]
                                 ),
-                            ]
-                        ),
+                            ),
+                        ]
+                    ),
                     ft.Row(
                         alignment=ft.MainAxisAlignment.CENTER,
                          controls=[
@@ -288,28 +286,58 @@ class UI(ft.UserControl):
                     ft.Container(
                         #height=20,
                         content=ft.Row(
-                            alignment=ft.MainAxisAlignment.SPACE_EVENLY
-                            ,
-                                controls=[
+                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                            controls=[
                                 ft.Container(
-                                    padding=ft.padding.only(right=15),
+                                    bgcolor="transparent",
                                     content=ft.Row(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        expand=True,
                                         controls=[
-                                            ft.Text(value="Entrada", color="white"),
-                                            ft.Checkbox()
+                                            ft.Dropdown(
+                                                expand=True,
+                                                label="Punto de Venta",
+                                                width=250,
+                                                # height=100,
+                                                border=ft.InputBorder.OUTLINE,
+                                                border_radius=5,
+                                                border_color="pink",
+                                                border_width=.5,
+                                                focused_border_width=2,
+                                                # text_style=ft.TextStyle(size=10),
+                                                text_size=12,
+                                                padding=ft.Padding(top=0, bottom=18, left=20, right=20),
+                                                hint_text="Selecciona PDV",
+                                                align_label_with_hint=ft.alignment.center_left,
+                                                options=[
+                                                    ft.dropdown.Option("Cofradia 3"),
+                                                    ft.dropdown.Option("San Miguel"),
+                                                    ft.dropdown.Option("Vips"),
+                                                    ft.dropdown.Option("Cofradia 2"),
+                                                    ft.dropdown.Option("San Antonio")
+                                                ],
+                                                autofocus=True
+                                            ),
                                         ]
                                     )
                                 ),
-                                ft.Container(
-                                    padding=ft.padding.only(left=15),
-                                    content=ft.Row(
-                                        controls=[
-                                            ft.Checkbox(),
-                                            ft.Text(value="Salida", color="white")
-                                        ]
-                                    )
-                                )
-                            ]
+                                # ft.Container(
+                                #     padding=ft.padding.only(right=15),
+                                #     content=ft.Row(
+                                #         controls=[
+                                #             ft.Radio(value="entrada", label="Entrada")
+                                #         ]
+                                #     )
+                                # ),
+                                # ft.Container(
+                                #     padding=ft.padding.only(left=15),
+                                #     content=ft.Row(
+                                #         controls=[
+                                #             ft.Radio(value="salida", label="Salida")
+                                #         ]
+                                #     )
+                                # )
+                            ]  
                         ),
                     ),
                     ft.Container(
