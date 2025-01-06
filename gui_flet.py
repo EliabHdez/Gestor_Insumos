@@ -4,14 +4,21 @@ class UI(ft.UserControl):
     def __init__(self, page):
         super().__init__(expand=True)
 
-        self.color_teal = "teal"
+        # self.color_teal = "teal"
+        self.color_teal = "#04d59c"
+        self.color_teal_2 = "#11b78a"
 
         self.mode_switch = ft.Switch(
+            adaptive=True,
             tooltip="Modo Nocturno",
             value=True,
-            thumb_color="black",
+            thumb_color="#222222",
+            active_track_color=ft.Colors.CYAN,
+            # active_color="red",
+            inactive_thumb_color=ft.Colors.BLUE,
+            inactive_track_color=ft.Colors.BLUE_GREY_500,
             thumb_icon={
-                ft.MaterialState.DEFAULT: ft.icons.DARK_MODE,
+                ft.MaterialState.HOVERED: ft.icons.DARK_MODE_SHARP,
                 ft.MaterialState.SELECTED: ft.icons.DARK_MODE
             }
         )
@@ -27,8 +34,9 @@ class UI(ft.UserControl):
         # )
 
         self.navigation_bar = ft.Container(
-            col=1,
-            bgcolor=self.color_teal,
+            col=.7,
+            # bgcolor=self.color_teal,
+            bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=10,
             content=ft.Column(
                 controls=[
@@ -62,9 +70,11 @@ class UI(ft.UserControl):
                         #     ]
                         # )
                         content=ft.NavigationRail(
-                            bgcolor=self.color_teal,
+                            # bgcolor=ft.colors.BLUE_GREY_900,
+                            bgcolor=ft.colors.BLUE_GREY_800,
                             expand=True,
                             selected_index=0,
+                            indicator_color=self.color_teal_2,
                             destinations=[
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.HOME,
@@ -86,6 +96,7 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
+                        margin=ft.margin.only(bottom=3),
                         alignment=ft.alignment.center,
                         expand=True,
                         content=ft.Column(
@@ -110,6 +121,25 @@ class UI(ft.UserControl):
             )
         )
 
+        self.div_line = ft.Container(
+            # margin=ft.margin.symmetric(vertical=10),
+            # padding=10,
+            col=.2,
+            # height=620,
+            # bgcolor=self.color_teal,
+            # border_radius=5,
+            content=ft.Container(
+                width=1,
+                # margin=ft.margin.symmetric(vertical=10),
+                # height=620,
+                bgcolor=self.color_teal,
+                border_radius=5,
+                content=ft.Column(
+                    expand=True
+                )
+            )
+        )
+
         self.insumos = ft.Container(
             col=6,
             #bgcolor=self.color_teal,
@@ -118,12 +148,12 @@ class UI(ft.UserControl):
                 controls=[
                     ft.Container(
                         height=30,
-                        bgcolor=self.color_teal,
+                        # bgcolor=self.color_teal,
                         border_radius=15,
                         content=ft.Row(
                             alignment=ft.MainAxisAlignment.CENTER,
                                 controls=[
-                                ft.Text(value="FRESA, UVA Y CREMAS", color="black")
+                                ft.Text(value="<<<<< FRESA, UVA Y CREMAS >>>>>", color="white")
                             ]
                         ),
                     ),
@@ -168,12 +198,12 @@ class UI(ft.UserControl):
                         alignment=ft.alignment.center,
                         margin=ft.margin.only(top=6),
                         height=30,
-                        bgcolor=self.color_teal,
+                        # bgcolor=self.color_teal,
                         border_radius=15,
                         content=ft.Row(
                             alignment=ft.MainAxisAlignment.CENTER,
                                 controls=[
-                                ft.Text(value="TOPPINGS", color="black")
+                                ft.Text(value="<<<<< TOPPINGS >>>>>", color="white")
                             ]
                         ),
                     ),
@@ -249,6 +279,20 @@ class UI(ft.UserControl):
                             ),
                         ]
                     ),
+                    # ft.Row(
+                    #     controls=[
+                    #         ft.Text(value="Servicios a Domicilio"),
+                    #         ft.Radio(label="$20"),
+                    #         ft.Radio(label="$35")
+                    #     ]
+                    # ),
+                    # ft.Row(
+                    #     controls=[
+                    #         ft.Text(value="Toppigs Extra"),
+                    #         ft.Radio(label="$5"),
+                    #         ft.Radio(label="$10")
+                    #     ]
+                    # ),
                     ft.Row(
                         alignment=ft.MainAxisAlignment.CENTER,
                          controls=[
@@ -271,25 +315,24 @@ class UI(ft.UserControl):
             #bgcolor=self.color_teal,
             #border_radius=10,
             content=ft.Column(
+                alignment=ft.MainAxisAlignment.SPACE_AROUND,
                 controls=[
                     ft.Container(
                         height=30,
-                        bgcolor=self.color_teal,
+                        # bgcolor=self.color_teal,
                         border_radius=15,
                         content=ft.Row(
                             alignment=ft.MainAxisAlignment.CENTER,
                                 controls=[
-                                ft.Text(value="REPORTES", color="black")
+                                ft.Text(value="----- REPORTES -----", color="pink")
                             ]
                         ),
                     ),
                     ft.Container(
-                        #height=20,
                         content=ft.Row(
                             alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                             controls=[
                                 ft.Container(
-                                    bgcolor="transparent",
                                     content=ft.Row(
                                         alignment=ft.MainAxisAlignment.CENTER,
                                         expand=True,
@@ -304,7 +347,6 @@ class UI(ft.UserControl):
                                                 border_color="pink",
                                                 border_width=.5,
                                                 focused_border_width=2,
-                                                # text_style=ft.TextStyle(size=10),
                                                 text_size=12,
                                                 padding=ft.Padding(top=0, bottom=18, left=20, right=20),
                                                 hint_text="Selecciona PDV",
@@ -321,47 +363,29 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                # ft.Container(
-                                #     padding=ft.padding.only(right=15),
-                                #     content=ft.Row(
-                                #         controls=[
-                                #             ft.Radio(value="entrada", label="Entrada")
-                                #         ]
-                                #     )
-                                # ),
-                                # ft.Container(
-                                #     padding=ft.padding.only(left=15),
-                                #     content=ft.Row(
-                                #         controls=[
-                                #             ft.Radio(value="salida", label="Salida")
-                                #         ]
-                                #     )
-                                # )
                             ]  
                         ),
                     ),
                     ft.Container(
-                        bgcolor="red",
-                        border_radius=5,
-                        expand=True,
+                        # bgcolor="red",
+                        # expand=True,
+                        padding=ft.padding.symmetric(horizontal=20, vertical=5),
                         content=ft.Column(
-                            #expand=True,
-                            alignment=ft.MainAxisAlignment.CENTER,
+                            alignment=ft.MainAxisAlignment.START,
                                 controls=[
-                                ft.TextField(value="", bgcolor="white"),
+                                ft.TextField(value="", bgcolor="white", color="black", multiline=True, min_lines=5, max_lines=8, border_color=self.color_teal, border_radius=10, border_width=3, text_size=14)
                             ]
                         ),
                     ),
                     ft.Container(
-                        bgcolor="black",
-                        border_radius=5,
+                        # bgcolor="black",
+                        border_radius=10,
                         expand=True,
-                        padding=5,
+                        padding=ft.padding.symmetric(horizontal=20, vertical=5),
                         content=ft.Column(
-                            expand=True,
                             alignment=ft.MainAxisAlignment.CENTER,
                                 controls=[
-                                ft.TextField(value="", bgcolor="white")
+                                ft.TextField(value="", bgcolor="white", color="black", multiline=True, min_lines=17, max_lines=20, border_color=self.color_teal, border_radius=10, border_width=3, text_size=14)
                             ]
                         ),
                     ),
@@ -369,7 +393,7 @@ class UI(ft.UserControl):
                         alignment=ft.MainAxisAlignment.CENTER,
                          controls=[
                             ft.Container(
-                                content=ft.FilledButton("Generar archivo de reporte", bgcolor="white", width=250, color="black")
+                                content=ft.FilledButton("Generar Reporte", bgcolor="white", width=150, color="black")
                             )
                         ]
                     ),
@@ -380,6 +404,7 @@ class UI(ft.UserControl):
         self.gral_container = ft.ResponsiveRow(
             controls=[
                 self.navigation_bar,
+                # self.div_line,
                 self.insumos,
                 self.view_report
             ]
@@ -396,10 +421,12 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLUE_GREY_900
     page.window_min_height = 620
     page.window_min_width = 680
-    page.window_max_height = 620
-    page.window_max_width = 820
-    page.theme_mode = ft.ThemeMode.SYSTEM
-    page.title = "Gestor de Insumos"
+    # page.window_max_height = 620
+    # page.window_max_width = 1080
+    page.theme_mode = ft.ThemeMode.DARK
+    page.title = "Gestor"
+    # page.window_resizable = False
+    # page.window_opacity = .95
     page.add(UI(page))
 
     # Functions
