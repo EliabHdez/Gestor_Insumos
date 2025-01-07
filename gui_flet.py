@@ -148,47 +148,48 @@ class UI(ft.UserControl):
 
         self.gestion = ft.Container(
             col=11.25,
-            bgcolor="yellow",
+            bgcolor=ft.colors.BLUE_GREY_800,
+            border_radius=5,
             expand=True,
             content=ft.Column(
                 expand=True, 
                 controls=[
                     ft.Container(
-                        padding=5,
-                        bgcolor="black",
+                        padding=ft.Padding(top=5, bottom=5, left=10, right=25),
+                        # bgcolor="black",
                         content=ft.Row(
-                            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                             expand=True,
                             controls=[
-                                ft.Radio(value="cofradia3", label="Glorieta", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                                ft.Radio(value="cofradia3", label="VP Glorieta", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="sanmiguel", label="San Miguel", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="sanmiguel", label="VP San Miguel", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="vips", label="Vips", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="vips", label="Vp Vips", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="cofradia2", label="Cofradía 2", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="cofradia2", label="VP Cofradía 2", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="sanantonio", label="Ensueños", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="ensueños", label="VP Ensueños", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="operagua", label="Operagua", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="operagua", label="PL Operagua", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="operagua", label="San Antonio", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="sanantonio", label="VP San Antonio", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 }),
-                            ft.Radio(value="operagua", label="La Piedad", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
+                            ft.Radio(value="lapiedad", label="PL La Piedad", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
                                     ft.ControlState.DEFAULT: ft.Colors.PINK,
                                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                                 })
@@ -196,16 +197,159 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
-                        padding=5,
-                        bgcolor="red",
+                        margin=ft.Margin(right=15, left=15, top=0, bottom=0),
+                        bgcolor=self.color_teal,
+                        height=2,
+                        border_radius=2.5
+                    ),
+                    ft.Container(
+                        padding=ft.Padding(top=10, bottom=5, left=10, right=10),
                         content=ft.Row(
-                            expand=True,
+                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                             controls=[
-                                ft.Text("Prueba texto"),
-                                ft.TextField(value="Prueba de campo de texto")
+                                ft.Container(
+                                    height=190,
+                                    bgcolor="yellow",
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Text("Vasos Chicos", size=20, color="pink"),
+                                            ft.Text("Vasos Medianos", size=20, color="pink"),
+                                            ft.Text("Vasos Grandes", size=20, color="pink"),
+                                        ]
+                                    ),
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=220,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Text("Tapa Inicial"),
+                                            ft.Text("Vaso Inicial"),
+                                            ft.Text("Tapa Inicial"),
+                                            ft.Text("Vaso Inicial"),
+                                            ft.Text("Tapa Inicial"),
+                                            ft.Text("Vaso Inicial"),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=220,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=220,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Text("Tapa Final"),
+                                            ft.Text("Vaso Final"),
+                                            ft.Text("Tapa Final"),
+                                            ft.Text("Vaso Final"),
+                                            ft.Text("Tapa Final"),
+                                            ft.Text("Vaso Final"),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=220,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                            ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center"),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=190,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Text("Vasos Vendidos", size=20),
+                                            ft.Text("Vasos Vendidos", size=20),
+                                            ft.Text("Vasos Vendidos", size=20),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=190,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                            ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                            ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    bgcolor="yellow",
+                                    height=190,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Text("Total Venta", size=20),
+                                            ft.Text("Total Venta", size=20),
+                                            ft.Text("Total Venta", size=20),
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    height=190,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        controls=[
+                                            ft.Container(
+                                                content=ft.Row(
+                                                    controls=[
+                                                        ft.Text("$", size=20),
+                                                        ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                                    ]
+                                                )
+                                            ),
+                                            ft.Container(
+                                                content=ft.Row(
+                                                    controls=[
+                                                        ft.Text("$", size=20),
+                                                        ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                                    ]
+                                                )
+                                            ),
+                                            ft.Container(
+                                                content=ft.Row(
+                                                    controls=[
+                                                        ft.Text("$", size=20),
+                                                        ft.TextField(value="", height=40, width=70, text_size=20, content_padding=5, text_align="center", color="red"),
+                                                    ]
+                                                )
+                                            ),
+                                        ]
+                                    )
+                                ),
                             ]
-                        )
-                    )
+                        ),
+                    ),
                 ]
             )
         )
