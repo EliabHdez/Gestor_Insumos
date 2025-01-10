@@ -246,15 +246,23 @@ class UI(ft.UserControl):
                                                 ),
                                             ),
                                             ft.Container(
-                                                margin=ft.margin.only(left=30),
+                                                margin=ft.margin.only(left=20),
                                                 # bgcolor="blue",
                                                 content=ft.Row(
                                                     controls=[
                                                         ft.Text(value="Vendidos", size=17),
-                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=50, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
+                                                    ]
+                                                ),
+                                            ),
+                                            ft.Container(
+                                                margin=ft.margin.only(left=20),
+                                                # bgcolor="blue",
+                                                content=ft.Row(
+                                                    controls=[
                                                         ft.Text(value="Total Venta", size=17),
                                                         ft.Text(value="$",size=15),
-                                                        ft.TextField(value="", height=25, width=80, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
                                                     ]
                                                 ),
                                             ),
@@ -308,15 +316,23 @@ class UI(ft.UserControl):
                                                 ),
                                             ),
                                             ft.Container(
-                                                margin=ft.margin.only(left=30),
+                                                margin=ft.margin.only(left=20),
                                                 # bgcolor="blue",
                                                 content=ft.Row(
                                                     controls=[
                                                         ft.Text(value="Vendidos", size=17),
-                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=50, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
+                                                    ]
+                                                ),
+                                            ),
+                                            ft.Container(
+                                                margin=ft.margin.only(left=20),
+                                                # bgcolor="blue",
+                                                content=ft.Row(
+                                                    controls=[
                                                         ft.Text(value="Total Venta", size=17),
                                                         ft.Text(value="$",size=15),
-                                                        ft.TextField(value="", height=25, width=80, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
                                                     ]
                                                 ),
                                             ),
@@ -370,15 +386,23 @@ class UI(ft.UserControl):
                                                 ),
                                             ),
                                             ft.Container(
-                                                margin=ft.margin.only(left=30),
+                                                margin=ft.margin.only(left=20),
                                                 # bgcolor="blue",
                                                 content=ft.Row(
                                                     controls=[
                                                         ft.Text(value="Vendidos", size=17),
-                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=50, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
+                                                    ]
+                                                ),
+                                            ),
+                                            ft.Container(
+                                                margin=ft.margin.only(left=20),
+                                                # bgcolor="blue",
+                                                content=ft.Row(
+                                                    controls=[
                                                         ft.Text(value="Total Venta", size=17),
                                                         ft.Text(value="$",size=15),
-                                                        ft.TextField(value="", height=25, width=80, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=2, text_align="center", bgcolor="white", color="red"),
                                                     ]
                                                 ),
                                             ),
