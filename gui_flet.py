@@ -203,84 +203,22 @@ class UI(ft.UserControl):
                         border_radius=2.5
                     ),
                     ft.Container(
-                        bgcolor="pink",
+                        # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
                         border_radius=15,
                         padding=ft.Padding(top=5, bottom=5, left=5, right=10),
                         content=ft.Column(
                             controls=[
                                 ft.Container(
-                                    margin=ft.Margin(top=0, bottom=0, left=50, right=50),
-                                    # bgcolor="pink",
-                                    # border_radius=10,
-                                    expand=True,
-                                    content=ft.Row(
-                                        expand=True,
-                                        alignment=ft.MainAxisAlignment.CENTER,
-                                        controls=[
-                                            ft.Text(value="VASOS CHICOS", size=20, color="black")
-                                        ]
-                                    )
-                                ),
-                                ft.Container(
-                                    alignment=ft.alignment.center,
-                                    # bgcolor="yellow",
-                                    expand=True,
-                                    content=ft.Row(
-                                        alignment=ft.MainAxisAlignment.CENTER,
-                                        controls=[
-                                            ft.Container(
-                                                # bgcolor="red",
-                                                margin=ft.margin.only(right=30),
-                                                content=ft.Row(
-                                                    controls=[
-                                                        ft.Text(value="Vasos Iniciales"),
-                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
-                                                        ft.Text(value="Tapas Iniciales"),
-                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
-                                                        ft.Text(value="Vasos Finales"),
-                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
-                                                        ft.Text(value="Tapas Finales"),
-                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
-                                                    ]
-                                                ),
-                                            ),
-                                            ft.Container(
-                                                margin=ft.margin.only(left=30),
-                                                # bgcolor="blue",
-                                                content=ft.Row(
-                                                    controls=[
-                                                        ft.Text(value="Vendidos", size=17),
-                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
-                                                        ft.Text(value="Total Venta", size=17),
-                                                        ft.Text(value="$",size=15),
-                                                        ft.TextField(value="", height=25, width=80, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
-                                                    ]
-                                                ),
-                                            ),
-                                        ]
-                                    )
-                                )
-                            ]
-                        )
-                    ),
-                    ft.Container(
-                        bgcolor="pink",
-                        margin=ft.Margin(top=0, bottom=0, left=50, right=50),
-                        border_radius=15,
-                        padding=ft.Padding(top=5, bottom=5, left=5, right=10),
-                        content=ft.Column(
-                            controls=[
-                                ft.Container(
-                                    margin=ft.Margin(top=0, bottom=0, left=50, right=50),
+                                    margin=ft.Margin(top=0, bottom=0, left=400, right=400),
                                     bgcolor="pink",
-                                    border_radius=10,
+                                    border_radius=50,
                                     expand=True,
                                     content=ft.Row(
                                         expand=True,
                                         alignment=ft.MainAxisAlignment.CENTER,
                                         controls=[
-                                            ft.Text(value="VASOS MEDIANOS", size=20, color="black")
+                                            ft.Text(value="VASOS CHICOS", size=16, color="black")
                                         ]
                                     )
                                 ),
@@ -327,22 +265,22 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
-                        bgcolor="pink",
+                        # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
                         border_radius=15,
                         padding=ft.Padding(top=5, bottom=5, left=5, right=10),
                         content=ft.Column(
                             controls=[
                                 ft.Container(
-                                    margin=ft.Margin(top=0, bottom=0, left=50, right=50),
+                                    margin=ft.Margin(top=0, bottom=0, left=400, right=400),
                                     bgcolor="pink",
-                                    border_radius=10,
+                                    border_radius=50,
                                     expand=True,
                                     content=ft.Row(
                                         expand=True,
                                         alignment=ft.MainAxisAlignment.CENTER,
                                         controls=[
-                                            ft.Text(value="VASOS GRANDES", size=20, color="black")
+                                            ft.Text(value="VASOS MEDIANOS", size=16, color="black")
                                         ]
                                     )
                                 ),
@@ -389,13 +327,87 @@ class UI(ft.UserControl):
                         )
                     ),
                     ft.Container(
+                        # bgcolor="pink",
+                        margin=ft.Margin(top=0, bottom=0, left=50, right=50),
+                        border_radius=15,
+                        padding=ft.Padding(top=5, bottom=5, left=5, right=10),
+                        content=ft.Column(
+                            controls=[
+                                ft.Container(
+                                    margin=ft.Margin(top=0, bottom=0, left=400, right=400),
+                                    bgcolor="pink",
+                                    border_radius=50,
+                                    expand=True,
+                                    content=ft.Row(
+                                        expand=True,
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        controls=[
+                                            ft.Text(value="VASOS GRANDES", size=16, color="black")
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    alignment=ft.alignment.center,
+                                    # bgcolor="yellow",
+                                    expand=True,
+                                    content=ft.Row(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        controls=[
+                                            ft.Container(
+                                                # bgcolor="red",
+                                                margin=ft.margin.only(right=30),
+                                                content=ft.Row(
+                                                    controls=[
+                                                        ft.Text(value="Vasos Iniciales"),
+                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
+                                                        ft.Text(value="Tapas Iniciales"),
+                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
+                                                        ft.Text(value="Vasos Finales"),
+                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
+                                                        ft.Text(value="Tapas Finales"),
+                                                        ft.TextField(value="", height=20, width=50, text_size=12, content_padding=5, text_align="center", bgcolor="white", color="black"),
+                                                    ]
+                                                ),
+                                            ),
+                                            ft.Container(
+                                                margin=ft.margin.only(left=30),
+                                                # bgcolor="blue",
+                                                content=ft.Row(
+                                                    controls=[
+                                                        ft.Text(value="Vendidos", size=17),
+                                                        ft.TextField(value="", height=25, width=60, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                        ft.Text(value="Total Venta", size=17),
+                                                        ft.Text(value="$",size=15),
+                                                        ft.TextField(value="", height=25, width=80, text_size=20, content_padding=3, text_align="center", bgcolor="white", color="red"),
+                                                    ]
+                                                ),
+                                            ),
+                                        ]
+                                    )
+                                )
+                            ]
+                        )
+                    ),
+                    ft.Container(
+                        margin=ft.Margin(right=15, left=15, top=0, bottom=0),
+                        bgcolor=self.color_teal,
+                        height=2,
+                        border_radius=2.5
+                    ),
+                    ft.Container(
                         bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
                         border_radius=15,
                         padding=ft.Padding(top=5, bottom=5, left=5, right=10),
                     ),
                     ft.Container(
-                        bgcolor="pink",
+                        margin=ft.Margin(right=15, left=15, top=0, bottom=0),
+                        bgcolor=self.color_teal,
+                        height=2,
+                        border_radius=2.5
+                    ),
+                    ft.Container(
+                        # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
                         border_radius=15,
                         padding=ft.Padding(top=5, bottom=5, left=5, right=10),
@@ -403,7 +415,7 @@ class UI(ft.UserControl):
                             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                             controls=[
                                 ft.Container(
-                                    width=200,
+                                    width=150,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
                                     content=ft.Column(
@@ -414,25 +426,17 @@ class UI(ft.UserControl):
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 controls=[
                                                     ft.Column(
+                                                        # horizontal_alignment="start",
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="$5"),
-                                                                    ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
+                                                            ft.Text(value="$5"),
+                                                            ft.Text(value="$10"),
                                                         ]
                                                     ),
                                                     ft.Column(
+                                                        horizontal_alignment="start",
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="$10"),
-                                                                    ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
+                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
                                                         ]
                                                     )
                                                 ]
@@ -441,7 +445,7 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
-                                    width=210,
+                                    width=160,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
                                     content=ft.Column(
@@ -452,149 +456,152 @@ class UI(ft.UserControl):
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 controls=[
                                                     ft.Column(
+                                                        horizontal_alignment="center",
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="$20"),
-                                                                    ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
+                                                            ft.Text(value="$20"),
+                                                            ft.Text(value="$35"),
                                                         ]
                                                     ),
                                                     ft.Column(
+                                                        horizontal_alignment="center",
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="$35"),
-                                                                    ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
+                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
                                                         ]
-                                                    )
+                                                    ),
                                                 ]
                                             )
                                         ]
                                     )
                                 ),
                                 ft.Container(
-                                    width=330,
+                                    width=250,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Text(value="Transferencias"),
-                                            ft.Row(
-                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
-                                                controls=[
-                                                    ft.Column(
-                                                        controls=[
-                                                            ft.Container(
-                                                                width=200,
-                                                                # alignment=ft.alignment.center,
-                                                                content=ft.Column(
-                                                                    horizontal_alignment="center",
-                                                                    controls=[
-                                                                        ft.Text(value="No. de Transferencias"),
-                                                                        ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
-                                                            )
-                                                        ]
-                                                    ),
-                                                    ft.Column(
-                                                        controls=[
-                                                            ft.Container(
-                                                                width=130,
-                                                                # bgcolor="blue",
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="Monto"),
-                                                                    ft.Row(
-                                                                        alignment=ft.MainAxisAlignment.START,
+                                            ft.Container(
+                                                padding=ft.padding.only(left=14),
+                                                content=ft.Row(
+                                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                    controls=[
+                                                        ft.Column(
+                                                            # horizontal_alignment="center",
+                                                            controls=[
+                                                                ft.Text(value="No. Transferencias"),
+                                                                ft.Text(value="Monto Total"),
+                                                            ]
+                                                        ),
+                                                        ft.Column(
+                                                            horizontal_alignment="center",
+                                                            controls=[
+                                                                ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                                ft.Container(
+                                                                    margin=ft.margin.only(right=18),
+                                                                    content=ft.Row(
                                                                         controls=[
-                                                                            ft.Container(
-                                                                                margin=ft.margin.only(left=23),
-                                                                                # bgcolor="yellow",
-                                                                                alignment=ft.alignment.center,
-                                                                                content=ft.Row(
-                                                                                    alignment=ft.CrossAxisAlignment.CENTER,
-                                                                                    controls=[
-                                                                                        ft.Text(value="$"),
-                                                                                        ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white")
-                                                                                    ]
-                                                                                ),
-                                                                            )
+                                                                            ft.Text(value="$"),
+                                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
                                                                         ]
                                                                     )
-                                                                ]
-                                                            )
-                                                            )
-                                                        ]
-                                                    )
-                                                ]
+                                                                )
+                                                            ]
+                                                        ),
+                                                    ]
+                                                )
                                             )
                                         ]
                                     )
                                 ),
                                 ft.Container(
-                                    width=280,
-                                    alignment=ft.alignment.center,
+                                    width=250,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
-                                            ft.Text(value="Gastos"),
+                                            ft.Text(value="Gastos / Retiros"),
+                                            ft.Container(
+                                                padding=ft.padding.only(left=12),
+                                                content=ft.Row(
+                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                    controls=[
+                                                        ft.Column(
+                                                            controls=[
+                                                                ft.Text(value="No. Gastos / Retiros"),
+                                                                ft.Text(value="Monto Total"),
+                                                            ]
+                                                        ),
+                                                        ft.Column(
+                                                            horizontal_alignment="center",
+                                                            controls=[
+                                                                ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                                ft.Container(
+                                                                    margin=ft.margin.only(right=18),
+                                                                    content=ft.Row(
+                                                                        controls=[
+                                                                            ft.Text(value="$"),
+                                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                                        ]
+                                                                    )
+                                                                )
+                                                            ]
+                                                        ),
+                                                    ]
+                                                )
+                                            )
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    # bgcolor="blue",
+                                    width=200,
+                                    content=ft.Column(
+                                        horizontal_alignment="center",
+                                        controls=[
+                                            ft.Column(
+                                                controls=[
+                                                    ft.Text("Balance")
+                                                ]
+                                            ),
                                             ft.Row(
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 controls=[
                                                     ft.Column(
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="No. Gastos"),
-                                                                    ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                                ]
-                                                            )
+                                                            ft.Text("Diferencia"),
+                                                            ft.Text("Total día PV")
                                                         ]
                                                     ),
                                                     ft.Column(
+                                                        horizontal_alignment="center",
                                                         controls=[
-                                                            ft.Column(
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.Text(value="Monto"),
-                                                                    ft.Row(
-                                                                        alignment=ft.MainAxisAlignment.START,
-                                                                        controls=[
-                                                                            ft.Container(
-                                                                                margin=ft.margin.only(right=15),
-                                                                                # bgcolor="yellow",
-                                                                                alignment=ft.alignment.center,
-                                                                                content=ft.Row(
-                                                                                    alignment=ft.CrossAxisAlignment.CENTER,
-                                                                                    controls=[
-                                                                                        ft.Text(value="$"),
-                                                                                        ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white")
-                                                                                    ]
-                                                                                ),
-                                                                            )
-                                                                        ]
-                                                                    )
-                                                                ]
+                                                            ft.Container(
+                                                                padding=ft.padding.only(left=16),
+                                                                content=ft.Row(
+                                                                    controls=[
+                                                                        ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                                    ]
+                                                                )
+                                                            ),
+                                                            ft.Container(
+                                                                # margin=ft.margin.only(right=18),
+                                                                content=ft.Row(
+                                                                    controls=[
+                                                                        ft.Text(value="$"),
+                                                                        ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                                    ]
+                                                                )
                                                             )
                                                         ]
-                                                    )
+                                                    ),
                                                 ]
-                                            )
+                                            ),
                                         ]
                                     )
-                                ),
+                                )
+                                
                             ]
                         )
                     )
