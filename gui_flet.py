@@ -870,177 +870,58 @@ class UI(ft.UserControl):
                                             content=ft.Column(
                                                 controls=[
                                                     ft.ResponsiveRow(
-                                                        vertical_alignment="center",
                                                         controls=[
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Text("Fresa")
+                                                            ft.Column(
+                                                                col=6,
+                                                                controls=[
+                                                                    ft.ResponsiveRow(
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                alignment=ft.alignment.center,
+                                                                                content=ft.Column(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            bgcolor="yellow",
+                                                                                            content=ft.Text("Fresa")
+                                                                                        )
+                                                                                    ]
+                                                                                )
+                                                                            ),
+                                                                        ]
+                                                                    ),
+                                                                    ft.ResponsiveRow(
+                                                                        ft.Container(
+                                                                            content=ft.ResponsiveRow(
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                    )
+                                                                                ]
+                                                                            )
+                                                                        )
+                                                                    )
+                                                                ]
                                                             ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.ResponsiveRow(
-                                                        vertical_alignment="center",
-                                                        controls=[
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Text("Uva")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.ResponsiveRow(
-                                                        vertical_alignment="center",
-                                                        controls=[
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Text("Crema Original")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.ResponsiveRow(
-                                                        vertical_alignment="center",
-                                                        controls=[
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Text("Crema de Chocolate")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.ResponsiveRow(
-                                                        vertical_alignment="center",
-                                                        controls=[
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.Text("Crema de Cafe")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
-                                                            ),
-                                                            ft.Container(
-                                                                col=2,
-                                                                alignment=ft.alignment.center,
-                                                                content=ft.TextField(width=80, height=30, bgcolor="white")
+                                                            ft.Column(
+                                                                col=6,
+                                                                controls=[
+                                                                    ft.ResponsiveRow(
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                bgcolor=self.color_teal_2,
+                                                                                alignment=ft.alignment.center,
+                                                                                content=ft.Column(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            bgcolor="yellow",
+                                                                                            content=ft.Text("Uva")
+                                                                                        )
+                                                                                    ]
+                                                                                )
+                                                                            ),
+                                                                        ]
+                                                                    )
+                                                                ]
                                                             ),
                                                         ]
                                                     ),
