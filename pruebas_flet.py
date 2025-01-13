@@ -21,12 +21,12 @@ class UI(ft.UserControl):
                     ft.Container(
                         expand=True,
                         content=ft.NavigationRail(
-                            bgcolor="black",
+                            bgcolor="blue",
                             expand=True,
                             selected_index=0,
                             destinations=[
                                 ft.Switch(
-                                    value=True,
+                                    # value=True,
                                     thumb_color="black",
                                     inactive_thumb_color="yellow",
                                     thumb_icon={
@@ -39,7 +39,119 @@ class UI(ft.UserControl):
                     ),
                     ft.Container(
                         expand=True,
-                        bgcolor='red'
+                        bgcolor='red',
+                        content=ft.ResponsiveRow(
+                            spacing=50,
+                            controls=[
+                                ft.Container(
+                                    padding=10,
+                                    col=4,
+                                    expand=True,
+                                    margin=10,
+                                    bgcolor="yellow",
+                                    content=ft.Container(
+                                        bgcolor="black",
+                                        # alignment=ft.alignment.center,
+                                        content=ft.Column(
+                                            alignment=ft.MainAxisAlignment.CENTER,
+                                            horizontal_alignment="center",
+                                            controls=[
+                                                ft.Container(
+                                                    # alignment=ft.,
+                                                    bgcolor="blue",
+                                                    content=ft.Text("Prueba")
+                                                ),
+                                                ft.Container(
+                                                    bgcolor=self.color_teal,
+                                                    content=ft.ResponsiveRow(
+                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                        vertical_alignment="center",
+                                                        controls=[
+                                                            ft.Container(
+                                                                col=2,
+                                                                bgcolor="pink",
+                                                                content=ft.Text("Proof")
+                                                            ),
+                                                            ft.Container(
+                                                                col=2,
+                                                                margin=ft.margin.only(right=10),
+                                                                # expand=True,
+                                                                bgcolor="pink",
+                                                                content=ft.TextField(value="", height=30, width=50)
+                                                            ),
+                                                            ft.Container(
+                                                                col=2,
+                                                                margin=ft.margin.only(left=10),
+                                                                bgcolor="pink",
+                                                                content=ft.Text("Proof")
+                                                            ),
+                                                            ft.Container(
+                                                                col=2,
+                                                                # expand=True,
+                                                                bgcolor="pink",
+                                                                content=ft.TextField(value="", height=30, width=50)
+                                                            ),
+                                                            ft.Container(
+                                                                col=2,
+                                                                margin=ft.margin.only(left=10),
+                                                                bgcolor="pink",
+                                                                content=ft.Text("Proof")
+                                                            ),
+                                                            ft.Container(
+                                                                col=2,
+                                                                # expand=True,
+                                                                bgcolor="pink",
+                                                                content=ft.TextField(value="", height=30, width=50)
+                                                            ),
+                                                        ]
+                                                    )
+                                                ),
+                                                ft.Container(
+                                                    bgcolor=self.color_teal,
+                                                    content=ft.Row(
+                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                        controls=[
+                                                            ft.Container(
+                                                                bgcolor="pink",
+                                                                content=ft.Text("Prueba_2")
+                                                            ),
+                                                            ft.Container(
+                                                                margin=ft.margin.only(right=10),
+                                                                # expand=True,
+                                                                bgcolor="pink",
+                                                                content=ft.TextField(value="", height=30, width=50)
+                                                            ),
+                                                            ft.Container(
+                                                                margin=ft.margin.only(left=10),
+                                                                bgcolor="pink",
+                                                                content=ft.Text("Prueba_2")
+                                                            ),
+                                                            ft.Container(
+                                                                # expand=True,
+                                                                bgcolor="pink",
+                                                                content=ft.TextField(value="", height=30, width=50)
+                                                            ),
+                                                        ]
+                                                    )
+                                                ),
+                                            ]
+                                        )
+                                    )
+                                ),
+                                ft.Container(
+                                    col=4,
+                                    expand=True,
+                                    margin=10,
+                                    bgcolor="black",
+                                ),
+                                ft.Container(
+                                    col=4,
+                                    expand=True,
+                                    margin=10,
+                                    bgcolor="black",
+                                ),
+                            ]
+                        ),
                     ),
                     ft.Container(
                         expand=True,
@@ -101,8 +213,8 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLUE_GREY_900
     page.window_min_height = 580
     page.window_min_width = 580
-    page.window_max_height = 580
-    page.window_max_width = 820
+    # page.window_max_height = 580
+    # page.window_max_width = 820
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.title = "Gestor de Insumos"
     page.add(UI(page))
