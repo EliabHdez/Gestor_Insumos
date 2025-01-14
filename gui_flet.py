@@ -23,6 +23,9 @@ class UI(ft.UserControl):
             }
         )
 
+        def sales():
+            pass
+
         # self.top_bar = ft.Container(
         #     bgcolor=self.color_teal,
         #     content=ft.Row()
@@ -84,7 +87,7 @@ class UI(ft.UserControl):
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.POINT_OF_SALE_SHARP,
-                                    label_content=ft.Text("VENTAS", size=8)
+                                    label_content=ft.Text("VENTAS", size=8),
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.ACCOUNT_TREE_ROUNDED,
@@ -271,7 +274,7 @@ class UI(ft.UserControl):
                                                                     vertical_alignment="center",
                                                                     controls=[
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -283,7 +286,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -295,7 +298,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -318,7 +321,7 @@ class UI(ft.UserControl):
                                                                     vertical_alignment="center",
                                                                     controls=[
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -330,7 +333,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -342,7 +345,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -366,7 +369,7 @@ class UI(ft.UserControl):
                                                                     vertical_alignment="center",
                                                                     controls=[
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -378,7 +381,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -390,7 +393,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -475,7 +478,7 @@ class UI(ft.UserControl):
                                                                     vertical_alignment="center",
                                                                     controls=[
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -487,7 +490,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -499,7 +502,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -522,7 +525,7 @@ class UI(ft.UserControl):
                                                                     vertical_alignment="center",
                                                                     controls=[
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -534,7 +537,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -546,7 +549,7 @@ class UI(ft.UserControl):
                                                                             ),
                                                                         ),
                                                                         ft.Container(
-                                                                            # padding=6,
+                                                                            padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -837,7 +840,7 @@ class UI(ft.UserControl):
                         # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
                         border_radius=15,
-                        padding=ft.Padding(top=2, bottom=2, left=5, right=10),
+                        padding=ft.Padding(top=0, bottom=5, left=5, right=10),
                         content=ft.Column(
                             horizontal_alignment="center",
                             expand=True,
@@ -847,7 +850,7 @@ class UI(ft.UserControl):
                                         ft.Container(
                                             padding=2,
                                             alignment=ft.alignment.center,
-                                            bgcolor="black",
+                                            # bgcolor="black",
                                             content=ft.Column(
                                                 expand=True,
                                                 controls=[
@@ -855,9 +858,9 @@ class UI(ft.UserControl):
                                                         controls=[
                                                             ft.Container(
                                                                 alignment=ft.alignment.center,
-                                                                bgcolor="yellow",
+                                                                # bgcolor="yellow",
                                                                 col=12,
-                                                                content=ft.Text("FRUTA", color="#ff1765", weight=ft.FontWeight.BOLD, size=15)
+                                                                content=ft.Text("FRUTA", color="#ff1765", weight=ft.FontWeight.BOLD, size=16)
                                                             ),
                                                         ]
                                                     )
@@ -866,194 +869,123 @@ class UI(ft.UserControl):
                                         ),
                                         ft.Container(
                                             alignment=ft.alignment.center,
-                                            bgcolor="black",
+                                            padding=ft.Padding(top=10, bottom=10, left=65, right=65),
+                                            # bgcolor="black",
                                             content=ft.Column(
                                                 controls=[
                                                     ft.ResponsiveRow(
                                                         controls=[
                                                             ft.Column(
-                                                                col=6,
+                                                                col=12,
                                                                 controls=[
                                                                     ft.ResponsiveRow(
+                                                                        vertical_alignment="center",
+                                                                        spacing=50,
                                                                         controls=[
                                                                             ft.Container(
                                                                                 alignment=ft.alignment.center,
-                                                                                content=ft.Column(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor="blue",
-                                                                                            content=ft.Text("Fresa")
-                                                                                        )
-                                                                                    ]
-                                                                                )
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal,
+                                                                                border_radius=15,
+                                                                                padding=3,
+                                                                                content=ft.Text("Fresa", color="black")
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor="#f00000",
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                             ),
                                                                         ]
                                                                     ),
                                                                     ft.ResponsiveRow(
-                                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                                        spacing=25,
                                                                         vertical_alignment="center",
+                                                                        spacing=50,
                                                                         controls=[
                                                                             ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor="#f00000",
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                        ]
-                                                                    )
-                                                                ]
-                                                            ),
-                                                            ft.Column(
-                                                                col=6,
-                                                                controls=[
-                                                                    ft.ResponsiveRow(
-                                                                        controls=[
-                                                                            ft.Container(
-                                                                                bgcolor="black",
                                                                                 alignment=ft.alignment.center,
-                                                                                content=ft.Column(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor="blue",
-                                                                                            content=ft.Text("Uva")
-                                                                                        )
-                                                                                    ]
-                                                                                )
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal,
+                                                                                border_radius=15,
+                                                                                padding=3,
+                                                                                content=ft.Text("Uva", color="black")
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor=self.color_teal_2,
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                            ),
+                                                                            ft.Container(
+                                                                                # alignment=ft.alignment.center,
+                                                                                col=2,
+                                                                                bgcolor="#f00000",
+                                                                                padding=2.5,
+                                                                                border_radius=5,
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                             ),
                                                                         ]
                                                                     ),
-                                                                    ft.ResponsiveRow(
-                                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                                        spacing=25,
-                                                                        vertical_alignment="center",
-                                                                        controls=[
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor=self.color_teal_2,
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(
-                                                                                col=2.3,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    controls=[
-                                                                                        ft.Container(
-                                                                                            bgcolor="#f00000",
-                                                                                            padding=2.5,
-                                                                                            border_radius=5,
-                                                                                            content=ft.TextField(height=25, width=100, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
-                                                                                        )
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                        ]
-                                                                    )
                                                                 ]
                                                             ),
                                                         ]
@@ -1074,7 +1006,7 @@ class UI(ft.UserControl):
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor="yellow",
                                                                 col=12,
-                                                                content=ft.Text("CREMAS", color="#ff1765", weight=ft.FontWeight.BOLD, size=15)
+                                                                content=ft.Text("CREMAS", color="#ff1765", weight=ft.FontWeight.BOLD, size=16)
                                                             ),
                                                         ]
                                                     ),
@@ -1120,7 +1052,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1133,7 +1065,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1146,7 +1078,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1194,7 +1126,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1207,7 +1139,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1220,7 +1152,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1268,7 +1200,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1281,7 +1213,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1294,7 +1226,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=25, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1528,6 +1460,10 @@ class UI(ft.UserControl):
             )
         )
 
+        self.ventas = ft.Container(
+            bgcolor=self.color_teal_2,
+            expand=True
+        )
         # ***** FILA PRINCIPAL DE LA PAGINA (ABARCA TODA LA VENTANA Y ES DONDE SE PONE CADA UNA DE LAS SECCIONES QUE VAN A VERSE EN LA PAGINA) *****
 
         self.gral_container = ft.ResponsiveRow(
@@ -1539,6 +1475,13 @@ class UI(ft.UserControl):
                 # self.view_report
             ]
             
+        )
+
+        self.sales = ft.ResponsiveRow(
+            controls=[
+                self.navigation_bar,
+                self.ventas
+            ]
         )
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
