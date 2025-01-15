@@ -23,7 +23,7 @@ class UI(ft.UserControl):
             }
         )
 
-        def sales():
+        def change_page(page, e):
             pass
 
         # self.top_bar = ft.Container(
@@ -46,38 +46,12 @@ class UI(ft.UserControl):
             content=ft.Column(
                 controls=[
                     ft.Container(
-                        # alignment=ft.alignment.center,
                         expand=True,
-                        # content=ft.Column(
-                        #     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                        #     alignment=ft.MainAxisAlignment.START,
-                        #     controls=[
-                        #         ft.IconButton(
-                        #             icon=ft.icons.HOME,
-                        #             icon_color="#555555",
-                        #             tooltip="Cuenta",
-                        #         ),
-                        #         ft.IconButton(
-                        #             icon=ft.icons.POINT_OF_SALE_SHARP,
-                        #             icon_color="white",
-                        #             tooltip="Configuración"
-                        #         ),
-                        #         ft.IconButton(
-                        #             icon=ft.icons.ACCOUNT_TREE_ROUNDED,
-                        #             icon_color="white",
-                        #             tooltip="Configuración"
-                        #         ),
-                        #         ft.IconButton(
-                        #             icon=ft.icons.INVENTORY,
-                        #             icon_color="white",
-                        #             tooltip="Configuración"
-                        #         ),
-                        #     ]
-                        # )
                         content=ft.NavigationRail(
                             # bgcolor=ft.colors.BLUE_GREY_900,
                             bgcolor=ft.colors.BLUE_GREY_800,
                             expand=True,
+                            on_change=self.change_page,
                             selected_index=0,
                             indicator_color=self.color_teal_2,
                             destinations=[
@@ -121,35 +95,14 @@ class UI(ft.UserControl):
                                 self.mode_switch
                             ]
                         )
-                    )
+                    ),
                 ]
             )
         )
 
-        # LINEA ESTETICA DIVISORIA ENTRE LA BARRA DE NAVEGACION LATERAL Y EL AREA DE LA DERECHA
+        # ***** AREA DE CAPTURA DE INSUMOS / ICONO HOME *****
 
-        # self.div_line = ft.Container(
-        #     # margin=ft.margin.symmetric(vertical=10),
-        #     # padding=10,
-        #     col=.2,
-        #     # height=620,
-        #     # bgcolor=self.color_teal,
-        #     # border_radius=5,
-        #     content=ft.Container(
-        #         width=1,
-        #         # margin=ft.margin.symmetric(vertical=10),
-        #         # height=620,
-        #         bgcolor=self.color_teal,
-        #         border_radius=5,
-        #         content=ft.Column(
-        #             expand=True
-        #         )
-        #     )
-        # )
-
-        # ***** AREA DE CAPTURA DE DATOS *****
-
-        self.gestion = ft.Container(
+        self.home = ft.Container(
             col=11.25,
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=5,
@@ -206,7 +159,7 @@ class UI(ft.UserControl):
                         border_radius=2.5
                     ),
                     ft.Container(
-                        margin=ft.margin.symmetric(horizontal=50, vertical=0),
+                        margin=ft.Margin(top=0, bottom=0, left=45, right=50),
                         # expand=True,
                         # bgcolor="pink",
                         content=ft.ResponsiveRow(
@@ -842,6 +795,7 @@ class UI(ft.UserControl):
                         border_radius=15,
                         padding=ft.Padding(top=0, bottom=5, left=5, right=10),
                         content=ft.Column(
+                            scroll="auto",
                             horizontal_alignment="center",
                             expand=True,
                             controls=[
@@ -869,7 +823,7 @@ class UI(ft.UserControl):
                                         ),
                                         ft.Container(
                                             alignment=ft.alignment.center,
-                                            padding=ft.Padding(top=10, bottom=10, left=65, right=65),
+                                            padding=ft.Padding(top=10, bottom=10, left=55, right=65),
                                             # bgcolor="black",
                                             content=ft.Column(
                                                 controls=[
@@ -1259,13 +1213,15 @@ class UI(ft.UserControl):
                     ),
                     ft.Container(
                         # bgcolor="pink",
-                        margin=ft.Margin(top=0, bottom=0, left=50, right=50),
+                        margin=ft.Margin(top=0, bottom=0, left=25, right=50),
                         border_radius=15,
                         padding=ft.Padding(top=5, bottom=5, left=5, right=10),
-                        content=ft.Row(
+                        content=ft.ResponsiveRow(
                             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                            vertical_alignment="center",
                             controls=[
                                 ft.Container(
+                                    col={"md":6, "lg":2.3},
                                     width=150,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
@@ -1296,6 +1252,7 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
+                                    col={"md":6, "lg":2.3},
                                     width=160,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
@@ -1326,6 +1283,7 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
+                                    col={"md":6, "lg":2.3},
                                     width=250,
                                     alignment=ft.alignment.center,
                                     # bgcolor="blue",
@@ -1367,6 +1325,7 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
+                                    col={"md":6, "lg":2.3},
                                     width=250,
                                     # bgcolor="blue",
                                     content=ft.Column(
@@ -1406,6 +1365,7 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
+                                    col={"md":6, "lg":2.3},
                                     # bgcolor="blue",
                                     width=200,
                                     content=ft.Column(
@@ -1460,34 +1420,64 @@ class UI(ft.UserControl):
             )
         )
 
-        self.ventas = ft.Container(
+        # ***** AREA DE CAPTURA DE VENTAS / ICONO VENTAS *****
+
+        self.sales = ft.Container(
+            col=11.25,
             bgcolor=self.color_teal_2,
-            expand=True
+            expand=True,
+            content=ft.Column(
+                expand=True,
+                controls=[
+                    ft.ResponsiveRow(
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        vertical_alignment="center",
+                        controls=[
+                            ft.Column(
+                                controls=[
+                                    ft.Container(
+                                        col=12,
+                                        content=ft.TextField(value="PRUEBA", text_size=100, text_align="center")
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                ]
+            )
         )
+
+        self.pages_containers = [self.home, self.sales]
+
+        self.container_1 = ft.Container(self.pages_containers[0], expand=True)
+
         # ***** FILA PRINCIPAL DE LA PAGINA (ABARCA TODA LA VENTANA Y ES DONDE SE PONE CADA UNA DE LAS SECCIONES QUE VAN A VERSE EN LA PAGINA) *****
 
-        self.gral_container = ft.ResponsiveRow(
+        self.main_pages = ft.ResponsiveRow(
             controls=[
                 self.navigation_bar,
-                self.gestion
-                # self.div_line,
-                # self.insumos,
-                # self.view_report
+                self.home,
             ]
             
         )
 
-        self.sales = ft.ResponsiveRow(
+        self.sales_container = ft.ResponsiveRow(
             controls=[
                 self.navigation_bar,
-                self.ventas
+                self.sales,
             ]
         )
+
+    def change_page(self, e):
+        index = e.control.selected_index
+        self.container_1.content = self.pages_containers[index]
+        print(index)
+
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 
     def build(self):
-        return self.gral_container
+        return self.main_pages
 
 # ***** FUNCIÓN PRINCIPAL PARA CREAR LA VENTANA PRINCIPAL DE NUESTRO PROGRAMA O APP CON ALGUNAS CONFIGURACIONES EN ELLA COMO ALINEACION EN HORIZONTAL, COLOR DE FONDO, MEDIDA MINIMA EN ALTO Y ANCHO, TEMA PREDETERMINADO Y TÍTULO *****
 
