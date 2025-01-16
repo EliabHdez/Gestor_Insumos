@@ -103,7 +103,7 @@ class UI(ft.UserControl):
         # ***** AREA DE CAPTURA DE INSUMOS / ICONO HOME *****
 
         self.home = ft.Container(
-            col=11.25,
+            col=12,
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=5,
             expand=True,
@@ -1423,21 +1423,73 @@ class UI(ft.UserControl):
         # ***** AREA DE CAPTURA DE VENTAS / ICONO VENTAS *****
 
         self.sales = ft.Container(
-            col=11.25,
+            col=12,
             bgcolor=self.color_teal_2,
-            expand=True,
+            # expand=True,
             content=ft.Column(
-                expand=True,
+                # expand=True,
                 controls=[
                     ft.ResponsiveRow(
                         alignment=ft.MainAxisAlignment.CENTER,
                         vertical_alignment="center",
                         controls=[
-                            ft.Column(
+                            ft.Column(# Es el contenedor general de la pagina de ventas
+                                col=12,
                                 controls=[
                                     ft.Container(
-                                        col=12,
-                                        content=ft.TextField(value="PRUEBA", text_size=100, text_align="center")
+                                        content=ft.ResponsiveRow(
+                                            controls=[
+                                                ft.Container(
+                                                    padding=10,
+                                                    alignment=ft.alignment.center,
+                                                    col=12,
+                                                    content=ft.Text("VENTAS Y REPORTES", size=30, text_align="center")
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                    ft.Container(
+                                        content=ft.ResponsiveRow(
+                                            controls=[
+                                                ft.Container(
+                                                    padding=10,
+                                                    alignment=ft.alignment.center,
+                                                    col=12,
+                                                    content=ft.Text("VENTAS", size=15, text_align="center")
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                    ft.Container(
+                                        margin=10,
+                                        bgcolor="pink",
+                                        padding=ft.Padding(top=0, bottom=0, left=50, right=50),
+                                        content=ft.ResponsiveRow(
+                                            controls=[
+                                                ft.Container(
+                                                    alignment=ft.alignment.center,
+                                                    col=6,
+                                                    bgcolor="blue",
+                                                    content=ft.Column(
+                                                        controls=[
+                                                            ft.TextField("PRUEBA", min_lines=10, max_lines=25, width=500, height=300, multiline=True)
+                                                        ]
+                                                    )
+                                                ),
+                                                ft.Container(
+                                                    alignment=ft.alignment.center,
+                                                    col=6,
+                                                    bgcolor="blue",
+                                                    content=ft.Column(
+                                                        horizontal_alignment="center",
+                                                        controls=[
+                                                            ft.TextField("PRUEBA", min_lines=10, max_lines=25, width=500, height=265, multiline=True),
+                                                            ft.FilledButton(text="Cargar Reporte de Ventas", icon="add")
+                                                        ]
+                                                    )
+                                                ),
+                                            ]
+                                        )
                                     )
                                 ]
                             )
@@ -1447,30 +1499,47 @@ class UI(ft.UserControl):
             )
         )
 
+        # ***** Paginas de los respectivos elementos laterales encerrados en una lista para el control de estas con los elementos laterales *****
+
         self.pages_containers = [self.home, self.sales]
 
-        self.container_1 = ft.Container(self.pages_containers[0], expand=True)
+        # ***** Seleccion de la pagina a mostrar mediante el index relacionado con el NavigationRail *****
+
+        self.main_container = ft.Container(content=self.pages_containers[1])
+
+        # ***** Variable principal encargada de almacenar las diferentes paginas relacionadas con los elementos laterales *****
+
+        self.pages = ft.Container(
+            col=11.25,
+            expand=True,
+            content=ft.Column(
+                controls=[
+                    self.main_container
+                ]
+            )
+        )
 
         # ***** FILA PRINCIPAL DE LA PAGINA (ABARCA TODA LA VENTANA Y ES DONDE SE PONE CADA UNA DE LAS SECCIONES QUE VAN A VERSE EN LA PAGINA) *****
 
         self.main_pages = ft.ResponsiveRow(
             controls=[
                 self.navigation_bar,
-                self.home,
+                self.pages,
             ]
             
         )
 
-        self.sales_container = ft.ResponsiveRow(
-            controls=[
-                self.navigation_bar,
-                self.sales,
-            ]
-        )
+        # self.sales_container = ft.ResponsiveRow(
+        #     controls=[
+        #         self.navigation_bar,
+        #         self.sales,
+        #     ]
+        # )
 
     def change_page(self, e):
         index = e.control.selected_index
-        self.container_1.content = self.pages_containers[index]
+        self.main_container.content = self.pages_containers[index]
+        self.update()
         print(index)
 
 
