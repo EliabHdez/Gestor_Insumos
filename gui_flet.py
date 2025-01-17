@@ -794,25 +794,24 @@ class UI(ft.UserControl):
                         border_radius=2.5
                     ),
                     ft.Container(
-                        expand=True,
                         alignment=ft.alignment.center,
                         # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
+                        padding=ft.Padding(top=0, bottom=0, left=5, right=10),
                         border_radius=15,
-                        padding=ft.Padding(top=0, bottom=5, left=5, right=10),
                         content=ft.Column(
+                            scroll=ft.ScrollMode.AUTO,
                             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                             horizontal_alignment="center",
-                            expand=True,
                             controls=[
                                 ft.ResponsiveRow(
+                                    vertical_alignment="center",
                                     controls=[
                                         ft.Container(
                                             padding=2,
                                             alignment=ft.alignment.center,
                                             # bgcolor="black",
                                             content=ft.Column(
-                                                expand=True,
                                                 controls=[
                                                     ft.ResponsiveRow(
                                                         controls=[
@@ -956,9 +955,8 @@ class UI(ft.UserControl):
                                         ft.Container(
                                             padding=2,
                                             alignment=ft.alignment.center,
-                                            # bgcolor="blue",
+                                            # bgcolor="black",
                                             content=ft.Column(
-                                                expand=True,
                                                 controls=[
                                                     ft.ResponsiveRow(
                                                         controls=[
@@ -969,7 +967,18 @@ class UI(ft.UserControl):
                                                                 content=ft.Text("CREMAS", color="#ff1765", weight=ft.FontWeight.BOLD, size=16)
                                                             ),
                                                         ]
-                                                    ),
+                                                    )
+                                                ]
+                                            )
+                                        ),
+                                        ft.Container(
+                                            padding=2,
+                                            alignment=ft.alignment.center,
+                                            # bgcolor="blue",
+                                            content=ft.Column(
+                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                horizontal_alignment="center",
+                                                controls=[
                                                     ft.Container(
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
@@ -1432,206 +1441,246 @@ class UI(ft.UserControl):
             col=12,
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=10,
-            content=ft.Column(
-                scroll=ft.ScrollMode.ALWAYS,
-                horizontal_alignment="center",
-                controls=[
-                    ft.ResponsiveRow(
-                        alignment=ft.MainAxisAlignment.CENTER,
-                        vertical_alignment="center",
-                        controls=[
-                            ft.Column(# Es el contenedor general de la pagina de ventas
-                                col=12,
-                                controls=[
-                                    ft.Container(
-                                        padding=15,
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    # padding=5,
-                                                    alignment=ft.alignment.center,
-                                                    col=12,
-                                                    content=ft.Text("VENTAS Y REPORTES", size=30, text_align="center", color="#ff1765", weight=ft.FontWeight.BOLD,)
-                                                )
-                                            ]
+            content=ft.Container(
+                margin=10,
+                # bgcolor="pink",
+                content=ft.Column(
+                    controls=[
+                        ft.ResponsiveRow(
+                            controls=[
+                                ft.Column(
+                                    horizontal_alignment="center",
+                                    controls=[
+                                        ft.Container(
+                                            padding=10,
+                                            # bgcolor="black",
+                                            content=ft.Text("VENTAS Y REPORTES", size=30, color="#ff1765", weight=ft.FontWeight.BOLD)
                                         )
-                                    ),
-                                    ft.Container(
-                                        margin=ft.Margin(right=15, left=15, top=0, bottom=0),
-                                        bgcolor=self.color_teal,
-                                        height=2,
-                                        border_radius=2.5
-                                    ),
-                                    ft.Container(
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    padding=ft.Padding(top=5, bottom=0, left=0, right=0),
-                                                    alignment=ft.alignment.center,
-                                                    col=12,
-                                                    content=ft.Text("VENTAS", size=20, text_align="center", color="#ff1765", weight=ft.FontWeight.BOLD,)
-                                                )
-                                            ]
+                                    ]
+                                ),
+                                ft.Column(
+                                    controls=[
+                                        ft.Container(
+                                            margin=ft.Margin(right=15, left=15, top=0, bottom=0),
+                                            bgcolor=self.color_teal,
+                                            height=2,
+                                            border_radius=2.5
+                                        ),
+                                    ]
+                                ),
+                                ft.Column(
+                                    controls=[
+                                        ft.Container(
+                                            # bgcolor="pink",
+                                            padding=ft.padding.symmetric(horizontal=50, vertical=0),
+                                            content=ft.ResponsiveRow(
+                                                spacing=50,
+                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        col=3,
+                                                        alignment=ft.alignment.center,
+                                                        # bgcolor="black",
+                                                        content=ft.Dropdown(
+                                                            label="Ventas / Reportes",
+                                                            hint_text="Selecciona una opción",
+                                                            options=[
+                                                                ft.dropdown.Option("Ventas"),
+                                                                ft.dropdown.Option("Reportes"),
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        col=3,
+                                                        alignment=ft.alignment.center,
+                                                        # bgcolor="black",
+                                                        content=ft.Dropdown(
+                                                            label="Dia",
+                                                            hint_text="Selecciona el día",
+                                                            options=[
+                                                                ft.dropdown.Option("1"),
+                                                                ft.dropdown.Option("2"),
+                                                                ft.dropdown.Option("3"),
+                                                                ft.dropdown.Option("4"),
+                                                                ft.dropdown.Option("5"),
+                                                                ft.dropdown.Option("6"),
+                                                                ft.dropdown.Option("7"),
+                                                                ft.dropdown.Option("8"),
+                                                                ft.dropdown.Option("9"),
+                                                                ft.dropdown.Option("10"),
+                                                                ft.dropdown.Option("11"),
+                                                                ft.dropdown.Option("12"),
+                                                                ft.dropdown.Option("13"),
+                                                                ft.dropdown.Option("14"),
+                                                                ft.dropdown.Option("15"),
+                                                                ft.dropdown.Option("16"),
+                                                                ft.dropdown.Option("17"),
+                                                                ft.dropdown.Option("18"),
+                                                                ft.dropdown.Option("19"),
+                                                                ft.dropdown.Option("20"),
+                                                                ft.dropdown.Option("21"),
+                                                                ft.dropdown.Option("22"),
+                                                                ft.dropdown.Option("23"),
+                                                                ft.dropdown.Option("24"),
+                                                                ft.dropdown.Option("25"),
+                                                                ft.dropdown.Option("26"),
+                                                                ft.dropdown.Option("27"),
+                                                                ft.dropdown.Option("28"),
+                                                                ft.dropdown.Option("29"),
+                                                                ft.dropdown.Option("30"),
+                                                                ft.dropdown.Option("31"),
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        col=3,
+                                                        alignment=ft.alignment.center,
+                                                        # bgcolor="black",
+                                                        content=ft.Dropdown(
+                                                            label="Mes",
+                                                            hint_text="Selecciona el Mes",
+                                                            options=[
+                                                                ft.dropdown.Option("Enero"),
+                                                                ft.dropdown.Option("Febrero"),
+                                                                ft.dropdown.Option("Marzo"),
+                                                                ft.dropdown.Option("Abril"),
+                                                                ft.dropdown.Option("Mayo"),
+                                                                ft.dropdown.Option("Junio"),
+                                                                ft.dropdown.Option("Julio"),
+                                                                ft.dropdown.Option("Agosto"),
+                                                                ft.dropdown.Option("Septiembre"),
+                                                                ft.dropdown.Option("Octubre"),
+                                                                ft.dropdown.Option("Noviembre"),
+                                                                ft.dropdown.Option("Diciembre"),
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        col=3,
+                                                        padding=5,
+                                                        border_radius=5,
+                                                        alignment=ft.alignment.center,
+                                                        bgcolor=self.color_teal,
+                                                        content=ft.Dropdown(
+                                                            bgcolor="black",
+                                                            color="white",
+                                                            fill_color="#555555",
+                                                            filled=True,
+                                                            label="Año",
+                                                            label_style=ft.TextStyle(color="white"),
+                                                            hint_text="Selecciona el Año",
+                                                            options=[
+                                                                ft.dropdown.Option("2024"),
+                                                                ft.dropdown.Option("2025"),
+                                                            ]
+                                                        )
+                                                    ),
+                                                ]
+                                            )
                                         )
-                                    ),
-                                    ft.Container(
-                                        # margin=3,
-                                        # bgcolor="pink",
-                                        padding=ft.Padding(top=0, bottom=0, left=50, right=50),
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.Text("VENTA POR PDV", text_align="center"),
-                                                        ]
+                                    ]
+                                ),
+                                ft.Column(
+                                    controls=[
+                                        ft.Container(
+                                            margin=10,
+                                            padding=5,
+                                            expand=True,
+                                            # bgcolor="black",
+                                            content=ft.ResponsiveRow(
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.Text("VENTAS", size=20, color="white")
+                                                    ),
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.Text("REPORTES", size=20, color="white")
                                                     )
-                                                ),
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.Text("VENTA GENERAL POR DIA", text_align="center"),
-                                                        ]
+                                                ]
+                                            )
+                                        ),
+                                        ft.Container(
+                                            margin=ft.Margin(top=0, bottom=0, left=10, right=10),
+                                            padding=5,
+                                            expand=True,
+                                            # bgcolor="black",
+                                            content=ft.ResponsiveRow(
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.TextField(width=300, multiline=True, min_lines=10, max_lines=25, text_size=12, bgcolor="white")
+                                                    ),
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.TextField(width=300, multiline=True, min_lines=10, max_lines=25, text_size=12, bgcolor="white")
                                                     )
-                                                ),
-                                            ]
-                                        )
-                                    ),
-                                    ft.Container(
-                                        margin=2,
-                                        # bgcolor="pink",
-                                        padding=ft.Padding(top=0, bottom=0, left=50, right=50),
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    padding=ft.padding.symmetric(horizontal=100, vertical=0),
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.TextField(min_lines=10, max_lines=25, text_size=12, multiline=True, read_only=True, bgcolor="white"),
-                                                        ]
+                                                ]
+                                            )
+                                        ),
+                                        ft.Container(
+                                            margin=ft.Margin(top=0, bottom=0, left=10, right=10),
+                                            padding=5,
+                                            expand=True,
+                                            # bgcolor="black",
+                                            content=ft.ResponsiveRow(
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.TextField(width=300, multiline=True, min_lines=10, max_lines=25, text_size=12, bgcolor="white")
+                                                    ),
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.TextField(width=300, multiline=True, min_lines=10, max_lines=25, text_size=12, bgcolor="white")
                                                     )
-                                                ),
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    padding=ft.padding.symmetric(horizontal=100, vertical=0),
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.TextField(min_lines=10, max_lines=25, text_size=12, multiline=True, read_only=True, bgcolor="white"),
-                                                        ]
+                                                ]
+                                            )
+                                        ),
+                                        ft.Container(
+                                            margin=ft.Margin(top=0, bottom=0, left=10, right=10),
+                                            padding=5,
+                                            expand=True,
+                                            # bgcolor="black",
+                                            content=ft.ResponsiveRow(
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.FilledButton(text="Cargar Venta", icon="add")
+                                                    ),
+                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
+                                                        col=6,
+                                                        # bgcolor="blue",
+                                                        content=ft.FilledButton(text="Cargar Reporte", icon="add")
                                                     )
-                                                ),
-                                            ]
-                                        )
-                                    ),
-                                    ft.Container(
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    padding=ft.Padding(top=5, bottom=0, left=0, right=0),
-                                                    alignment=ft.alignment.center,
-                                                    col=12,
-                                                    content=ft.Text("REPORTES", size=20, text_align="center", color="#ff1765", weight=ft.FontWeight.BOLD,)
-                                                )
-                                            ]
-                                        )
-                                    ),
-                                    ft.Container(
-                                        # margin=3,
-                                        # bgcolor="pink",
-                                        padding=ft.Padding(top=0, bottom=0, left=50, right=50),
-                                        content=ft.ResponsiveRow(
-                                            controls=[
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.Text("REPORTE POR PDV", text_align="center"),
-                                                        ]
-                                                    )
-                                                ),
-                                                ft.Container(
-                                                    alignment=ft.alignment.center,
-                                                    col=6,
-                                                    # bgcolor="blue",
-                                                    content=ft.Column(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        horizontal_alignment="center",
-                                                        controls=[
-                                                            ft.Text("REPORTE GENERAL POR DIA", text_align="center"),
-                                                        ]
-                                                    )
-                                                ),
-                                            ]
-                                        )
-                                    ),
-                                    ft.Container(
-                                        margin=2,
-                                        # bgcolor="pink",
-                                        padding=ft.Padding(top=0, bottom=0, left=50, right=50),
-                                        content=ft.Column(
-                                            scroll=ft.ScrollMode.AUTO,
-                                            controls=[
-                                                ft.ResponsiveRow(
-                                                    controls=[
-                                                        ft.Container(
-                                                            alignment=ft.alignment.center,
-                                                            padding=ft.padding.symmetric(horizontal=100, vertical=0),
-                                                            col=6,
-                                                            # bgcolor="blue",
-                                                            content=ft.Column(
-                                                                alignment=ft.MainAxisAlignment.CENTER,
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.TextField(min_lines=10, max_lines=25, text_size=12, multiline=True, read_only=True, bgcolor="white"),
-                                                                ]
-                                                            )
-                                                        ),
-                                                        ft.Container(
-                                                            alignment=ft.alignment.center,
-                                                            padding=ft.padding.symmetric(horizontal=100, vertical=0),
-                                                            col=6,
-                                                            # bgcolor="blue",
-                                                            content=ft.Column(
-                                                                alignment=ft.MainAxisAlignment.CENTER,
-                                                                horizontal_alignment="center",
-                                                                controls=[
-                                                                    ft.TextField(min_lines=10, max_lines=25, text_size=12, multiline=True, read_only=True, bgcolor="white"),
-                                                                ]
-                                                            )
-                                                        ),
-                                                    ]
-                                                )
-                                            ]
-                                        )
-                                    ),
-                                ]
-                            )
-                        ]
-                    )
-                ]
+                                                ]
+                                            )
+                                        ),
+                                    ]
+                                ),
+                            ]
+                        )
+                    ]
+                )
             )
         )
 
@@ -1641,7 +1690,7 @@ class UI(ft.UserControl):
 
         # ***** Seleccion de la pagina a mostrar mediante el index relacionado con el NavigationRail *****
 
-        self.main_container = ft.Container(content=self.pages_containers[0], expand=True)
+        self.main_container = ft.Container(content=self.pages_containers[1], expand=True)
 
         # ***** Variable principal encargada de almacenar las diferentes paginas relacionadas con los elementos laterales *****
 
