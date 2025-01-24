@@ -95,14 +95,13 @@ class UI(ft.UserControl):
 
         # ***** Variables Vasos Chicos *****
 
-        self.vcti = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.diferencia)
-        self.num_vcti = self.vcti.value
+        self.vcti = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.valor_vcti)
+        
 
-        self.vctf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, value="")
-        self.num_vctf = self.vctf.value
+        self.vctf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.valor_vctf)
+        
 
-        # self.vcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2,)
-        # self.num_vcdif = self.num_vcdif.value
+        self.tcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True, value="")
 
         # self.top_bar = ft.Container(
         #     bgcolor=self.color_teal,
@@ -375,7 +374,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.tcdif
                                                                             ),
                                                                         ),
                                                                         ft.Container(# Vasos Chicos
@@ -1784,12 +1783,21 @@ class UI(ft.UserControl):
         #     ]
         # )
 
-    def diferencia(self, e):
-        self.vctf.value = e.control.value
-        # print(self.num_vcti)
+    def valor_vcti(self, e):
+        self.num_vcti = int(self.vcti.value)
+        print(self.num_vcti)
+        print(type(self.num_vcti))
         self.update()
-        print(self.num_vctf.value)
 
+    def valor_vctf(self, e):
+        self.num_vctf = int(self.vctf.value)
+        print(self.num_vctf)
+        print(type(self.num_vctf))
+        self.num_tcdif = self.num_vcti - self.num_vctf
+        print(self.num_tcdif)
+        print(type(self.num_tcdif))
+        self.tcdif.value = self.num_tcdif
+        self.update()
 
     def pdv_selection(self, e):
         print(f"La sucursal seleccionada es: {e.control.value}")
