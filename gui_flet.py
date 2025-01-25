@@ -97,23 +97,21 @@ class UI(ft.UserControl):
 
         self.tci = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
         
-
         self.tcf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
         
-
         self.tcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True, value="")
 
-        # self.vci 
+        self.vci = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
 
-        # self.vcf
+        self.vcf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
 
-        # self.vcdif
+        self.vcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True)
 
-        # self.vcsv
+        self.vcsv = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Sin Vender", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, read_only=True)
 
-        # self.vcven
+        self.vcven = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True)
 
-        # self.vcvt
+        self.vcvt = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Venta Total", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True)
 
         # ***** Variables Vasos Medianos *****
 
@@ -304,7 +302,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vci
                                                                             ),
                                                                         ),
                                                                         ft.Container(# Vasos Chicos
@@ -316,7 +314,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Sin Vender", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, read_only=True),
+                                                                                content=self.vcsv
                                                                             ),
                                                                         ),
                                                                     ]
@@ -351,7 +349,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vcf
                                                                             ),
                                                                         ),
                                                                         ft.Container(
@@ -363,7 +361,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vcven
                                                                             ),
                                                                         ),
                                                                         
@@ -399,7 +397,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.vcdif
                                                                             ),
                                                                         ),
                                                                         ft.Container(# Vasos Chicos
@@ -411,7 +409,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Venta Total", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vcvt
                                                                             ),
                                                                         ),
                                                                         
@@ -1797,17 +1795,32 @@ class UI(ft.UserControl):
         # )
 
     def number_conversion(self, e):
-        self.num_tci = int(self.tci.value)
-        print(self.num_tci)
-        print(type(self.num_tci))
         try:
+            self.num_tci = int(self.tci.value)
+            print(self.num_tci)
+            print(type(self.num_tci))
+
             self.num_tcf = int(self.tcf.value)
             print(self.num_tcf)
             print(type(self.num_tcf))
+
             self.num_tcdif = self.num_tci - self.num_tcf
             print(self.num_tcdif)
             print(type(self.num_tcdif))
             self.tcdif.value = self.num_tcdif
+
+            self.num_vci = int(self.vci.value)
+            print(self.num_vci)
+            print(type(self.num_vci))
+
+            self.num_vcf = int(self.vcf.value)
+            print(self.num_vcf)
+            print(type(self.num_vcf))
+
+            self.num_vcdif = self.num_vci - self.num_vcf
+            print(self.num_vcdif)
+            print(type(self.num_vcdif))
+            self.vcdif.value = self.num_vcdif
         except ValueError:
             print("Manejo de ErrorValue reparado")
         finally:
