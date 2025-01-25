@@ -95,23 +95,35 @@ class UI(ft.UserControl):
 
         # ***** Variables Vasos Chicos *****
 
-        self.vcti = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.valor_vcti)
+        self.tci = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
         
 
-        self.vctf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.valor_vctf)
+        self.tcf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
         
 
         self.tcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True, value="")
 
-        # self.top_bar = ft.Container(
-        #     bgcolor=self.color_teal,
-        #     content=ft.Row()
-        # )
+        # self.vci 
 
-        # self.menu_inicio = ft.Container(
-        #     bgcolor=self.color_teal,
-        #     content=ft.Row()
-        # )
+        # self.vcf
+
+        # self.vcdif
+
+        # self.vcsv
+
+        # self.vcven
+
+        # self.vcvt
+
+        # ***** Variables Vasos Medianos *****
+
+        # self.tmi
+
+        # self.tmf
+
+        # self.tmdif
+
+        # ***** Variables Vasos Grandes *****
 
         #  ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
 
@@ -187,6 +199,7 @@ class UI(ft.UserControl):
             border_radius=5,
             expand=True,
             content=ft.Column(
+                scroll=ft.ScrollMode.AUTO,
                 expand=True, 
                 controls=[
                     ft.Container(
@@ -279,7 +292,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=self.vcti
+                                                                                content=self.tci
                                                                             )
                                                                         ),
                                                                         ft.Container(# Vasos Chicos
@@ -326,7 +339,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=self.vctf
+                                                                                content=self.tcf
                                                                             ),
                                                                         ),
                                                                         ft.Container(# Vasos Chicos
@@ -1783,21 +1796,32 @@ class UI(ft.UserControl):
         #     ]
         # )
 
-    def valor_vcti(self, e):
-        self.num_vcti = int(self.vcti.value)
-        print(self.num_vcti)
-        print(type(self.num_vcti))
-        self.update()
+    def number_conversion(self, e):
+        self.num_tci = int(self.tci.value)
+        print(self.num_tci)
+        print(type(self.num_tci))
+        try:
+            self.num_tcf = int(self.tcf.value)
+            print(self.num_tcf)
+            print(type(self.num_tcf))
+            self.num_tcdif = self.num_tci - self.num_tcf
+            print(self.num_tcdif)
+            print(type(self.num_tcdif))
+            self.tcdif.value = self.num_tcdif
+        except ValueError:
+            print("Manejo de ErrorValue reparado")
+        finally:
+            self.update()
 
-    def valor_vctf(self, e):
-        self.num_vctf = int(self.vctf.value)
-        print(self.num_vctf)
-        print(type(self.num_vctf))
-        self.num_tcdif = self.num_vcti - self.num_vctf
-        print(self.num_tcdif)
-        print(type(self.num_tcdif))
-        self.tcdif.value = self.num_tcdif
-        self.update()
+    # def valor_tcf(self, e):
+    #     self.num_tcf = int(self.tcf.value)
+    #     print(self.num_tcf)
+    #     print(type(self.num_tcf))
+    #     self.num_tcdif = self.num_tci - self.num_tcf
+    #     print(self.num_tcdif)
+    #     print(type(self.num_tcdif))
+    #     self.tcdif.value = self.num_tcdif
+    #     self.update()
 
     def pdv_selection(self, e):
         print(f"La sucursal seleccionada es: {e.control.value}")
