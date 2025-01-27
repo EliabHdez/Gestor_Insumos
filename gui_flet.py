@@ -1561,8 +1561,14 @@ class UI(ft.UserControl):
                                         alignment=ft.MainAxisAlignment.CENTER,
                                         horizontal_alignment="center",
                                         controls=[
-                                            ft.FilledButton(text="Resetear", width=120, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"))),
-                                            ft.FilledButton(text="Reporte", width=120, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818")))
+                                            ft.FilledButton(text="Resetear Campos", width=120, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
+                                                ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                            })),
+                                            ft.FilledButton(text="Generar Reporte", width=150, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
+                                                ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                            }))
                                         ]
                                     )
                                 )
