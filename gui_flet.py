@@ -25,107 +25,167 @@ class UI(ft.UserControl):
 
         # ***** VARIABLES SISTEMA *****
 
-        # ***** Variables sucursales *****
+        # *** VARIABLES VENTANA INICIO ***
 
-        self.glorieta = ft.Radio(value="cofradia3", label="Glorieta", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        # Variables sucursales
 
-        self.sanmiguel = ft.Radio(value="sanmiguel", label="San Miguel", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.glorieta = self.create_radio("glorieta", "Glorieta")
 
-        self.vips = ft.Radio(value="vips", label="Vips", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.sanmiguel = self.create_radio("sanmiguel", "San Miguel")
 
-        self. cofradia2 = ft.Radio(value="cofradia2", label="Cofradía 2", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.vips = self.create_radio("vips", "vips")
 
-        self.ensuenos = ft.Radio(value="ensueños", label="Ensueños", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self. cofradia2 = self.create_radio("cofradia2", "Cofradía 2")
 
-        self.operagua = ft.Radio(value="operagua", label="Operagua", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.ensuenos = self.create_radio("ensueños", "Ensueños")
 
-        self.sanantonio = ft.Radio(value="sanantonio", label="San Antonio", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.operagua = self.create_radio("operagua", "Operagua")
 
-        self.lapiedad = ft.Radio(value="lapiedad", label="La Piedad", label_style=ft.TextStyle(size=12), visual_density=ft.VisualDensity.STANDARD, fill_color={
-                ft.ControlState.DEFAULT: ft.Colors.PINK,
-                ft.ControlState.SELECTED: ft.Colors.GREEN,
-            }
-        )
+        self.sanantonio = self.create_radio("sanantonio", "San Antonio")
+
+        self.lapiedad = self.create_radio("lapiedad", "La Piedad")
 
         self.pdv = ft.RadioGroup(
             on_change=self.pdv_selection,
-            content=ft.Row(
-                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
-                expand=True,
+            content=ft.Column(
                 controls=[
-                    self.glorieta,
-                    self.sanmiguel,
-                    self.vips,
-                    self.cofradia2,
-                    self.ensuenos,
-                    self.operagua,
-                    self.sanantonio,
-                    self.lapiedad 
+                    ft.Row(
+                        alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                        expand=True,
+                        controls=[
+                            self.glorieta,
+                            self.sanmiguel,
+                            self.vips,
+                            self.cofradia2,
+                            self.ensuenos,
+                            self.operagua,
+                            self.sanantonio,
+                            self.lapiedad 
+                        ]
+                    )
                 ]
             )
         )
 
-        # ***** Variables Vasos Chicos *****
+        # Variables Vasos Chicos
 
-        self.tci = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
+        # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
+
+        self.tci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.tcf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.tcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.vcf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.vcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vcsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vcven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vcvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+
+        # Variables Vasos Medianos
+
+        # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
+
+        self.tmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.tmf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.tmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.vmf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.vmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vmsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vmven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vmvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+
+        # Variables Vasos Grandes
+
+        # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
+
+        self.tgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.tgf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.tgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.vgf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.vgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
+        self.vgsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vgven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
+        self.vgvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+
+        # ***** VARIABLES FRUTAS *****
+
+        # Fresa
+
+        """ self.fpi
+        self.fpf
+        self.fei
+        self.fef
+        self.fv """
+
+        # Uva
+
+        """ self.upi
+        self.upf
+        self.uei
+        self.uef
+        self.uv """
+
+        # ***** VARIABLES CREMAS *****
+
+        # Crema Original
+
+        """ self.coi
+        self.cof
+        self.cov """
+
+        # Crema Chocolate
+
+        """ self.cchi
+        self.cchf
+        self.cchv """
+
+        # Crema Cafe
+
+        """ self.ccai
+        self.ccaf
+        self.ccav """
         
-        self.tcf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
-        
-        self.tcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True, value="")
+        # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
-        self.vci = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
+        # Toppings Extras
 
-        self.vcf = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, on_change=self.number_conversion)
+        """ self.t5
+        self.t10 """
 
-        self.vcdif = ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True)
+        # Servicios a Domicilio
 
-        self.vcsv = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Sin Vender", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, read_only=True)
+        """ self.sd20
+        self.sd35 """
 
-        self.vcven = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True)
+        # Transferencias
 
-        self.vcvt = ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Venta Total", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True)
+        """ self.num_tr
+        self.mt_tr """
 
-        # ***** Variables Vasos Medianos *****
+        # Gastos / Retiros
 
-        # self.tmi
+        """ self.num_gr
+        self.mt_gr """
 
-        # self.tmf
+        # Balance
 
-        # self.tmdif
+        """ self.dif
+        self.td_pdv """
 
-        # ***** Variables Vasos Grandes *****
+        # ***** VARIABLES VENTANA VENTAS *****
 
-        #  ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
+        # *** Variables Campos de texto y Botones ***
 
-        self.navigation_bar = ft.Container(
+        # Campos de texto
+
+        self.report_field = ft.TextField(bgcolor="white", multiline=True, min_lines=20)
+        self.sales_field = ft.TextField(bgcolor="white", multiline=True, min_lines=20)
+
+        # ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
+
+        self.navigation_bar = ft.Container(# Barra lateral de navegacion principal
             col=.7,
             # bgcolor=self.color_teal,
             bgcolor=ft.colors.BLUE_GREY_800,
@@ -189,9 +249,9 @@ class UI(ft.UserControl):
 
         # ***** AREA DE CAPTURA DE INSUMOS / ICONO HOME *****
 
-        self.home = ft.Container(
+        self.home = ft.Container(# Ventana Inicio
             alignment=ft.alignment.center,
-            padding=ft.Padding(top=0, bottom=5, left=0, right=0),
+            padding=ft.Padding(top=0, bottom=3, left=0, right=0),
             col=12,
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=5,
@@ -201,8 +261,8 @@ class UI(ft.UserControl):
                 expand=True, 
                 controls=[
                     ft.Container(
-                        padding=ft.Padding(top=5, bottom=0, left=10, right=25),
-                        # bgcolor="black",
+                        padding=ft.Padding(top=0, bottom=0, left=10, right=25),
+                        # bgcolor="#2a2a2a",
                         content=self.pdv
                     ),
                     ft.Container(
@@ -219,17 +279,17 @@ class UI(ft.UserControl):
                         # bgcolor="pink",
                         content=ft.ResponsiveRow(
                             controls=[
-                                ft.Container(
+                                ft.Container( # Vasos Chicos
                                     # bgcolor="black",
                                     expand=True,
                                     col=4,
-                                    content=ft.Container(
+                                    content=ft.Container(# Vasos Chicos
                                         # bgcolor="blue",
                                         # margin=10,
                                         content=ft.Column(
                                             horizontal_alignment="center",
                                             controls=[
-                                                ft.Container(
+                                                ft.Container(# Vasos Chicos
                                                     alignment=ft.alignment.center,
                                                     # bgcolor="pink",
                                                     # border_radius=20,
@@ -237,14 +297,14 @@ class UI(ft.UserControl):
                                                     # height=30,
                                                     content=ft.Text("VASOS CHICOS", color="#ff1765", weight=ft.FontWeight.BOLD, size=15)
                                                 ),
-                                                ft.Container(
+                                                ft.Container(# Vasos Chicos
                                                     # bgcolor=self.color_teal_2,
                                                     # border=ft.border.all(width=5, color=self.color_teal_2),
                                                     padding=ft.padding.symmetric(horizontal=15, vertical=0),
                                                     # border_radius=10,
                                                     content=ft.Column(
                                                         controls=[
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Chicos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 border_radius=20,
@@ -281,36 +341,36 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Tapas chicas iniciales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container( # Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
                                                                                 content=self.tci
                                                                             )
                                                                         ),
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Vasos chicos iniciales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
                                                                                 content=self.vci
                                                                             ),
                                                                         ),
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Vasos chicos sin vender
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
@@ -320,7 +380,7 @@ class UI(ft.UserControl):
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Chicos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -328,19 +388,19 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Tapas chicas finales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
                                                                                 content=self.tcf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Vasos chicos finales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -352,12 +412,12 @@ class UI(ft.UserControl):
                                                                                 content=self.vcf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container(# Vasos chicos vendidos
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
@@ -368,7 +428,7 @@ class UI(ft.UserControl):
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Chicos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -376,36 +436,36 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Diferencia tapas chicas
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
                                                                                 content=self.tcdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Diferencia vasos chicos
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
                                                                                 content=self.vcdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(# Vasos Chicos
+                                                                        ft.Container(# Venta total vasos chicos
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(# Vasos Chicos
+                                                                            content=ft.Container(
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
@@ -423,17 +483,17 @@ class UI(ft.UserControl):
                                         )
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container( # Vasos Medianos
                                     # bgcolor="black",
                                     expand=True,
                                     col=4,
-                                    content=ft.Container(
+                                    content=ft.Container( # Vasos Medianos
                                         # bgcolor="blue",
                                         # margin=10,
                                         content=ft.Column(
                                             horizontal_alignment="center",
                                             controls=[
-                                                ft.Container(
+                                                ft.Container( # Vasos Medianos
                                                     alignment=ft.alignment.center,
                                                     # bgcolor="pink",
                                                     # border_radius=20,
@@ -441,14 +501,14 @@ class UI(ft.UserControl):
                                                     # height=30,
                                                     content=ft.Text("VASOS MEDIANOS", color="#ff1765", weight=ft.FontWeight.BOLD, size=15)
                                                 ),
-                                                ft.Container(
+                                                ft.Container( # Vasos Medianos
                                                     # bgcolor=self.color_teal_2,
                                                     # border=ft.border.all(width=5, color=self.color_teal_2),
                                                     padding=ft.padding.symmetric(horizontal=15, vertical=0),
                                                     border_radius=10,
                                                     content=ft.Column(
                                                         controls=[
-                                                            ft.Container(
+                                                            ft.Container( # Vasos Medianos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 border_radius=20,
@@ -456,7 +516,7 @@ class UI(ft.UserControl):
                                                                     # alignment=ft.MainAxisAlignment.CENTER,
                                                                     # vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container(# Vasos Medianos
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -477,7 +537,7 @@ class UI(ft.UserControl):
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Medianos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -485,7 +545,7 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Tapas medianas iniciales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -494,10 +554,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.tmi
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos medianos iniciales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -506,10 +566,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vmi
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos medianos sin vender
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -518,13 +578,13 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Sin Vender", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, read_only=True),
+                                                                                content=self.vmsv
                                                                             ),
                                                                         ),
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Medianos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -532,7 +592,7 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Tapas medianas finales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -541,10 +601,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.tmf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos medianos finales
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -553,10 +613,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vmf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos medianos vendidos
                                                                             padding=2,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -565,14 +625,14 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vmven
                                                                             ),
                                                                         ),
                                                                         
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Vasos Medianos
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -580,7 +640,7 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Diferencia tapas medianas
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -589,10 +649,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.tmdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Diferencia vasos medianos
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -601,10 +661,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.vmdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Venta total vasos medianos
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -613,7 +673,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Venta Total", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vmvt
                                                                             ),
                                                                         ),
                                                                         
@@ -627,17 +687,17 @@ class UI(ft.UserControl):
                                         )
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container( # Vasos Grandes
                                     # bgcolor="black",
                                     expand=True,
                                     col=4,
-                                    content=ft.Container(
+                                    content=ft.Container( # Vasos Grandes
                                         # bgcolor="blue",
                                         # margin=10,
                                         content=ft.Column(
                                             horizontal_alignment="center",
                                             controls=[
-                                                ft.Container(
+                                                ft.Container( # Vasos Grandes
                                                     alignment=ft.alignment.center,
                                                     # bgcolor="pink",
                                                     # border_radius=20,
@@ -645,14 +705,14 @@ class UI(ft.UserControl):
                                                     # height=30,
                                                     content=ft.Text("VASOS GRANDES", color="#ff1765", weight=ft.FontWeight.BOLD, size=15)
                                                 ),
-                                                ft.Container(
+                                                ft.Container( # Vasos Grandes
                                                     # bgcolor=self.color_teal_2,
                                                     # border=ft.border.all(width=5, color=self.color_teal_2),
                                                     padding=ft.padding.symmetric(horizontal=15, vertical=0),
                                                     border_radius=10,
                                                     content=ft.Column(
                                                         controls=[
-                                                            ft.Container(
+                                                            ft.Container( # Vasos Grandes
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 border_radius=20,
@@ -660,7 +720,7 @@ class UI(ft.UserControl):
                                                                     # alignment=ft.MainAxisAlignment.CENTER,
                                                                     # vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
@@ -681,7 +741,7 @@ class UI(ft.UserControl):
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container( # Vasos Grandes
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -689,7 +749,7 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container(# Tapas iniciales grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -698,10 +758,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.tgi
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container(# Vasos iniciales grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -710,10 +770,10 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Iniciales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vgi
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container(# Vasos grandes sin vender
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
@@ -722,13 +782,13 @@ class UI(ft.UserControl):
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Sin Vender", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, read_only=True),
+                                                                                content=self.vgsv
                                                                             ),
                                                                         ),
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container( # Vasos Grandes
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -736,47 +796,47 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Tapas grandes finales
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.tgf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Vasos grandes finales
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Finales", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2),
+                                                                                content=self.vgf
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Vasos grandes vendidos
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vgven
                                                                             ),
                                                                         ),
                                                                         
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container( # Vasos Grandes
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor=self.color_teal_2,
                                                                 # border_radius=20,
@@ -784,40 +844,40 @@ class UI(ft.UserControl):
                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                     vertical_alignment="center",
                                                                     controls=[
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Diferencia tapas grandes
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.tgdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Diferencia vasos grandes
                                                                                 bgcolor=self.color_teal_2,
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Diferencia", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, read_only=True),
+                                                                                content=self.vgdif
                                                                             ),
                                                                         ),
-                                                                        ft.Container(
+                                                                        ft.Container( # Vasos Grandes
                                                                             # padding=6,
                                                                             alignment=ft.alignment.center,
                                                                             col=4,
                                                                             # bgcolor="yellow",
-                                                                            content=ft.Container(
+                                                                            content=ft.Container(# Venta total vasos grandes
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=80, color="#dc0000", text_size=15, text_align="center", label="Venta Total", label_style=ft.TextStyle(color="#545454", size=10), content_padding=2, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=1.5, prefix_text="  $", prefix_style=ft.TextStyle(color="black", size=13), read_only=True),
+                                                                                content=self.vgvt
                                                                             ),
                                                                         ),
                                                                         
@@ -834,15 +894,14 @@ class UI(ft.UserControl):
                                 
                             ]
                         )
-                        
                     ),
-                    ft.Container(
+                    ft.Container(# Separador de secciones
                         margin=ft.Margin(right=15, left=15, top=0, bottom=0),
                         bgcolor=self.color_teal,
                         height=2,
                         border_radius=2.5
                     ),
-                    ft.Container(
+                    ft.Container(# Frutas y cremas
                         alignment=ft.alignment.center,
                         # bgcolor="pink",
                         margin=ft.Margin(top=0, bottom=0, left=50, right=50),
@@ -936,7 +995,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
                                                                             ),
                                                                         ]
                                                                     ),
@@ -990,7 +1049,7 @@ class UI(ft.UserControl):
                                                                                 bgcolor="#f00000",
                                                                                 padding=2.5,
                                                                                 border_radius=5,
-                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
                                                                             ),
                                                                         ]
                                                                     ),
@@ -1096,7 +1155,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1170,7 +1229,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1244,7 +1303,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1269,25 +1328,26 @@ class UI(ft.UserControl):
                             ]
                         )
                     ),
-                    ft.Container(
+                    ft.Container(# Separador de secciones
                         margin=ft.Margin(right=15, left=15, top=0, bottom=0),
                         bgcolor=self.color_teal,
                         height=2,
                         border_radius=2.5
                     ),
-                    ft.Container(
+                    ft.Container(# Extras y adicionales
+                        expand=True,
                         # bgcolor="pink",
-                        margin=ft.Margin(top=0, bottom=0, left=25, right=50),
+                        margin=ft.Margin(top=0, bottom=0, left=25, right=25),
                         border_radius=15,
-                        padding=ft.Padding(top=3, bottom=5, left=5, right=10),
+                        padding=ft.Padding(top=0, bottom=0, left=2, right=10),
                         content=ft.ResponsiveRow(
                             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                             vertical_alignment="center",
                             controls=[
                                 ft.Container(
-                                    col={"md":6, "lg":2.3},
-                                    width=150,
+                                    col={"md":6, "lg":1.5},
                                     alignment=ft.alignment.center,
+                                    # width=150,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
@@ -1316,9 +1376,9 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
-                                    col={"md":6, "lg":2.3},
-                                    width=160,
+                                    col={"md":6, "lg":1.8},
                                     alignment=ft.alignment.center,
+                                    # width=160,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
@@ -1347,9 +1407,9 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
-                                    col={"md":6, "lg":2.3},
-                                    width=250,
+                                    col={"md":6, "lg":2.5},
                                     alignment=ft.alignment.center,
+                                    # width=250,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
@@ -1389,8 +1449,8 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
-                                    col={"md":6, "lg":2.3},
-                                    width=250,
+                                    col={"md":6, "lg":2.5},
+                                    # width=250,
                                     # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
@@ -1429,9 +1489,9 @@ class UI(ft.UserControl):
                                     )
                                 ),
                                 ft.Container(
-                                    col={"md":6, "lg":2.3},
+                                    col={"md":6, "lg":2},
                                     # bgcolor="blue",
-                                    width=200,
+                                    # width=200,
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
@@ -1446,7 +1506,7 @@ class UI(ft.UserControl):
                                                     ft.Column(
                                                         controls=[
                                                             ft.Text("Diferencia"),
-                                                            ft.Text("Total día PV")
+                                                            ft.Text("Total día PDV")
                                                         ]
                                                     ),
                                                     ft.Column(
@@ -1475,18 +1535,63 @@ class UI(ft.UserControl):
                                             ),
                                         ]
                                     )
+                                ),
+                                ft.Container(
+                                    col={"md":6, "lg":.5},
+                                    alignment=ft.alignment.center,
+                                    content=ft.Column(
+                                        horizontal_alignment="center",
+                                        controls=[
+                                            ft.Container(
+                                                bgcolor=self.color_teal,
+                                                width=2,
+                                                height=100,
+                                                border_radius=2.5,
+                                            )
+                                        ]
+                                    )
+                                ),
+                                ft.Container(
+                                    # padding=8,
+                                    # border_radius=5,
+                                    # bgcolor="blue",
+                                    col={"md":6, "lg":1.2},
+                                    alignment=ft.alignment.center,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        horizontal_alignment="center",
+                                        controls=[
+                                            ft.FilledButton(text="Resetear", width=120, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"))),
+                                            ft.FilledButton(text="Reporte", width=120, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818")))
+                                        ]
+                                    )
                                 )
-                                
                             ]
                         )
-                    )
+                    ),
+                    # ft.Container(
+                    #     padding=ft.Padding(top=15, bottom=15, left=10, right=25),
+                    #     bgcolor="#2a2a2a",
+                    #     content=ft.Column(
+                    #         controls=[
+                    #             ft.Row(
+                    #                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                    #                 vertical_alignment="center",
+                    #                 controls=[
+                    #                     ft.FilledButton(text="Resetear campos", style=ft.ButtonStyle(text_style=ft.TextStyle(size=10))),
+                    #                     ft.FilledButton(text="Generar Reporte", style=ft.ButtonStyle(text_style=ft.TextStyle(size=10)))
+                    #                 ]
+                    #             )
+                    #         ]
+                    #     )
+                    # ),
                 ]
             )
         )
 
         # ***** AREA DE CAPTURA DE VENTAS / ICONO VENTAS *****
 
-        self.sales = ft.Container(
+        self.sales = ft.Container(# Ventana Ventas
             col=12,
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=10,
@@ -1497,7 +1602,7 @@ class UI(ft.UserControl):
                     controls=[
                         ft.ResponsiveRow(
                             controls=[
-                                ft.Column(
+                                ft.Column(# Titulo ventana
                                     col=12,
                                     horizontal_alignment="center",
                                     controls=[
@@ -1508,7 +1613,7 @@ class UI(ft.UserControl):
                                         )
                                     ]
                                 ),
-                                ft.Column(
+                                ft.Column(# Separador de secciones
                                     col=12,
                                     controls=[
                                         ft.Container(
@@ -1519,7 +1624,7 @@ class UI(ft.UserControl):
                                         ),
                                     ]
                                 ),
-                                ft.Column(
+                                ft.Column(# Dropdowns para fecha
                                     col=12,
                                     controls=[
                                         ft.Container(
@@ -1671,7 +1776,7 @@ class UI(ft.UserControl):
                                 ),
                             ]
                         ),
-                        ft.Column(
+                        ft.Column(# Campos de texto y archivos
                             expand=True,
                             controls=[
                                 ft.Container(
@@ -1680,7 +1785,7 @@ class UI(ft.UserControl):
                                     expand=True,
                                     content=ft.ResponsiveRow(
                                         controls=[
-                                            ft.Container(
+                                            ft.Container(# Campo de texto para reportes
                                                 padding=20,
                                                 alignment=ft.alignment.center,
                                                 col=4,
@@ -1690,10 +1795,10 @@ class UI(ft.UserControl):
                                                     alignment=ft.alignment.center,
                                                     border_radius=5,
                                                     padding=4,
-                                                    content=ft.TextField(bgcolor="white", multiline=True, min_lines=20, )
+                                                    content=self.report_field
                                                 )
                                             ),
-                                            ft.Container(
+                                            ft.Container(# Botones interactivos para archivos
                                                 col=4,
                                                 # bgcolor="black",
                                                 content=ft.Column(
@@ -1734,7 +1839,7 @@ class UI(ft.UserControl):
                                                     ]
                                                 )
                                             ),
-                                            ft.Container(
+                                            ft.Container(# Campo de texto para ventas
                                                 padding=20,
                                                 alignment=ft.alignment.center,
                                                 col=4,
@@ -1744,7 +1849,7 @@ class UI(ft.UserControl):
                                                     alignment=ft.alignment.center,
                                                     border_radius=5,
                                                     padding=4,
-                                                    content=ft.TextField(bgcolor="white", multiline=True, min_lines=20)
+                                                    content= self.sales_field
                                                 )
                                             ),
                                         ]
@@ -1784,63 +1889,11 @@ class UI(ft.UserControl):
                 self.navigation_bar,
                 self.pages,
             ]
-            
         )
 
-        # self.sales_container = ft.ResponsiveRow(
-        #     controls=[
-        #         self.navigation_bar,
-        #         self.sales,
-        #     ]
-        # )
+    # ***** FUNCIONES *****
 
-    def number_conversion(self, e):
-        try:
-            self.num_tci = int(self.tci.value)
-            print(self.num_tci)
-            print(type(self.num_tci))
-
-            self.num_tcf = int(self.tcf.value)
-            print(self.num_tcf)
-            print(type(self.num_tcf))
-
-            self.num_tcdif = self.num_tci - self.num_tcf
-            print(self.num_tcdif)
-            print(type(self.num_tcdif))
-            self.tcdif.value = self.num_tcdif
-
-            self.num_vci = int(self.vci.value)
-            print(self.num_vci)
-            print(type(self.num_vci))
-
-            self.num_vcf = int(self.vcf.value)
-            print(self.num_vcf)
-            print(type(self.num_vcf))
-
-            self.num_vcdif = self.num_vci - self.num_vcf
-            print(self.num_vcdif)
-            print(type(self.num_vcdif))
-            self.vcdif.value = self.num_vcdif
-        except ValueError:
-            print("Manejo de ErrorValue reparado")
-        finally:
-            self.update()
-
-    # def valor_tcf(self, e):
-    #     self.num_tcf = int(self.tcf.value)
-    #     print(self.num_tcf)
-    #     print(type(self.num_tcf))
-    #     self.num_tcdif = self.num_tci - self.num_tcf
-    #     print(self.num_tcdif)
-    #     print(type(self.num_tcdif))
-    #     self.tcdif.value = self.num_tcdif
-    #     self.update()
-
-    def pdv_selection(self, e):
-        print(f"La sucursal seleccionada es: {e.control.value}")
-
-        if e.control.value == "cofradia3":
-            print("Sucursal Glorieta")
+    # Funcion para el manejo del cambio de ventanas mediante la barra lateral de navegacion
 
     def change_page(self, e):
         index = e.control.selected_index
@@ -1848,6 +1901,143 @@ class UI(ft.UserControl):
         self.update()
         print(index)
 
+    # ***** Funcion para el manejo de los radios boton's y la seleccion de las sucursales
+
+    def pdv_selection(self, e):
+        print(f"La sucursal seleccionada es: {e.control.value}")
+
+        if e.control.value == "cofradia3":
+            print("Sucursal Glorieta")
+
+    # ***** Creacion de radios para sucursales *****
+
+    def create_radio(self, value, label):
+            return ft.Radio(
+                value=value,
+                label=label,
+                label_style=ft.TextStyle(size=12),
+                visual_density=ft.VisualDensity.STANDARD,
+                fill_color={
+                    ft.ControlState.DEFAULT: ft.Colors.PINK,
+                    ft.ControlState.SELECTED: ft.Colors.GREEN,
+                }
+            )
+
+    def create_textfield(self, Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=None):
+        return ft.TextField(
+            height=30,
+            width=80,
+            # color="#dc0000", # rojo
+            color=Color,
+            text_size=text_Size,
+            text_align="center",
+            label=Label,
+            label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
+            content_padding=3,
+            bgcolor="white",
+            cursor_height=18,
+            cursor_color="#747474", # gris oscuro
+            focused_border_color="black",
+            focused_border_width=1.5,
+            prefix_text=prefix_Text,
+            prefix_style=prefix_Style,
+            read_only=read_Only,
+            border_color=border_Color,
+            border_width=border_Width,
+            on_change=on_Change
+        )
+    
+    # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
+
+    # Vasos Chicos
+
+    def conversion_n_capture_vc(self, e):
+        try:
+            self.num_tci = int(self.tci.value)
+            self.num_tcf = int(self.tcf.value)
+            self.num_tcdif = self.num_tci - self.num_tcf
+            self.tcdif.value = self.num_tcdif
+            self.num_vci = int(self.vci.value)
+            self.num_vcf = int(self.vcf.value)
+            self.num_vcdif = self.num_vci - self.num_vcf
+            self.vcdif.value = self.num_vcdif
+
+            self.values_columnSale_vc()
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
+    # Vasos Medianos
+
+    def conversion_n_capture_vm(self, e):
+        try:
+            self.num_tmi = int(self.tmi.value)
+            print(type(self.num_tmi))
+            print(self.num_tmi)
+            self.num_tmf = int(self.tmf.value)
+            print(type(self.num_tmf))
+            print(self.num_tmf)
+            self.num_tmdif = self.num_tmi - self.num_tmf
+            print(self.num_tmdif)
+            self.tmdif.value = self.num_tmdif
+            self.num_vmi = int(self.vmi.value)
+            self.num_vmf = int(self.vmf.value)
+            self.num_vmdif = self.num_vmi - self.num_vmf
+            self.vmdif.value = self.num_vmdif
+
+            self.values_columnSale_vm()
+        except:
+            pass
+        finally:
+            self.update()       
+
+    # Vasos Grandes
+
+    def conversion_n_capture_vg(self, e):
+        try:
+            self.num_tgi = int(self.tgi.value)
+            self.num_tgf = int(self.tgf.value)
+            self.num_tgdif = self.num_tgi - self.num_tgf
+            self.tgdif.value = self.num_tgdif
+            self.num_vgi = int(self.vgi.value)
+            self.num_vgf = int(self.vgf.value)
+            self.num_vgdif = self.num_vgi - self.num_vgf
+            self.vgdif.value = self.num_vgdif
+            self.values_columnSale_vg()
+        except:
+            pass
+        finally:
+            self.update()       
+
+    # Vasos Chicos
+
+    def values_columnSale_vc(self):
+        self.num_vcsv = self.num_vcf
+        self.vcsv.value = self.num_vcsv
+        self.num_vcven = self.num_vcdif
+        self.vcven.value = self.num_vcven
+        self.num_vcvt = self.num_vcven * 50
+        self.vcvt.value = self.num_vcvt
+
+    # Vasos Medianos
+
+    def values_columnSale_vm(self):
+        self.num_vmsv = self.num_vmf
+        self.vmsv.value = self.num_vmsv
+        self.num_vmven = self.num_vmdif
+        self.vmven.value = self.num_vmven
+        self.num_vmvt = self.num_vmven * 70
+        self.vmvt.value = self.num_vmvt
+
+    # Vasos Grandes
+    def values_columnSale_vg(self):
+        self.num_vgsv = self.num_vgf
+        self.vgsv.value = self.num_vgsv
+        self.num_vgven = self.num_vgdif
+        self.vgven.value = self.num_vgven
+        self.num_vgvt = self.num_vgven * 150
+        self.vgvt.value = self.num_vgvt
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 
@@ -1866,7 +2056,9 @@ def main(page: ft.Page):
     # page.window_max_width = 1080
     page.theme_mode = ft.ThemeMode.DARK
     page.title = "Gestor"
-    # page.window_resizable = False
+    page.window_full_screen = True
+    page.window_resizable = False
+    # page.window.icon = ft.Icon.
     # page.window_opacity = .95
     page.add(UI(page))
 
