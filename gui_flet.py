@@ -25,7 +25,40 @@ class UI(ft.UserControl):
 
         # ***** VARIABLES SISTEMA *****
 
-        # *** VARIABLES VENTANA INICIO ***
+        # *** Variables Iconos Inferiores Barra de Navegacion Lateral ***
+
+        self.profiles = ft.IconButton(
+            icon=ft.icons.ACCOUNT_CIRCLE_SHARP,
+            icon_color="white",
+            tooltip="Cuenta",
+            on_click=lambda e: page.open(
+                ft.CupertinoAlertDialog(
+                    # title=ft.Text("Cuentas"),
+                    content=ft.Text('Sección no disponible por el momento'),
+                    actions=[
+                        ft.CupertinoDialogAction("Ok", is_destructive_action=True, on_click=lambda e: page.close(e.control.parent))
+                    ]
+                ),
+            )
+        )
+
+        self.configuration = ft.IconButton(
+            icon=ft.icons.SETTINGS,
+            icon_color="white",
+            tooltip="Configuración",
+            on_click=lambda e: page.open(
+                ft.AlertDialog(
+                    modal=True,
+                    # title=ft.Text("Cuentas"),
+                    content=ft.Text('Por el momento no hay configuraciones disponibles'),
+                    actions=[
+                        ft.TextButton("Ok", on_click=lambda e: page.close(e.control.parent))
+                    ]
+                ),
+            )
+        )
+
+        # *** Variables Ventana Inicio ***
 
         # Variables sucursales
 
@@ -229,16 +262,8 @@ class UI(ft.UserControl):
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                             alignment=ft.MainAxisAlignment.END,
                             controls=[
-                                ft.IconButton(
-                                    icon=ft.icons.ACCOUNT_CIRCLE_SHARP,
-                                    icon_color="white",
-                                    tooltip="Cuenta"
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.SETTINGS,
-                                    icon_color="white",
-                                    tooltip="Configuración"
-                                ),
+                                self.profiles,
+                                self.configuration,
                                 self.mode_switch
                             ]
                         )
@@ -938,7 +963,7 @@ class UI(ft.UserControl):
                                         ),
                                         ft.Container(
                                             alignment=ft.alignment.center,
-                                            padding=ft.Padding(top=0, bottom=0, left=55, right=65),
+                                            padding=ft.Padding(top=0, bottom=0, left=30, right=30),
                                             # bgcolor="black",
                                             content=ft.Column(
                                                 controls=[
@@ -1059,12 +1084,14 @@ class UI(ft.UserControl):
                                                                         ft.Container(
                                                                             content=ft.Row(
                                                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                spacing=150,
+                                                                                vertical_alignment="center",
                                                                                 controls=[
                                                                                     ft.Container(
-                                                                                        bgcolor="#6971ff",
+                                                                                        bgcolor="#f00000",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Remanente", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                        content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5, min_lines=3, max_lines=3),
                                                                                     ),
                                                                                     ft.Container(
                                                                                         width=100,
@@ -1073,10 +1100,10 @@ class UI(ft.UserControl):
                                                                                         content=ft.Text("Uva", color="white", size=16),
                                                                                     ),
                                                                                     ft.Container(
-                                                                                        bgcolor="#f00000",
+                                                                                        bgcolor="#6971ff",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                        content=ft.TextField(height=45, width=85, color="black", text_size=13, text_align="center", label="Remanente", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5, multiline=True, min_lines=1, max_lines=2), 
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1904,8 +1931,7 @@ class UI(ft.UserControl):
         )
 
 
-        self.sucursales = ft.Row(
-            # expand=True,
+        self.branches = ft.Row(
             controls=[
                 ft.Container(
                     expand=True,
@@ -1919,8 +1945,54 @@ class UI(ft.UserControl):
                             horizontal_alignment="center",
                             controls=[
                                 ft.Container(
-                                    # content=ft.FilledButton(text="En proceso...", width=200, height=50, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(text_style=ft.TextStyle(size=25), alignment=ft.alignment.center))
-                                    content=ft.Text("En proceso...", size=25)
+                                    alignment=ft.alignment.center,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        horizontal_alignment="center",
+                                        controls=[
+                                            ft.Text("En proceso...", size=25),
+                                            ft.Container(
+                                                bgcolor="#ff2525",
+                                                width=200,
+                                                height=2
+                                            )
+                                        ]
+                                    )
+                                )
+                            ]
+                        )
+                    )
+                )
+            ]
+        )
+
+        self.stock = ft.Row(
+            controls=[
+                ft.Container(
+                    expand=True,
+                    bgcolor=ft.colors.BLUE_GREY_800,
+                    border_radius=10,
+                    content=ft.Container(
+                        expand=True,
+                        content=ft.Column(
+                            expand=True,
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            horizontal_alignment="center",
+                            controls=[
+                                ft.Container(
+                                    alignment=ft.alignment.center,
+                                    content=ft.Column(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        horizontal_alignment="center",
+                                        controls=[
+                                            ft.Text("En proceso...", size=25),
+                                            ft.Container(
+                                                bgcolor="#ff2525",
+                                                width=200,
+                                                height=2
+                                            )
+                                        ]
+                                    )
                                 )
                             ]
                         )
@@ -1930,11 +2002,11 @@ class UI(ft.UserControl):
         )
         # ***** Paginas de los respectivos elementos laterales encerrados en una lista para el control de estas con los elementos laterales *****
 
-        self.pages_containers = [self.home, self.sales, self.sucursales]
+        self.pages_containers = [self.home, self.sales, self.branches, self.stock]
 
         # ***** Seleccion de la pagina a mostrar mediante el index relacionado con el NavigationRail *****
 
-        self.main_container = ft.Container(content=self.pages_containers[2], expand=True)
+        self.main_container = ft.Container(content=self.pages_containers[0], expand=True)
 
         # ***** Variable principal encargada de almacenar las diferentes paginas relacionadas con los elementos laterales *****
 
