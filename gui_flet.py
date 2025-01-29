@@ -1903,13 +1903,38 @@ class UI(ft.UserControl):
             )
         )
 
+
+        self.sucursales = ft.Row(
+            # expand=True,
+            controls=[
+                ft.Container(
+                    expand=True,
+                    bgcolor=ft.colors.BLUE_GREY_800,
+                    border_radius=10,
+                    content=ft.Container(
+                        expand=True,
+                        content=ft.Column(
+                            expand=True,
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            horizontal_alignment="center",
+                            controls=[
+                                ft.Container(
+                                    # content=ft.FilledButton(text="En proceso...", width=200, height=50, bgcolor=self.color_teal, color="black", style=ft.ButtonStyle(text_style=ft.TextStyle(size=25), alignment=ft.alignment.center))
+                                    content=ft.Text("En proceso...", size=25)
+                                )
+                            ]
+                        )
+                    )
+                )
+            ]
+        )
         # ***** Paginas de los respectivos elementos laterales encerrados en una lista para el control de estas con los elementos laterales *****
 
-        self.pages_containers = [self.home, self.sales]
+        self.pages_containers = [self.home, self.sales, self.sucursales]
 
         # ***** Seleccion de la pagina a mostrar mediante el index relacionado con el NavigationRail *****
 
-        self.main_container = ft.Container(content=self.pages_containers[0], expand=True)
+        self.main_container = ft.Container(content=self.pages_containers[2], expand=True)
 
         # ***** Variable principal encargada de almacenar las diferentes paginas relacionadas con los elementos laterales *****
 
@@ -2098,7 +2123,7 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.title = "Control"
     page.window.maximized = True
-    page.window_resizable = False
+    page.window_resizable = True
     # page.window.icon = ft.Icon.
     # page.window_opacity = .95
     page.add(UI(page))
