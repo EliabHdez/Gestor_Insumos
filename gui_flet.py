@@ -45,7 +45,7 @@ class UI(ft.UserControl):
         self.configuration = ft.IconButton(
             icon=ft.icons.SETTINGS,
             icon_color="white",
-            tooltip="Configuración",
+            tooltip="Configuraciones",
             on_click=lambda e: page.open(
                 ft.AlertDialog(
                     modal=True,
@@ -146,19 +146,21 @@ class UI(ft.UserControl):
 
         # Fresa
 
-        """ self.fpi
-        self.fpf
-        self.fei
-        self.fef
-        self.fv """
+        self.fpi = self.create_textField_Fruta("Picada Inicial", "black", None, None, on_Change=self.conversion_n_capture_fr)
+        self.fpf = self.create_textField_Fruta("Picada Final", "black", None, None, on_Change=self.conversion_n_capture_fr)
+        self.fei = self.create_textField_Fruta("Entera Inicial", "black", None, None, on_Change=self.conversion_n_capture_fr)
+        self.fef = self.create_textField_Fruta("Entera Final", "black", None, None, on_Change=self.conversion_n_capture_fr)
+        self.fv = self.create_textField_Fruta("Vendida", "#dc0000", "black", 1.5, read_Only=True)
+        self.fr = self.create_textField_Fruta("Remanente", "#dc0000", "black", 1.5, read_Only=True)
 
         # Uva
 
-        """ self.upi
-        self.upf
-        self.uei
-        self.uef
-        self.uv """
+        self.upi = self.create_textField_Fruta("Picada Inicial", "black", None, None, on_Change=self.conversion_n_capture_uva)
+        self.upf = self.create_textField_Fruta("Picada Final", "black", None, None, on_Change=self.conversion_n_capture_uva)
+        self.uei = self.create_textField_Fruta("Entera Inicial", "black", None, None, on_Change=self.conversion_n_capture_uva)
+        self.uef = self.create_textField_Fruta("Entera Final", "black", None, None, on_Change=self.conversion_n_capture_uva)
+        self.uv = self.create_textField_Fruta("Vendida", "#dc0000", "black", 1.5, read_Only=True)
+        self.ur = self.create_textField_Fruta("Remanente", "#dc0000", "black", 1.5, read_Only=True)
 
         # ***** VARIABLES CREMAS *****
 
@@ -245,7 +247,7 @@ class UI(ft.UserControl):
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.ACCOUNT_TREE_ROUNDED,
-                                    label_content=ft.Text("PUNTOS", size=8),
+                                    label_content=ft.Text("PDV's", size=8),
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.INVENTORY,
@@ -291,11 +293,18 @@ class UI(ft.UserControl):
                         # bgcolor="#2a2a2a",
                         content=self.pdv
                     ),
-                    ft.Container(# Separador de secciones
-                        margin=ft.Margin(right=30, left=25, top=0, bottom=0),
-                        bgcolor=self.color_teal,
-                        height=2,
-                        border_radius=2.5
+                    # ft.Container(# Separador de secciones
+                    #     margin=ft.Margin(right=30, left=25, top=0, bottom=0),
+                    #     bgcolor=self.color_teal,
+                    #     height=2,
+                    #     border_radius=2.5
+                    # ),
+                    ft.Divider(# Separador de seccion con Divider
+                        height=1,
+                        color=self.color_teal,
+                        thickness=3,
+                        # leading_indent=50,
+                        # trailing_indent=10
                     ),
                     ft.Container(# Vasos
                         alignment=ft.alignment.center,
@@ -984,13 +993,13 @@ class UI(ft.UserControl):
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.fpi
                                                                                     ),
                                                                                     ft.Container(
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.fpf
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1003,7 +1012,7 @@ class UI(ft.UserControl):
                                                                                         bgcolor="#6971ff",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Remanente", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                        content=self.fr
                                                                                     ),
                                                                                     ft.Container(
                                                                                         width=100,
@@ -1015,7 +1024,7 @@ class UI(ft.UserControl):
                                                                                         bgcolor="#f00000",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                        content=self.fv
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1028,13 +1037,13 @@ class UI(ft.UserControl):
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.fei
                                                                                     ),
                                                                                     ft.Container(
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=75, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.fef
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1070,13 +1079,13 @@ class UI(ft.UserControl):
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=70, color="black", text_size=13, text_align="center", label="Picada Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.upi
                                                                                     ),
                                                                                     ft.Container(
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=70, color="black", text_size=13, text_align="center", label="Picada Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.upf
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1091,7 +1100,7 @@ class UI(ft.UserControl):
                                                                                         bgcolor="#f00000",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=80, color="black", text_size=13, text_align="center", label="Vendida", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5, min_lines=3, max_lines=3),
+                                                                                        content=self.uv
                                                                                     ),
                                                                                     ft.Container(
                                                                                         width=100,
@@ -1103,7 +1112,7 @@ class UI(ft.UserControl):
                                                                                         bgcolor="#6971ff",
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=45, width=85, color="black", text_size=13, text_align="center", label="Remanente", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5, multiline=True, min_lines=1, max_lines=2), 
+                                                                                        content=self.ur
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1116,13 +1125,13 @@ class UI(ft.UserControl):
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=70, color="black", text_size=13, text_align="center", label="Entera Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.uei
                                                                                     ),
                                                                                     ft.Container(
                                                                                         bgcolor=self.color_teal_2,
                                                                                         padding=2.5,
                                                                                         border_radius=5,
-                                                                                        content=ft.TextField(height=30, width=70, color="black", text_size=13, text_align="center", label="Entera Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                        content=self.uef
                                                                                     ),
                                                                                 ]
                                                                             )
@@ -1685,7 +1694,7 @@ class UI(ft.UserControl):
                                     col=12,
                                     controls=[
                                         ft.Container(
-                                            margin=ft.Margin(right=15, left=15, top=0, bottom=0),
+                                            margin=ft.Margin(right=25, left=25, top=0, bottom=0),
                                             bgcolor=self.color_teal,
                                             height=2,
                                             border_radius=2.5
@@ -2037,7 +2046,6 @@ class UI(ft.UserControl):
         index = e.control.selected_index
         self.main_container.content = self.pages_containers[index]
         self.update()
-        print(index)
 
     # ***** Funcion para el manejo de los radios boton's y la seleccion de las sucursales
 
@@ -2060,6 +2068,8 @@ class UI(ft.UserControl):
                     ft.ControlState.SELECTED: ft.Colors.GREEN,
                 }
             )
+    
+    # ***** Creacion campos de texto para seccion de vasos *****
 
     def create_textfield(self, Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=None):
         return ft.TextField(
@@ -2085,6 +2095,53 @@ class UI(ft.UserControl):
             on_change=on_Change
         )
     
+    # ***** Creacion campos de texto para seccion de fruta *****
+
+    def create_textField_Fruta(self, Label, Color, border_Color, border_Width, read_Only=False, on_Change=None):
+        return ft.TextField(
+            height=30, 
+            width=75,
+            color=Color,
+            text_size=13, 
+            text_align="center", 
+            label=Label, 
+            label_style=ft.TextStyle(color="#545454", size=10), 
+            content_padding=3, 
+            bgcolor="white", 
+            cursor_height=18, 
+            cursor_color="#747474",
+            focused_border_color="black", 
+            focused_border_width=2, 
+            hint_text="Botes", 
+            hint_style=ft.TextStyle(color="#DADADA", size=10),
+            border_color=border_Color,
+            border_width=border_Width,
+            read_only=read_Only,
+            on_change=on_Change
+        )
+    
+    # def create_textField_Fruta_VR(self, label, ):
+    #     return ft.TextField(
+    #         height=30, 
+    #         width=75,
+    #         color="color",
+    #         text_size=13, 
+    #         text_align="center", 
+    #         label="Vendida", 
+    #         label_style=ft.TextStyle(color="#545454", size=10), 
+    #         content_padding=3, 
+    #         bgcolor="white", 
+    #         cursor_height=18, 
+    #         cursor_color="#747474", 
+    #         focused_border_color="black", 
+    #         focused_border_width=2, 
+    #         hint_text="Botes", 
+    #         hint_style=ft.TextStyle(color="#DADADA", size=10), 
+    #         border_color="black", 
+    #         border_width=1.5, 
+    #         read_only=True
+    #     )
+    
     # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
 
     # Vasos Chicos
@@ -2099,7 +2156,6 @@ class UI(ft.UserControl):
             self.num_vcf = int(self.vcf.value)
             self.num_vcdif = self.num_vci - self.num_vcf
             self.vcdif.value = self.num_vcdif
-
             self.values_columnSale_vc()
         except ValueError:
             pass
@@ -2111,19 +2167,13 @@ class UI(ft.UserControl):
     def conversion_n_capture_vm(self, e):
         try:
             self.num_tmi = int(self.tmi.value)
-            print(type(self.num_tmi))
-            print(self.num_tmi)
             self.num_tmf = int(self.tmf.value)
-            print(type(self.num_tmf))
-            print(self.num_tmf)
             self.num_tmdif = self.num_tmi - self.num_tmf
-            print(self.num_tmdif)
             self.tmdif.value = self.num_tmdif
             self.num_vmi = int(self.vmi.value)
             self.num_vmf = int(self.vmf.value)
             self.num_vmdif = self.num_vmi - self.num_vmf
             self.vmdif.value = self.num_vmdif
-
             self.values_columnSale_vm()
         except:
             pass
@@ -2177,6 +2227,36 @@ class UI(ft.UserControl):
         self.num_vgvt = self.num_vgven * 150
         self.vgvt.value = self.num_vgvt
 
+    def conversion_n_capture_fr(self, e):
+        try:
+            self.num_fpi = int(self.fpi.value)
+            self.num_fpf = int(self.fpf.value)
+            self.num_fei = int(self.fei.value)
+            self.num_fef = int(self.fef.value)
+            self.num_fr = self.num_fpf + self.num_fef
+            self.num_fv = (self.num_fpi + self.num_fei) - self.num_fr
+            self.fr.value = self.num_fr
+            self.fv.value = self.num_fv
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
+    def conversion_n_capture_uva(self, e):
+        try:
+            self.num_upi = int(self.upi.value)
+            self.num_upf = int(self.upf.value)
+            self.num_uei = int(self.uei.value)
+            self.num_uef = int(self.uef.value)
+            self.num_ur = self.num_upf + self.num_uef
+            self.num_uv = (self.num_upi + self.num_uei) - self.num_ur
+            self.ur.value = self.num_ur
+            self.uv.value = self.num_uv
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 
     def build(self):
@@ -2194,6 +2274,7 @@ def main(page: ft.Page):
     # page.window_max_width = 1080
     page.theme_mode = ft.ThemeMode.DARK
     page.title = "Control"
+    # page.window.icon = "Gestor_Insumos_Fresas/Fresa_Ico.ico"
     page.window.maximized = True
     page.window_resizable = True
     # page.window.icon = ft.Icon.
