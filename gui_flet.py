@@ -104,90 +104,96 @@ class UI(ft.UserControl):
 
         # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
 
-        self.tci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
-        self.tcf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
-        self.tcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
-        self.vcf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vc)
-        self.vcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vcsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vcven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vcvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+        self.tci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.tcf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.tcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vci = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.vcf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vc)
+        self.vcdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vcsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vcven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vcvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, None, None, read_Only=True)
 
         # Variables Vasos Medianos
 
         # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
 
-        self.tmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
-        self.tmf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
-        self.tmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
-        self.vmf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vm)
-        self.vmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vmsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vmven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vmvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+        self.tmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.tmf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.tmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vmi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.vmf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vm)
+        self.vmdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vmsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vmven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vmvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, None, None, read_Only=True)
 
         # Variables Vasos Grandes
 
         # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
 
-        self.tgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
-        self.tgf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
-        self.tgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
-        self.vgf = self.create_textfield("Finales", "black", 13, None, None, None, None, on_Change=self.conversion_n_capture_vg)
-        self.vgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, read_Only=True)
-        self.vgsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vgven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, read_Only=True)
-        self.vgvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, read_Only=True)
+        self.tgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.tgf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.tgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vgi = self.create_textfield("Iniciales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.vgf = self.create_textfield("Finales", "black", 13, None, None, None, None, None, None, on_Change=self.conversion_n_capture_vg)
+        self.vgdif = self.create_textfield("Diferencia", "black", 13, None, None, None, None, None, None, read_Only=True)
+        self.vgsv = self.create_textfield("Sin Vender", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vgven = self.create_textfield("Vendidos", "#dc0000", 15, None, None, None, None, None, None, read_Only=True)
+        self.vgvt = self.create_textfield("Venta Total", "#dc0000", 15, "  $", ft.TextStyle(color="black", size=13), "black", 1.5, None, None, read_Only=True)
 
         # ***** VARIABLES FRUTAS *****
 
+        # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, hint_Text, hint_Style, read_Only=False, on_Change=False
+
         # Fresa
 
-        self.fpi = self.create_textField_Fruta("Picada Inicial", "black", None, None, on_Change=self.conversion_n_capture_fr)
-        self.fpf = self.create_textField_Fruta("Picada Final", "black", None, None, on_Change=self.conversion_n_capture_fr)
-        self.fei = self.create_textField_Fruta("Entera Inicial", "black", None, None, on_Change=self.conversion_n_capture_fr)
-        self.fef = self.create_textField_Fruta("Entera Final", "black", None, None, on_Change=self.conversion_n_capture_fr)
-        self.fv = self.create_textField_Fruta("Vendida", "#dc0000", "black", 1.5, read_Only=True)
-        self.fr = self.create_textField_Fruta("Remanente", "#dc0000", "black", 1.5, read_Only=True)
+        self.fpi = self.create_textfield("Picada Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fpf = self.create_textfield("Picada Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fei = self.create_textfield("Entera Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fef = self.create_textfield("Entera Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fv = self.create_textfield("Vendida", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
+        self.fr = self.create_textfield("Remanente", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
 
         # Uva
 
-        self.upi = self.create_textField_Fruta("Picada Inicial", "black", None, None, on_Change=self.conversion_n_capture_uva)
-        self.upf = self.create_textField_Fruta("Picada Final", "black", None, None, on_Change=self.conversion_n_capture_uva)
-        self.uei = self.create_textField_Fruta("Entera Inicial", "black", None, None, on_Change=self.conversion_n_capture_uva)
-        self.uef = self.create_textField_Fruta("Entera Final", "black", None, None, on_Change=self.conversion_n_capture_uva)
-        self.uv = self.create_textField_Fruta("Vendida", "#dc0000", "black", 1.5, read_Only=True)
-        self.ur = self.create_textField_Fruta("Remanente", "#dc0000", "black", 1.5, read_Only=True)
+        self.upi = self.create_textfield("Picada Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_uva)
+        self.upf = self.create_textfield("Picada Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uei = self.create_textfield("Entera Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uef = self.create_textfield("Entera Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uv = self.create_textfield("Vendida", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
+        self.ur = self.create_textfield("Remanente", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
 
         # ***** VARIABLES CREMAS *****
 
+        # Opciones a configurar en la funcion create_textfield: Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=False
+
         # Crema Original
 
-        """ self.coi
-        self.cof
-        self.cov """
+        self.coi = self.create_textfield("Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_co)
+        self.cof = self.create_textfield("Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_co)
+        self.cov = self.create_textfield("Vendidos", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
 
         # Crema Chocolate
 
-        """ self.cchi
-        self.cchf
-        self.cchv """
+        self.cchi = self.create_textfield("Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="CCCCCC", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchf = self.create_textfield("Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchv = self.create_textfield("Vendidos", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
 
         # Crema Cafe
 
-        """ self.ccai
-        self.ccaf
-        self.ccav """
+        self.ccai = self.create_textfield("Inicial", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccaf = self.create_textfield("Final", "black", 13, None, None, None, None, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccav = self.create_textfield("Vendidos", "#dc0000", 15, None, None, "black", 1.5, hint_Text="Botes", hint_Style=ft.TextStyle(color="#CCCCCC", size=10), read_Only=True)
         
         # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
+        # Opciones a configurar en la funcion create_textfield: Width, read_Only=False, on_Change=False
+
         # Toppings Extras
 
-        """ self.t5
-        self.t10 """
+        self.t5 = self.create_textField_Extras(35)
+        self.t10 = self.create_textField_Extras(35)
 
         # Servicios a Domicilio
 
@@ -950,7 +956,7 @@ class UI(ft.UserControl):
                                 ft.ResponsiveRow(
                                     vertical_alignment="center",
                                     controls=[
-                                        ft.Container(
+                                        ft.Container(# Texto Fruta
                                             alignment=ft.alignment.center,
                                             # bgcolor="black",
                                             content=ft.Column(
@@ -970,7 +976,7 @@ class UI(ft.UserControl):
                                                 ]
                                             )
                                         ),
-                                        ft.Container(
+                                        ft.Container(# Contenedores Frutas
                                             alignment=ft.alignment.center,
                                             padding=ft.Padding(top=0, bottom=0, left=30, right=30),
                                             # bgcolor="black",
@@ -1144,7 +1150,7 @@ class UI(ft.UserControl):
                                                 ]
                                             )
                                         ),
-                                        ft.Container(
+                                        ft.Container(# Texto Crema
                                             alignment=ft.alignment.center,
                                             padding=ft.Padding(top=0, bottom=0, left=55, right=65),
                                             # bgcolor="black",
@@ -1164,7 +1170,7 @@ class UI(ft.UserControl):
                                                 ]
                                             )
                                         ),
-                                        ft.Container(
+                                        ft.Container(# Contenedores Cremas
                                             padding=2,
                                             alignment=ft.alignment.center,
                                             # bgcolor="blue",
@@ -1214,7 +1220,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.coi
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1227,7 +1233,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.cof
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1240,7 +1246,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                                                    content=self.cov
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1288,7 +1294,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.cchi
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1301,7 +1307,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.cchf
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1314,7 +1320,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                                                    content=self.cchv
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1362,7 +1368,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Inicial", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.ccai
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1375,7 +1381,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor=self.color_teal_2,
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Final", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10)),
+                                                                                                                    content=self.ccaf
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1388,7 +1394,7 @@ class UI(ft.UserControl):
                                                                                                                     bgcolor="#f00000",
                                                                                                                     padding=2.5,
                                                                                                                     border_radius=5,
-                                                                                                                    content=ft.TextField(height=30, width=50, color="black", text_size=13, text_align="center", label="Vendidos", label_style=ft.TextStyle(color="#545454", size=10), content_padding=3, bgcolor="white", cursor_height=18, cursor_color="#747474", focused_border_color="black", focused_border_width=2, hint_text="Botes", hint_style=ft.TextStyle(color="#DADADA", size=10), border_color="black", border_width=1.5),
+                                                                                                                    content=self.ccav
                                                                                                                 )
                                                                                                             ]
                                                                                                         )
@@ -1433,27 +1439,41 @@ class UI(ft.UserControl):
                                     col={"md":6, "lg":1.5},
                                     alignment=ft.alignment.center,
                                     # width=150,
-                                    # bgcolor="blue",
+                                    bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Text(value="Topping(s) Extra"),
-                                            ft.Row(
-                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                            ft.Column(
+                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                 controls=[
-                                                    ft.Column(
-                                                        # horizontal_alignment="start",
-                                                        controls=[
-                                                            ft.Text(value="$5"),
-                                                            ft.Text(value="$10"),
-                                                        ]
+                                                    ft.Container(
+                                                        margin=ft.margin.only(bottom=5),
+                                                        padding=1,
+                                                        bgcolor="black",
+                                                        content=ft.Row(
+                                                            alignment=ft.MainAxisAlignment.CENTER,
+                                                            vertical_alignment="center",
+                                                            controls=[
+                                                                ft.Text(value="$5"),
+                                                                self.t5,
+                                                                ft.Text(value="$10"),
+                                                                self.t10
+                                                            ]
+                                                        ),
                                                     ),
-                                                    ft.Column(
-                                                        horizontal_alignment="start",
-                                                        controls=[
-                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                            ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
-                                                        ]
+                                                    ft.Container(
+                                                        margin=ft.margin.only(top=5),
+                                                        padding=1,
+                                                        bgcolor="black",
+                                                        content=ft.Row(
+                                                            alignment=ft.MainAxisAlignment.CENTER,
+                                                            vertical_alignment="center",    
+                                                            controls=[
+                                                                ft.Text(value="Total"),
+                                                                ft.TextField(value="", width=50, height=25, content_padding=0, text_align="center", bgcolor="white"),
+                                                            ]
+                                                        )
                                                     )
                                                 ]
                                             )
@@ -1464,7 +1484,7 @@ class UI(ft.UserControl):
                                     col={"md":6, "lg":1.8},
                                     alignment=ft.alignment.center,
                                     # width=160,
-                                    # bgcolor="blue",
+                                    bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
@@ -2071,7 +2091,7 @@ class UI(ft.UserControl):
     
     # ***** Creacion campos de texto para seccion de vasos *****
 
-    def create_textfield(self, Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, read_Only=False, on_Change=None):
+    def create_textfield(self, Label, Color, text_Size, prefix_Text, prefix_Style, border_Color, border_Width, hint_Text, hint_Style, read_Only=False, on_Change=None):
         return ft.TextField(
             height=30,
             width=80,
@@ -2089,58 +2109,30 @@ class UI(ft.UserControl):
             focused_border_width=1.5,
             prefix_text=prefix_Text,
             prefix_style=prefix_Style,
-            read_only=read_Only,
             border_color=border_Color,
             border_width=border_Width,
+            hint_text=hint_Text,
+            hint_style=hint_Style,
+            read_only=read_Only,
             on_change=on_Change
         )
     
-    # ***** Creacion campos de texto para seccion de fruta *****
-
-    def create_textField_Fruta(self, Label, Color, border_Color, border_Width, read_Only=False, on_Change=None):
+    def create_textField_Extras(self, Width, read_Only=False, on_Change=False):
         return ft.TextField(
-            height=30, 
-            width=75,
-            color=Color,
-            text_size=13, 
-            text_align="center", 
-            label=Label, 
-            label_style=ft.TextStyle(color="#545454", size=10), 
-            content_padding=3, 
-            bgcolor="white", 
-            cursor_height=18, 
-            cursor_color="#747474",
-            focused_border_color="black", 
-            focused_border_width=2, 
-            hint_text="Botes", 
-            hint_style=ft.TextStyle(color="#DADADA", size=10),
-            border_color=border_Color,
-            border_width=border_Width,
+            text_size=12,
+            color="black",
+            width=Width,
+            height=25,
+            cursor_height=15,
+            cursor_color="#747474", # gris oscuro
+            content_padding=0,
+            text_align="center",
+            bgcolor="white",
+            focused_border_color="black",
+            focused_border_width=1.5,
             read_only=read_Only,
             on_change=on_Change
         )
-    
-    # def create_textField_Fruta_VR(self, label, ):
-    #     return ft.TextField(
-    #         height=30, 
-    #         width=75,
-    #         color="color",
-    #         text_size=13, 
-    #         text_align="center", 
-    #         label="Vendida", 
-    #         label_style=ft.TextStyle(color="#545454", size=10), 
-    #         content_padding=3, 
-    #         bgcolor="white", 
-    #         cursor_height=18, 
-    #         cursor_color="#747474", 
-    #         focused_border_color="black", 
-    #         focused_border_width=2, 
-    #         hint_text="Botes", 
-    #         hint_style=ft.TextStyle(color="#DADADA", size=10), 
-    #         border_color="black", 
-    #         border_width=1.5, 
-    #         read_only=True
-    #     )
     
     # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
 
@@ -2175,7 +2167,7 @@ class UI(ft.UserControl):
             self.num_vmdif = self.num_vmi - self.num_vmf
             self.vmdif.value = self.num_vmdif
             self.values_columnSale_vm()
-        except:
+        except ValueError:
             pass
         finally:
             self.update()       
@@ -2193,7 +2185,7 @@ class UI(ft.UserControl):
             self.num_vgdif = self.num_vgi - self.num_vgf
             self.vgdif.value = self.num_vgdif
             self.values_columnSale_vg()
-        except:
+        except ValueError:
             pass
         finally:
             self.update()       
@@ -2252,6 +2244,39 @@ class UI(ft.UserControl):
             self.num_uv = (self.num_upi + self.num_uei) - self.num_ur
             self.ur.value = self.num_ur
             self.uv.value = self.num_uv
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
+    def conversion_n_capture_co(self, e):
+        try:
+            self.num_coi = int(self.coi.value)
+            self.num_cof = int(self.cof.value)
+            self.num_cov = self.num_coi - self.num_cof
+            self.cov.value = self.num_cov
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
+    def conversion_n_capture_cch(self, e):
+        try:
+            self.num_cchi = int(self.cchi.value)
+            self.num_cchf = int(self.cchf.value)
+            self.num_cchv = self.num_cchi - self.num_cchf
+            self.cchv.value = self.num_cchv
+        except ValueError:
+            pass
+        finally:
+            self.update()
+
+    def conversion_n_capture_cca(self, e):
+        try:
+            self.num_ccai = int(self.ccai.value)
+            self.num_ccaf = int(self.ccaf.value)
+            self.num_ccav = self.num_ccai - self.num_ccaf
+            self.ccav.value = self.num_ccav
         except ValueError:
             pass
         finally:
