@@ -148,21 +148,21 @@ class UI(ft.UserControl):
 
         # Fresa
 
-        self.fpi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fpf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
-        self.fr = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
+        self.fpi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fpf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.fr = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Uva
 
-        self.upi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_uva)
-        self.upf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
-        self.ur = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
+        self.upi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.upf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.ur = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # ***** VARIABLES CREMAS *****
 
@@ -170,21 +170,21 @@ class UI(ft.UserControl):
 
         # Crema Original
 
-        self.coi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_co)
-        self.cof = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_co)
-        self.cov = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
+        self.coi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
+        self.cof = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
+        self.cov = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Crema Chocolate
 
-        self.cchi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="6d6d6d", size=10), on_Change=self.conversion_n_capture_cch)
-        self.cchf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_cch)
-        self.cchv = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
+        self.cchi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchv = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Crema Cafe
 
-        self.ccai = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_cca)
-        self.ccaf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), on_Change=self.conversion_n_capture_cca)
-        self.ccav = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#6d6d6d", size=10), read_Only=True)
+        self.ccai = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccaf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccav = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
         
         # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
@@ -194,28 +194,28 @@ class UI(ft.UserControl):
 
         self.t5 = self.create_textField_Extras("black", 40, 25)
         self.t10 = self.create_textField_Extras("black", 40, 25)
-        self.tt = self.create_textField_Extras("#dc0000", 55, 25)
+        self.tt = self.create_textField_Extras("#dc0000", 55, 25, border_Color="#fd0000",)
 
         # Servicios a Domicilio
 
         self.sd20 = self.create_textField_Extras("black", 40, 25)
         self.sd35 = self.create_textField_Extras("black", 40, 25)
-        self.sdt = self.create_textField_Extras("#dc0000", 50, 25)
+        self.sdt = self.create_textField_Extras("#dc0000", 50, 25, border_Color="#fd0000",)
 
         # Transferencias
 
         self.trn = self.create_textField_Extras("black", 50, 25)
-        self.trt = self.create_textField_Extras("#dc0000", 50, 25)
+        self.trt = self.create_textField_Extras("#dc0000", 50, 25, border_Color="#fd0000",)
 
         # Gastos / Retiros
 
         self.grn = self.create_textField_Extras("black", 50, 25)
-        self.grt = self.create_textField_Extras("#dc0000", 50, 25)
+        self.grt = self.create_textField_Extras("#dc0000", 50, 25, border_Color="#fd0000",)
 
         # Balance
 
         self.bgd = self.create_textField_Extras("black", 50, 25)
-        self.bgt = self.create_textField_Extras("#dc0000", 70, 25, 15)
+        self.bgt = self.create_textField_Extras("#dc0000", 70, 25, 15, border_Color="#fd0000",)
 
         # ***** VARIABLES VENTANA VENTAS *****
 
@@ -1026,7 +1026,7 @@ class UI(ft.UserControl):
                                                                                         width=100,
                                                                                         height=30,
                                                                                         alignment=ft.alignment.center,
-                                                                                        content=ft.Text("Fresa", color="white", size=16),
+                                                                                        content=ft.Text("FRESA", color="white", size=16, style=ft.TextStyle(letter_spacing=10)),
                                                                                     ),
                                                                                     ft.Container(
                                                                                         # bgcolor="#f00000",
@@ -1114,7 +1114,7 @@ class UI(ft.UserControl):
                                                                                         width=100,
                                                                                         height=30,
                                                                                         alignment=ft.alignment.center,
-                                                                                        content=ft.Text("Uva", color="white", size=16),
+                                                                                        content=ft.Text("UVA", color="white", size=16, style=ft.TextStyle(letter_spacing=10))
                                                                                     ),
                                                                                     ft.Container(
                                                                                         # bgcolor="#6971ff",
@@ -1429,7 +1429,7 @@ class UI(ft.UserControl):
                     ),
                     ft.Container(# Extras y adicionales
                         expand=True,
-                        bgcolor="pink",
+                        # bgcolor="pink",
                         alignment=ft.alignment.center,
                         margin=ft.Margin(top=0, bottom=0, left=30, right=30),
                         border_radius=15,
@@ -1438,18 +1438,18 @@ class UI(ft.UserControl):
                             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                             vertical_alignment="center",
                             controls=[
-                                ft.Container(
+                                ft.Container(# Toppings Extras
                                     col={"md":6, "lg":1.8},
                                     alignment=ft.alignment.center,
-                                    # width=150,
-                                    bgcolor="blue",
                                     padding=ft.padding.symmetric(horizontal=5, vertical=0),
+                                    # width=150,
+                                    # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
                                                 margin=ft.margin.only(bottom=5),
-                                                content=ft.Text(value="Topping(s) Extra")
+                                                content=ft.Text(value="Topping(s) Extra", color="#ff1765", weight=ft.FontWeight.BOLD)
                                             ),
                                             ft.Column(
                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -1516,18 +1516,18 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container(# Servicios a domicilio
                                     col={"md":6, "lg":1.9},
                                     alignment=ft.alignment.center,
-                                    # width=160,
-                                    bgcolor="blue",
                                     padding=ft.padding.symmetric(horizontal=5, vertical=0),
+                                    # width=160,
+                                    # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
                                                 margin=ft.margin.only(bottom=5),
-                                                content=ft.Text(value="Servicios a Domicilio")
+                                                content=ft.Text(value="Servicios a Domicilio", color="#ff1765", weight=ft.FontWeight.BOLD)
                                             ),
                                             ft.Column(
                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -1594,18 +1594,18 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container(# Transferencias
                                     col={"md":6, "lg":2.1},
                                     alignment=ft.alignment.center,
-                                    # width=250,
-                                    bgcolor="blue",
                                     padding=ft.padding.symmetric(horizontal=5, vertical=0),
+                                    # width=250,
+                                    # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
                                                 margin=ft.margin.only(bottom=5),
-                                                content=ft.Text(value="Transferencias")
+                                                content=ft.Text(value="Transferencias", color="#ff1765", weight=ft.FontWeight.BOLD)
                                             ),
                                             ft.Column(
                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -1658,18 +1658,18 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
-                                    alignment=ft.alignment.center,
+                                ft.Container(# Gastos / Retiros
                                     col={"md":6, "lg":2.2},
-                                    # width=250,
-                                    bgcolor="blue",
+                                    alignment=ft.alignment.center,
                                     padding=ft.padding.symmetric(horizontal=5, vertical=0),
+                                    # width=250,
+                                    # bgcolor="blue",
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
                                                 margin=ft.margin.only(bottom=5),
-                                                content=ft.Text(value="Gastos / Retiros")
+                                                content=ft.Text(value="Gastos / Retiros", color="#ff1765", weight=ft.FontWeight.BOLD)
                                             ),
                                             ft.Column(
                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -1722,18 +1722,18 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container(# Balance General
                                     col={"md":6, "lg":2.5},
                                     alignment=ft.alignment.center,
-                                    bgcolor="blue",
                                     padding=ft.padding.symmetric(horizontal=5, vertical=0),
+                                    # bgcolor="blue",
                                     # width=200,
                                     content=ft.Column(
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
                                                 margin=ft.margin.only(bottom=5),
-                                                content=ft.Text(value="Balance General")
+                                                content=ft.Text(value="Balance General", color="#ff1765", weight=ft.FontWeight.BOLD)
                                             ),
                                             ft.Column(
                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -1800,7 +1800,7 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
+                                ft.Container(# Separador
                                     col={"md":6, "lg":.2},
                                     alignment=ft.alignment.center,
                                     content=ft.Column(
@@ -1816,12 +1816,12 @@ class UI(ft.UserControl):
                                         ]
                                     )
                                 ),
-                                ft.Container(
-                                    # padding=8,
-                                    # border_radius=5,
-                                    bgcolor="blue",
+                                ft.Container(# Botones Repote y Limpiar
                                     col={"md":6, "lg":1.3},
                                     alignment=ft.alignment.center,
+                                    # bgcolor="blue",
+                                    # padding=8,
+                                    # border_radius=5,
                                     content=ft.Column(
                                         spacing=15,
                                         alignment=ft.MainAxisAlignment.CENTER,
@@ -1869,16 +1869,23 @@ class UI(ft.UserControl):
                                         )
                                     ]
                                 ),
-                                ft.Column(# Separador de secciones
-                                    col=12,
-                                    controls=[
-                                        ft.Container(
-                                            margin=ft.Margin(right=25, left=25, top=0, bottom=0),
-                                            bgcolor=self.color_teal,
-                                            height=2,
-                                            border_radius=2.5
-                                        ),
-                                    ]
+                                # ft.Column(# Separador de secciones
+                                #     col=12,
+                                #     controls=[
+                                #         ft.Container(
+                                #             margin=ft.Margin(right=25, left=25, top=0, bottom=0),
+                                #             bgcolor=self.color_teal,
+                                #             height=2,
+                                #             border_radius=2.5
+                                #         ),
+                                #     ]
+                                # ),
+                                ft.Divider(# Separador de seccion con Divider
+                                    height=1,
+                                    color=self.color_teal,
+                                    thickness=3,
+                                    # leading_indent=50,
+                                    # trailing_indent=10
                                 ),
                                 ft.Column(# Dropdowns para fecha
                                     col=12,
@@ -2257,7 +2264,8 @@ class UI(ft.UserControl):
             # color="#dc0000", # rojo
             text_align="center",
             # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
-            label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
+            # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
+            label_style=ft.TextStyle(color="#a2a2a2", size=10), # color = gris claro
             content_padding=3,
             # bgcolor="white",
             bgcolor=ft.colors.BLUE_GREY_900,
@@ -2279,17 +2287,19 @@ class UI(ft.UserControl):
             on_change=on_Change
         )
     
-    def create_textField_Extras(self, Color, Width, Height, text_Size=12, read_Only=False, on_Change=False):
+    def create_textField_Extras(self, Color, Width, Height, text_Size=12, border_Color=None, read_Only=False, on_Change=False):
         return ft.TextField(
             text_size=text_Size,
             color=Color,
             width=Width,
             height=Height,
+            border_color=border_Color,
+            # "#0c52ff" # Color del border_Color a aplicar en una actualizacion a posteriori como predeterminado en lugar del None
+            bgcolor=ft.colors.BLUE_GREY_900,
             cursor_height=15,
             cursor_color="#747474", # gris oscuro
             content_padding=0,
             text_align="center",
-            bgcolor="white",
             focused_border_color="black",
             focused_border_width=1.5,
             read_only=read_Only,
@@ -2396,6 +2406,13 @@ class UI(ft.UserControl):
             
             self.num_fr = self.num_fpf + self.num_fef
             self.num_fv = (self.num_fpi + self.num_fei) - self.num_fr
+
+            if self.num_fr % 2 == 0 or self.num_fr % 2 == 1:
+                self.num_fr = int(self.num_fr)
+
+            if self.num_fv % 2 == 0 or self.num_fv % 2 == 1:
+                self.num_fv = int(self.num_fv)
+
             self.fr.value = round(self.num_fr, 2)
             self.fv.value = round(self.num_fv, 2)
         except ValueError:
@@ -2418,6 +2435,13 @@ class UI(ft.UserControl):
 
             self.num_ur = self.num_upf + self.num_uef
             self.num_uv = (self.num_upi + self.num_uei) - self.num_ur
+
+            if self.num_ur % 2 == 0 or self.num_ur % 2 == 1:
+                self.num_ur = int(self.num_ur)
+
+            if self.num_uv % 2 == 0 or self.num_uv % 2 == 1:
+                self.num_uv = int(self.num_uv)
+
             self.ur.value = round(self.num_ur, 2)
             self.uv.value = round(self.num_uv, 2)
         except ValueError:
@@ -2436,7 +2460,7 @@ class UI(ft.UserControl):
 
             self.num_cov = self.num_coi - self.num_cof
 
-            if self.num_cov % 2 == 0:
+            if self.num_cov % 2 == 0 or self.num_cov % 2 == 1:
                 self.num_cov = int(self.num_cov)
                 
             self.cov.value = round(self.num_cov, 2)
@@ -2456,7 +2480,7 @@ class UI(ft.UserControl):
 
             self.num_cchv = self.num_cchi - self.num_cchf
 
-            if self.num_cchv % 2 == 0:
+            if self.num_cchv % 2 == 0 or self.num_cchv % 2 == 1:
                 self.num_cchv = int(self.num_cchv)
 
             self.cchv.value = round(self.num_cchv, 2)
@@ -2476,7 +2500,7 @@ class UI(ft.UserControl):
 
             self.num_ccav = self.num_ccai - self.num_ccaf
 
-            if self.num_ccav % 2 == 0:
+            if self.num_ccav % 2 == 0 or self.num_ccav % 2 == 1:
                 self.num_ccav = int(self.num_ccav)
             
             self.ccav.value = round(self.num_ccav, 2)
@@ -2503,7 +2527,7 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.title = "Control"
     # page.window.icon = "Gestor_Insumos_Fresas/Fresa_Ico.ico"
-    page.window.maximized = True
+    # page.window.maximized = True
     page.window_resizable = True
     # page.window.icon = ft.Icon.
     # page.window_opacity = .95
