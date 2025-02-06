@@ -27,7 +27,7 @@ class UI(ft.UserControl):
 
         # *** Variables Iconos Inferiores Barra de Navegacion Lateral ***
 
-        self.profiles = ft.IconButton(
+        self.profiles = ft.IconButton(# Ventana Perfiles / Cuentas
             icon=ft.icons.ACCOUNT_CIRCLE_SHARP,
             icon_color="white",
             tooltip="Cuenta",
@@ -42,7 +42,7 @@ class UI(ft.UserControl):
             )
         )
 
-        self.configuration = ft.IconButton(
+        self.configuration = ft.IconButton(# Ventana Configuraciones
             icon=ft.icons.SETTINGS,
             icon_color="white",
             tooltip="Configuraciones",
@@ -78,7 +78,7 @@ class UI(ft.UserControl):
 
         self.lapiedad = self.create_radio("lapiedad", "La Piedad")
 
-        self.pdv = ft.RadioGroup(
+        self.pdv = ft.RadioGroup(# Grupo de Botones tipo Radio de las Sucursales
             on_change=self.pdv_selection,
             content=ft.Column(
                 controls=[
@@ -223,8 +223,8 @@ class UI(ft.UserControl):
 
         # Campos de texto
 
-        self.report_field = ft.TextField(bgcolor="white", multiline=True, min_lines=20)
-        self.sales_field = ft.TextField(bgcolor="white", multiline=True, min_lines=20)
+        self.report_field = ft.TextField(bgcolor=ft.colors.BLUE_GREY_700, color="white", multiline=True, min_lines=20)
+        self.sales_field = ft.TextField(bgcolor=ft.colors.BLUE_GREY_700, color="white", multiline=True, min_lines=20)
 
         # ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
 
@@ -938,12 +938,12 @@ class UI(ft.UserControl):
                             ]
                         )
                     ),
-                    ft.Container(# Separador de secciones
-                        margin=ft.Margin(right=30, left=25, top=0, bottom=0),
-                        bgcolor=self.color_teal,
-                        height=2,
-                        border_radius=2.5
-                    ),
+                    # ft.Container(# Separador de secciones
+                    #     margin=ft.Margin(right=30, left=25, top=0, bottom=0),
+                    #     bgcolor=self.color_teal,
+                    #     height=2,
+                    #     border_radius=2.5
+                    # ),
                     ft.Container(# Frutas y cremas
                         alignment=ft.alignment.center,
                         # bgcolor="pink",
@@ -1421,12 +1421,12 @@ class UI(ft.UserControl):
                             ]
                         )
                     ),
-                    ft.Container(# Separador de secciones
-                        margin=ft.Margin(right=30, left=25, top=0, bottom=0),
-                        bgcolor=self.color_teal,
-                        height=2,
-                        border_radius=2.5
-                    ),
+                    # ft.Container(# Separador de secciones
+                    #     margin=ft.Margin(right=30, left=25, top=0, bottom=0),
+                    #     bgcolor=self.color_teal,
+                    #     height=2,
+                    #     border_radius=2.5
+                    # ),
                     ft.Container(# Extras y adicionales
                         expand=True,
                         # bgcolor="pink",
@@ -1807,7 +1807,7 @@ class UI(ft.UserControl):
                                         horizontal_alignment="center",
                                         controls=[
                                             ft.Container(
-                                                margin=ft.margin.only(top=3),
+                                                margin=ft.margin.only(top=5),
                                                 bgcolor=self.color_teal,
                                                 width=2,
                                                 height=100,
@@ -2236,23 +2236,52 @@ class UI(ft.UserControl):
     # ***** Funcion para el manejo de los radios boton's y la seleccion de las sucursales
 
     def pdv_selection(self, e):
-        print(f"La sucursal seleccionada es: {e.control.value}")
+        # print(f"La sucursal seleccionada es: {e.control.value}")
 
-        if e.control.value == "cofradia3":
+        if e.control.value == "glorieta":
             print("Sucursal Glorieta")
+            self.report_field.value = "                 - Suc. Glorieta -"
+
+        if e.control.value == "sanmiguel":
+            print("Sucursal San Miguel")
+            self.report_field.value = "               - Suc. San Miguel -"
+
+        if e.control.value == "vips":
+            print("Sucursal Vips")
+            self.report_field.value = "                    - Suc. Vips -"
+
+        if e.control.value == "cofradia2":
+            print("Sucursal Cofradia 2")
+            self.report_field.value = "                - Suc. Cofradía 2 -"
+
+        if e.control.value == "ensueños":
+            print("Sucursal Ensueños")
+            self.report_field.value = "                - Suc. Ensueños -"
+
+        if e.control.value == "operagua":
+            print("Sucursal Operagua")
+            self.report_field.value = "                - Suc. Operagua -"
+
+        if e.control.value == "sanantonio":
+            print("Sucursal San Antonio")
+            self.report_field.value = "              - Suc. San Antonio -"
+
+        if e.control.value == "lapiedad":
+            print("Sucursal La piedad")
+            self.report_field.value = "                - Suc. La Piedad -"
 
     # ***** Creacion de radios para sucursales *****
 
-    def create_radio(self, value, label):
+    def create_radio(self, Value, Label):
             return ft.Radio(
-                value=value,
-                label=label,
+                value=Value,
+                label=Label,
                 label_style=ft.TextStyle(size=12),
                 visual_density=ft.VisualDensity.STANDARD,
                 fill_color={
                     ft.ControlState.DEFAULT: ft.Colors.PINK,
-                    ft.ControlState.SELECTED: ft.Colors.GREEN,
-                }
+                    ft.ControlState.SELECTED: self.color_teal,
+                },
             )
     
     # ***** Creacion campos de texto para seccion de vasos *****
