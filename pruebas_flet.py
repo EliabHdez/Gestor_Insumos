@@ -79,3 +79,9 @@
 
 
 # ft.app(main)
+
+
+# prueba_num_coma = "1230"
+
+# if len(prueba_num_coma) >+ 3:
+#     print("El numero debe llevar coma")

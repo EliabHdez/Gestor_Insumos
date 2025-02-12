@@ -1,22 +1,29 @@
 import flet as ft
-import created_Functions
-import datetime as dt
 
 class UI(ft.UserControl):
     def __init__(self, page):
         super().__init__(expand=True)
 
-        # ***** VARIABLES SISTEMA *****
-
-        self.pdv = ""
-
         # self.color_teal = "teal"
         self.color_teal = "#00ebab"
         self.color_teal_2 = "#11b78a"
 
-        # *** Variable Boton cambio de tema ***
+        self.mode_switch = ft.Switch(
+            adaptive=True,
+            tooltip="Modo Nocturno",
+            value=True,
+            thumb_color="#222222",
+            active_track_color=ft.Colors.CYAN,
+            # active_color="red",
+            inactive_thumb_color=ft.Colors.BLUE,
+            inactive_track_color=ft.Colors.BLUE_GREY_500,
+            thumb_icon={
+                ft.MaterialState.HOVERED: ft.icons.DARK_MODE_SHARP,
+                ft.MaterialState.SELECTED: ft.icons.DARK_MODE
+            }
+        )
 
-        self.mode_switch = created_Functions.create_Boton_Switch()
+        # ***** VARIABLES SISTEMA *****
 
         # *** Variables Iconos Inferiores Barra de Navegacion Lateral ***
 
@@ -55,21 +62,21 @@ class UI(ft.UserControl):
 
         # Variables sucursales
 
-        self.glorieta = created_Functions.create_radio("glorieta", "Glorieta")
+        self.glorieta = self.create_radio("glorieta", "Glorieta")
 
-        self.sanmiguel = created_Functions.create_radio("sanmiguel", "San Miguel")
+        self.sanmiguel = self.create_radio("sanmiguel", "San Miguel")
 
-        self.vips = created_Functions.create_radio("vips", "Vips")
+        self.vips = self.create_radio("vips", "vips")
 
-        self. cofradia2 = created_Functions.create_radio("cofradia2", "Cofradía 2")
+        self. cofradia2 = self.create_radio("cofradia2", "Cofradía 2")
 
-        self.ensuenos = created_Functions.create_radio("ensueños", "Ensueños")
+        self.ensuenos = self.create_radio("ensueños", "Ensueños")
 
-        self.operagua = created_Functions.create_radio("operagua", "Operagua")
+        self.operagua = self.create_radio("operagua", "Operagua")
 
-        self.sanantonio = created_Functions.create_radio("sanantonio", "San Antonio")
+        self.sanantonio = self.create_radio("sanantonio", "San Antonio")
 
-        self.lapiedad = created_Functions.create_radio("lapiedad", "La Piedad")
+        self.lapiedad = self.create_radio("lapiedad", "La Piedad")
 
         self.pdv = ft.RadioGroup(# Grupo de Botones tipo Radio de las Sucursales
             on_change=self.pdv_selection,
@@ -97,43 +104,43 @@ class UI(ft.UserControl):
 
         # Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.tci = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vc)
-        self.tcf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vc)
-        self.tcdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vci = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vc)
-        self.vcf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vc)
-        self.vcdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vcsv = created_Functions.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vcven = created_Functions.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
-        self.vcvt = created_Functions.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
+        self.tci = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vc)
+        self.tcf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vc)
+        self.tcdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vci = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vc)
+        self.vcf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vc)
+        self.vcdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vcsv = self.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
+        self.vcven = self.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
+        self.vcvt = self.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
 
         # Variables Vasos Medianos
 
         # Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.tmi = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vm)
-        self.tmf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vm)
-        self.tmdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vmi = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vm)
-        self.vmf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vm)
-        self.vmdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vmsv = created_Functions.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vmven = created_Functions.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
-        self.vmvt = created_Functions.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
+        self.tmi = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vm)
+        self.tmf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vm)
+        self.tmdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vmi = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vm)
+        self.vmf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vm)
+        self.vmdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vmsv = self.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
+        self.vmven = self.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
+        self.vmvt = self.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
 
         # Variables Vasos Grandes
 
         # Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.tgi = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vg)
-        self.tgf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vg)
-        self.tgdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vgi = created_Functions.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vg)
-        self.vgf = created_Functions.create_textfield("Finales", on_Change=self.conversion_n_capture_vg)
-        self.vgdif = created_Functions.create_textfield("Diferencia", read_Only=True)
-        self.vgsv = created_Functions.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vgven = created_Functions.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
-        self.vgvt = created_Functions.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
+        self.tgi = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vg)
+        self.tgf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vg)
+        self.tgdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vgi = self.create_textfield("Iniciales", on_Change=self.conversion_n_capture_vg)
+        self.vgf = self.create_textfield("Finales", on_Change=self.conversion_n_capture_vg)
+        self.vgdif = self.create_textfield("Diferencia", read_Only=True)
+        self.vgsv = self.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
+        self.vgven = self.create_textfield("Vendidos", Color="#ffffff", text_Size=15, read_Only=True)
+        self.vgvt = self.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text="  $", prefix_Style=ft.TextStyle(color="#ffffff", size=13), read_Only=True)
 
         # ***** VARIABLES FRUTAS *****
 
@@ -141,21 +148,21 @@ class UI(ft.UserControl):
 
         # Fresa
 
-        self.fpi = created_Functions.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fpf = created_Functions.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fei = created_Functions.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fef = created_Functions.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
-        self.fv = created_Functions.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
-        self.fr = created_Functions.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.fpi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fpf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_fr)
+        self.fv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.fr = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Uva
 
-        self.upi = created_Functions.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
-        self.upf = created_Functions.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uei = created_Functions.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uef = created_Functions.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
-        self.uv = created_Functions.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
-        self.ur = created_Functions.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.upi = self.create_textfield("Picada Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.upf = self.create_textfield("Picada Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uei = self.create_textfield("Entera Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uef = self.create_textfield("Entera Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_uva)
+        self.uv = self.create_textfield(Label="Vendida", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.ur = self.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # ***** VARIABLES CREMAS *****
 
@@ -163,21 +170,21 @@ class UI(ft.UserControl):
 
         # Crema Original
 
-        self.coi = created_Functions.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
-        self.cof = created_Functions.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
-        self.cov = created_Functions.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.coi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
+        self.cof = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_co)
+        self.cov = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Crema Chocolate
 
-        self.cchi = created_Functions.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
-        self.cchf = created_Functions.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
-        self.cchv = created_Functions.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.cchi = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cch)
+        self.cchv = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Crema Cafe
 
-        self.ccai = created_Functions.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
-        self.ccaf = created_Functions.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
-        self.ccav = created_Functions.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
+        self.ccai = self.create_textfield("Inicial", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccaf = self.create_textfield("Final", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), on_Change=self.conversion_n_capture_cca)
+        self.ccav = self.create_textfield(Label="Vendidos", Color="#ffffff", text_Size=15, border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
         
         # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
@@ -185,31 +192,31 @@ class UI(ft.UserControl):
 
         # Toppings Extras
 
-        self.t5 = created_Functions.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
-        self.t10 = created_Functions.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
-        self.tt = created_Functions.create_textField_Extras(55, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.t5 = self.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
+        self.t10 = self.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
+        self.tt = self.create_textField_Extras(55, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
 
         # Servicios a Domicilio
 
-        self.sd25 = created_Functions.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
-        self.sd35 = created_Functions.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
-        self.sdt = created_Functions.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.sd25 = self.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
+        self.sd35 = self.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
+        self.sdt = self.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
 
         # Transferencias
 
-        self.trn = created_Functions.create_textField_Extras(50, 25)
-        self.trt = created_Functions.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000")
+        self.trn = self.create_textField_Extras(50, 25)
+        self.trt = self.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000")
 
         # Gastos / Retiros
 
-        self.grn = created_Functions.create_textField_Extras(50, 25)
-        self.grt = created_Functions.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", on_Change=self.balance_General)
+        self.grn = self.create_textField_Extras(50, 25)
+        self.grt = self.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", on_Change=self.balance_General)
 
         # Balance
 
-        self.bgi = created_Functions.create_textField_Extras(50, 25)
-        self.bgd = created_Functions.create_textField_Extras(50, 25)
-        self.bgt = created_Functions.create_textField_Extras(70, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.bgi = self.create_textField_Extras(50, 25)
+        self.bgd = self.create_textField_Extras(50, 25)
+        self.bgt = self.create_textField_Extras(70, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
 
         # ***** VARIABLES VENTANA VENTAS *****
 
@@ -217,8 +224,8 @@ class UI(ft.UserControl):
 
         # Campos de texto
 
-        self.report_field = created_Functions.create_textField_RyV("REPORTE")
-        self.sales_field = created_Functions.create_textField_RyV("EXTRAS")
+        self.report_field = ft.TextField(bgcolor=ft.colors.BLUE_GREY_700, color="white", multiline=True, min_lines=20, text_size=16, cursor_height=18, cursor_color="white", border_color="#0c52ff", border_width=1.5)
+        self.sales_field = ft.TextField(bgcolor=ft.colors.BLUE_GREY_700, color="white", multiline=True, min_lines=20, text_size=16, cursor_height=18, cursor_color="white", border_color="#0c52ff", border_width=1.5)
 
         # ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
 
@@ -1824,11 +1831,11 @@ class UI(ft.UserControl):
                                             ft.FilledButton(text="Resetear Campos", width=120, bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
                                                 ft.ControlState.DEFAULT: ft.TextStyle(size=12),
                                                 ft.ControlState.PRESSED: ft.TextStyle(size=6)
-                                            }), on_click=self.reset_Fields),
+                                            })),
                                             ft.FilledButton(text="Generar Reporte", width=120, bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
                                                 ft.ControlState.DEFAULT: ft.TextStyle(size=12),
                                                 ft.ControlState.PRESSED: ft.TextStyle(size=6)
-                                            }), on_click=self.generar_Reporte)
+                                            }))
                                         ]
                                     )
                                 )
@@ -1846,7 +1853,7 @@ class UI(ft.UserControl):
             bgcolor=ft.colors.BLUE_GREY_800,
             border_radius=10,
             content=ft.Container(
-                margin=3,
+                margin=10,
                 # bgcolor="pink",
                 content=ft.Column(
                     controls=[
@@ -2227,103 +2234,108 @@ class UI(ft.UserControl):
         self.main_container.content = self.pages_containers[index]
         self.update()
 
-    def pdv_selection(self, e):
-        if e.control.value == "glorieta":
-            self.pdv = "Suc. Glorieta"
-
-        if e.control.value == "sanmiguel":
-            self.pdv = "Suc. San Miguel"
-
-        if e.control.value == "vips":
-            self.pdv = "Suc. Vips"
-
-        if e.control.value == "cofradia2":
-            self.pdv = "Suc. Cofradía 2"
-
-        if e.control.value == "ensueños":
-            self.pdv = "Suc. Ensueños"
-
-        if e.control.value == "operagua":
-            self.pdv = "Suc. Operagua"
-
-        if e.control.value == "sanantonio":
-            self.pdv = "Suc. San Antonio"
-
-        if e.control.value == "lapiedad":
-            self.pdv = "Suc. La Piedad"
-
-        if e.control == "radiogroup {'n': 'content'}":
-            self.pdv = "PDV sin seleccionar"
-
     # ***** Funcion para el manejo de los radios boton's y la seleccion de las sucursales
 
-    def generar_Reporte(self, e):
+    def pdv_selection(self, e):
         # print(f"La sucursal seleccionada es: {e.control.value}")
-        self.fecha_Actual = dt.datetime.today().date()
 
-        self.fecha_Formateada = self.fecha_Actual.strftime("%d-%b-%Y")
+        if e.control.value == "glorieta":
+            print("Sucursal Glorieta")
+            self.report_field.value = "                 - Suc. Glorieta -"
 
-        self.report_field.value = self.fecha_Formateada
+        if e.control.value == "sanmiguel":
+            print("Sucursal San Miguel")
+            self.report_field.value = "               - Suc. San Miguel -"
 
-        self.report_field.value = (
-                                f"                                                   {self.fecha_Formateada}\n\n"
-                                f"<<< {self.pdv} >>>\n\n"
-                                f"Tapas Chicas Iniciales: {self.tci.value}\n"  
-                                f"Tapas Chicas Finales: {self.tcf.value}\n"   
-                                f"Tapas Chicas Diferencia: {self.tcdif.value}\n"
-                                f"Vasos Chicos Iniciales: {self.vci.value}\n"  
-                                f"Vasos Chicos Finales: {self.vcf.value}\n"   
-                                f"Vasos Chicos Diferencia: {self.vcdif.value}\n"
-                                f"Vasos Chicos Sin vender: {self.vcsv.value}\n"  
-                                f"VASOS CHICOS VENDIDOS: {self.vcven.value}\n"   
-                                f"VENTA TOTAL VASOS CHICOS: $ {self.vcvt.value}\n\n"
+        if e.control.value == "vips":
+            print("Sucursal Vips")
+            self.report_field.value = "                    - Suc. Vips -"
 
-                                f"Tapas Medianas Iniciales: {self.tmi.value}\n"  
-                                f"Tapas Medianas Finales: {self.tmf.value}\n"   
-                                f"Tapas Medianas Diferencia: {self.tmdif.value}\n"
-                                f"Vasos Medianos Iniciales: {self.vmi.value}\n"  
-                                f"Vasos Medianos Finales: {self.vmf.value}\n"   
-                                f"Vasos Medianos Diferencia: {self.vmdif.value}\n"
-                                f"Vasos Medianos Sin vender: {self.vmsv.value}\n"  
-                                f"VASOS MEDIANOS VENDIDOS: {self.vmven.value}\n"   
-                                f"VENTA TOTAL VASOS MEDIANOS: $ {self.vmvt.value}\n\n"
+        if e.control.value == "cofradia2":
+            print("Sucursal Cofradia 2")
+            self.report_field.value = "                - Suc. Cofradía 2 -"
 
-                                f"Tapas Grandes Iniciales: {self.tgi.value}\n"  
-                                f"Tapas Grandes Finales: {self.tgf.value}\n"   
-                                f"Tapas Grandes Diferencia: {self.tgdif.value}\n"
-                                f"Vasos Grandes Iniciales: {self.vgi.value}\n"  
-                                f"Vasos Grandes Finales: {self.vgf.value}\n"   
-                                f"Vasos Grandes Diferencia: {self.vgdif.value}\n"
-                                f"Vasos Grandes Sin vender: {self.vgsv.value}\n"  
-                                f"VASOS GRANDES VENDIDOS: {self.vgven.value}\n"   
-                                f"VENTA TOTAL VASOS GRANDES: $ {self.vgvt.value}\n\n"
+        if e.control.value == "ensueños":
+            print("Sucursal Ensueños")
+            self.report_field.value = "                - Suc. Ensueños -"
 
-                                f"Fresa Picada Inicial (Botes): {self.fpi.value}\n"  
-                                f"Fresa Picada Final (Botes): {self.fpf.value}\n"   
-                                f"Fresa Entera Inicial (Botes): {self.fei.value}\n"
-                                f"Fresa Entera Final (Botes): {self.fef.value}\n"  
-                                f"Fresa Remanente (Botes): {self.fr.value}\n"   
-                                f"TOTAL FRESA VENDIDA (BOTES): {self.fv.value}\n\n"
+        if e.control.value == "operagua":
+            print("Sucursal Operagua")
+            self.report_field.value = "                - Suc. Operagua -"
 
-                                f"Uva Picada Inicial (Botes): {self.upi.value}\n"  
-                                f"Uva Picada Final (Botes): {self.upf.value}\n"   
-                                f"Uva Entera Inicial (Botes): {self.uei.value}\n"
-                                f"Uva Entera Final (Botes): {self.uef.value}\n"  
-                                f"Uva Remanente (Botes): {self.ur.value}\n"   
-                                f"TOTAL UVA VENDIDA (BOTES): {self.uv.value}\n\n"
+        if e.control.value == "sanantonio":
+            print("Sucursal San Antonio")
+            self.report_field.value = "              - Suc. San Antonio -"
 
-                                f"Crema Original Inicial (Botes): {self.coi.value}\n"  
-                                f"Crema Original Final (Botes): {self.cof.value}\n"   
-                                f"CREMA ORIGINAL VENDIDA (Botes): {self.cov.value}\n\n"
+        if e.control.value == "lapiedad":
+            print("Sucursal La piedad")
+            self.report_field.value = "                - Suc. La Piedad -"
 
-                                f"Crema Chocolate Inicial (Botes): {self.cchi.value}\n"  
-                                f"Crema Chocolate Final (Botes): {self.cchf.value}\n"   
-                                f"CREMA CHOCOLATE VENDIDA (Botes): {self.cchv.value}\n\n"
-                                
-                                f"Crema Cafe Inicial (Botes): {self.ccai.value}\n"  
-                                f"Crema Cafe Final (Botes): {self.ccaf.value}\n"   
-                                f"CREMA CAFE VENDIDA (Botes): {self.ccav.value}\n\n"
-                            )
+    # ***** Función creadora de radios para la selección de sucursales *****
+
+    def create_radio(self, Value, Label):
+            return ft.Radio(
+                value=Value,
+                label=Label,
+                label_style=ft.TextStyle(size=12),
+                visual_density=ft.VisualDensity.STANDARD,
+                fill_color={
+                    ft.ControlState.DEFAULT: ft.Colors.PINK,
+                    ft.ControlState.SELECTED: self.color_teal,
+                },
+            )
+    
+    # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
+
+    def create_textfield(self, Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None):
+        return ft.TextField(
+            height=30,
+            width=80,
+            # color="#dc0000", # rojo
+            text_align="center",
+            # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
+            # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
+            label_style=ft.TextStyle(color="#a2a2a2", size=10), # color = gris claro
+            content_padding=3,
+            # bgcolor="white",
+            bgcolor=ft.colors.BLUE_GREY_900,
+            cursor_height=18,
+            # cursor_color="#747474", # gris oscuro
+            cursor_color="#a8a8a8", # gris oscuro
+            focused_border_color=focused_Border_Color,
+            focused_border_width=1.7,
+            label=Label,
+            color=Color,
+            text_size=text_Size,
+            prefix_text=prefix_Text,
+            border_color=border_Color,
+            border_width=border_Width,
+            hint_text=hint_Text,
+            hint_style=hint_Style,
+            read_only=read_Only,
+            on_change=on_Change
+        )
+    
+    # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
+    
+    def create_textField_Extras(self, Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False):
+        return ft.TextField(
+            text_size=text_Size,
+            color=Color,
+            width=Width,
+            height=Height,
+            border_color=border_Color,
+            # "#0c52ff" # Color del border_Color a aplicar en una actualizacion a posteriori como predeterminado en lugar del None
+            bgcolor=ft.colors.BLUE_GREY_900,
+            cursor_height=15,
+            cursor_color="#a8a8a8", # gris oscuro
+            content_padding=0,
+            text_align="center",
+            focused_border_color="black",
+            focused_border_width=1.5,
+            read_only=read_Only,
+            on_change=on_Change
+        )
     
     # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
 
@@ -2567,6 +2579,8 @@ class UI(ft.UserControl):
         try:
             self.num_trt = int(self.trt.value)
             self.num_grt = int(self.grt.value)
+            print(type(self.num_trt))
+            print(type(self.num_grt))
             self.num_bgd = self.num_trt + self.num_grt
             self.bgd.value = self.num_bgd
             self.num_bgt = self.bgi.value - self.bgd.value
@@ -2576,24 +2590,6 @@ class UI(ft.UserControl):
             pass
         finally:
             self.update()
-
-    def reset_Fields(self, e):
-        self.variables_vc = [self.tci, self.tcf, self.tcdif, self.vci, self.vcf, self.vcdif, self.vcsv, self.vcven, self.vcvt]
-
-        for element in self.variables_vc:
-            element.value = ""
-
-        self.variables_vm = [self.tmi, self.tmf, self.tmdif, self.vmi, self.vmf, self.vmdif, self.vmsv, self.vmven, self.vmvt]
-
-        for element in self.variables_vm:
-            element.value = ""
-
-        self.variables_vg = [self.tgi, self.tgf, self.tgdif, self.vgi, self.vgf, self.vgdif, self.vgsv, self.vgven, self.vgvt]
-
-        for element in self.variables_vg:
-            element.value = ""
-
-        self.update()
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 
