@@ -88,18 +88,21 @@ def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border
         on_change=on_Change
     )
 
-def create_textField_RyV(counter_Text):
+def create_textField_RyV(counter_Text, read_Only=True):
     return ft.TextField(
-         bgcolor=ft.colors.BLUE_GREY_700,
+        #  bgcolor=ft.colors.BLUE_GREY_700,
+         bgcolor="#292929",
          color="white",
          multiline=True,
          min_lines=25,
          text_size=12,
          cursor_height=15,
          cursor_color="white",
-         border_color="#0c52ff",
-         border_width=1.5,
+        #  border_color="#0c52ff",
+         border_color="white",
+         border_width=1,
          counter_text=counter_Text,
-         counter_style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10)
+         counter_style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10),
+         read_only=read_Only
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )

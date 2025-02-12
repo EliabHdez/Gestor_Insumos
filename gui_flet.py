@@ -218,7 +218,7 @@ class UI(ft.UserControl):
         # Campos de texto
 
         self.report_field = created_Functions.create_textField_RyV("REPORTE")
-        self.sales_field = created_Functions.create_textField_RyV("EXTRAS")
+        self.sales_field = created_Functions.create_textField_RyV("EXTRAS", False)
 
         # ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
 
@@ -2051,7 +2051,14 @@ class UI(ft.UserControl):
                                                     # bgcolor=self.color_teal,
                                                     alignment=ft.alignment.center,
                                                     border_radius=5,
-                                                    padding=4,
+                                                    padding=1,
+                                                    shadow=ft.BoxShadow(
+                                                        spread_radius=1,
+                                                        blur_radius=15,
+                                                        color=ft.colors.BLUE_GREY_100,
+                                                        offset=ft.Offset(0, 0),
+                                                        blur_style=ft.ShadowBlurStyle.OUTER,
+                                                    ),
                                                     content=self.report_field
                                                 )
                                             ),
@@ -2088,7 +2095,7 @@ class UI(ft.UserControl):
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Limpiar Campos", bgcolor=self.color_teal, color="black", icon=ft.Icons.CLEAR_ALL),
+                                                                        content=ft.ElevatedButton(text="Limpiar Campos", bgcolor=self.color_teal, color="black", icon=ft.Icons.CLEAR_ALL, on_click=self.reset_fieldsText),
                                                                     ),
                                                                 ]
                                                             )
@@ -2105,7 +2112,14 @@ class UI(ft.UserControl):
                                                     # bgcolor=self.color_teal,
                                                     alignment=ft.alignment.center,
                                                     border_radius=5,
-                                                    padding=4,
+                                                    padding=1,
+                                                    shadow=ft.BoxShadow(
+                                                        spread_radius=1,
+                                                        blur_radius=15,
+                                                        color=ft.colors.BLUE_GREY_100,
+                                                        offset=ft.Offset(0, 0),
+                                                        blur_style=ft.ShadowBlurStyle.OUTER,
+                                                    ),
                                                     content= self.sales_field
                                                 )
                                             ),
@@ -2323,6 +2337,26 @@ class UI(ft.UserControl):
                                 f"Crema Cafe Inicial (Botes): {self.ccai.value}\n"  
                                 f"Crema Cafe Final (Botes): {self.ccaf.value}\n"   
                                 f"CREMA CAFE VENDIDA (Botes): {self.ccav.value}\n\n"
+
+                                f"Topping Extra de $5: {self.t5.value}\n"
+                                f"Topping Extra de $10: {self.t10.value}\n"   
+                                f"TOTAL TOPPINGS EXTRA: $ {self.tt.value}\n\n"
+
+                                f"Servicio a Domicilio de $25: {self.sd25.value}\n"  
+                                f"Servicio a Domicilio de $35: {self.sd35.value}\n"   
+                                f"TOTAL SERVICIOS A DOMICILIO: $ {self.sdt.value}\n\n"
+
+                                f"No. de Transferencias: {self.trn.value}\n"  
+                                f"MONTO TOTAL TRANSFERENCIAS: $ {self.trt.value}\n\n"
+
+                                f"No. de Gastos / Retiros: {self.grn.value}\n"
+                                f"MONTO TOTAL GASTOS / RETIROS: $ {self.grt.value}\n\n"
+
+                                f"Total de Ingresos: $ {self.bgi.value}\n"
+                                f"Diferencia: $ {self.bgd.value}\n\n"
+                                f"TOTAL PDV EN EFECTIVO: $ {self.bgt.value}\n\n"
+
+                                f"<<< FIN DEL REPORTE >>>"
                             )
     
     # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
@@ -2579,21 +2613,46 @@ class UI(ft.UserControl):
 
     def reset_Fields(self, e):
         self.variables_vc = [self.tci, self.tcf, self.tcdif, self.vci, self.vcf, self.vcdif, self.vcsv, self.vcven, self.vcvt]
-
         for element in self.variables_vc:
             element.value = ""
 
         self.variables_vm = [self.tmi, self.tmf, self.tmdif, self.vmi, self.vmf, self.vmdif, self.vmsv, self.vmven, self.vmvt]
-
         for element in self.variables_vm:
             element.value = ""
 
         self.variables_vg = [self.tgi, self.tgf, self.tgdif, self.vgi, self.vgf, self.vgdif, self.vgsv, self.vgven, self.vgvt]
-
         for element in self.variables_vg:
             element.value = ""
 
+        self.variables_fresa = [self.fpi, self.fpf, self.fei, self.fef, self.fr, self.fv]
+        for element in self.variables_fresa:
+            element.value = ""
+
+        self.variables_uva = [self.upi, self.upf, self.uei, self.uef, self.ur, self.uv]
+        for element in self.variables_uva:
+            element.value = ""
+
+        self.variables_co = [self.coi, self.cof, self.cov]
+        for element in self.variables_co:
+            element.value = ""
+
+        self.variables_cch = [self.cchi, self.cchf, self.cchv]
+        for element in self.variables_cch:
+            element.value = ""
+
+        self.variables_cca = [self.ccai, self.ccaf, self.ccav]
+        for element in self.variables_cca:
+            element.value = ""
+
+        self.extras = [self.t5, self.t10, self.tt, self.sd25, self.sd35, self.sdt, self.trn, self.trt, self.grn, self.grt, self.bgi, self.bgd, self.bgt]
+        for element in self.extras:
+            element.value = ""
+
         self.update()
+
+    def reset_fieldsText(self, e):
+        self.report_field.value = ""
+        self.sales_field.value = ""
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 
@@ -2613,8 +2672,8 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.title = "Control"
     # page.window.icon = "Gestor_Insumos_Fresas/Fresa_Ico.ico"
-    # page.window.maximized = True
-    page.window_resizable = True
+    page.window.maximized = True
+    page.window_resizable = False
     # page.window.icon = ft.Icon.
     # page.window_opacity = .95
     page.add(UI(page))
