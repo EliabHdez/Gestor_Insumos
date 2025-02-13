@@ -1771,7 +1771,7 @@ class UI(ft.UserControl):
                                                                     controls=[
                                                                         ft.Row(
                                                                             controls=[
-                                                                                ft.Text(value="Total PDV"),
+                                                                                ft.Text(value="Total Efectivo PDV"),
                                                                             ]
                                                                         )
                                                                     ]
@@ -2353,8 +2353,8 @@ class UI(ft.UserControl):
                                 f"MONTO TOTAL GASTOS / RETIROS: $ {self.grt.value}\n\n"
 
                                 f"Total de Ingresos: $ {self.bgi.value}\n"
-                                f"Diferencia: $ {self.bgd.value}\n\n"
-                                f"TOTAL PDV EN EFECTIVO: $ {self.bgt.value}\n\n"
+                                f"Diferencia entre I/G/R/T: $ {self.bgd.value}\n\n"
+                                f"TOTAL EFECTIVO PDV: $ {self.bgt.value}\n\n"
 
                                 f"<<< FIN DEL REPORTE >>>"
                             )
@@ -2606,7 +2606,6 @@ class UI(ft.UserControl):
             self.num_bgt = self.bgi.value - self.bgd.value
             self.bgt.value = self.num_bgt
         except ValueError:
-            print("Tipo de dato incorrecto")
             pass
         finally:
             self.update()
@@ -2624,24 +2623,12 @@ class UI(ft.UserControl):
         for element in self.variables_vg:
             element.value = ""
 
-        self.variables_fresa = [self.fpi, self.fpf, self.fei, self.fef, self.fr, self.fv]
-        for element in self.variables_fresa:
+        self.variables_frutas = [self.fpi, self.fpf, self.fei, self.fef, self.fr, self.fv, self.upi, self.upf, self.uei, self.uef, self.ur, self.uv]
+        for element in self.variables_frutas:
             element.value = ""
 
-        self.variables_uva = [self.upi, self.upf, self.uei, self.uef, self.ur, self.uv]
-        for element in self.variables_uva:
-            element.value = ""
-
-        self.variables_co = [self.coi, self.cof, self.cov]
-        for element in self.variables_co:
-            element.value = ""
-
-        self.variables_cch = [self.cchi, self.cchf, self.cchv]
-        for element in self.variables_cch:
-            element.value = ""
-
-        self.variables_cca = [self.ccai, self.ccaf, self.ccav]
-        for element in self.variables_cca:
+        self.variables_cremas = [self.coi, self.cof, self.cov, self.cchi, self.cchf, self.cchv, self.ccai, self.ccaf, self.ccav]
+        for element in self.variables_cremas:
             element.value = ""
 
         self.extras = [self.t5, self.t10, self.tt, self.sd25, self.sd35, self.sdt, self.trn, self.trt, self.grn, self.grt, self.bgi, self.bgd, self.bgt]
@@ -2667,14 +2654,10 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.BLUE_GREY_900
     page.window_min_height = 680
     page.window_min_width = 920
-    # page.window_max_height = 620
-    # page.window_max_width = 1080
     page.theme_mode = ft.ThemeMode.DARK
-    page.title = "Control"
-    # page.window.icon = "Gestor_Insumos_Fresas/Fresa_Ico.ico"
+    page.title = "Control PDV's"
     page.window.maximized = True
     page.window_resizable = False
-    # page.window.icon = ft.Icon.
     # page.window_opacity = .95
     page.add(UI(page))
 
