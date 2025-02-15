@@ -3,7 +3,7 @@ import created_Functions
 import datetime as dt
 from fpdf import FPDF
 
-class UI(ft.UserControl):
+class UI(ft.ResponsiveRow):
     def __init__(self, page):
         super().__init__(expand=True)
 
@@ -975,7 +975,7 @@ class UI(ft.UserControl):
                                         ),
                                         ft.Container(# Contenedores Frutas
                                             alignment=ft.alignment.center,
-                                            padding=ft.Padding(top=0, bottom=0, left=30, right=30),
+                                            padding=ft.Padding(top=0, bottom=0, left=20, right=15),
                                             # bgcolor="black",
                                             content=ft.Column(
                                                 controls=[
@@ -983,7 +983,7 @@ class UI(ft.UserControl):
                                                         alignment=ft.MainAxisAlignment.CENTER,
                                                         vertical_alignment="center",
                                                         controls=[
-                                                            ft.Container(
+                                                            ft.Container(# Seccion FRESA
                                                                 col=5.5,
                                                                 # bgcolor="pink",
                                                                 content=ft.Column(
@@ -1069,12 +1069,13 @@ class UI(ft.UserControl):
                                                                     ]
                                                                 )
                                                             ),
-                                                            ft.Container(
+                                                            ft.Container(# Seccion UVA
                                                                 col=5.5,
                                                                 # bgcolor="pink",
                                                                 content=ft.Column(
                                                                     controls=[
                                                                         ft.Container(
+                                                                            alignment=ft.alignment.center,
                                                                             content=ft.Row(
                                                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                                                 controls=[
@@ -1096,8 +1097,6 @@ class UI(ft.UserControl):
                                                                         ft.Container(
                                                                             content=ft.Row(
                                                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-                                                                                spacing=150,
-                                                                                vertical_alignment="center",
                                                                                 controls=[
                                                                                     ft.Container(
                                                                                         # bgcolor="#f00000",
@@ -1822,13 +1821,13 @@ class UI(ft.UserControl):
                                         alignment=ft.MainAxisAlignment.CENTER,
                                         horizontal_alignment="center",
                                         controls=[
-                                            ft.FilledButton(text="Resetear Campos", width=120, bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
+                                            ft.ElevatedButton(text="Resetear Campos", bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(text_style={
                                                 ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                ft.ControlState.PRESSED: ft.TextStyle(size=6)
+                                                ft.ControlState.PRESSED: ft.TextStyle(size=10)
                                             }), on_click=self.reset_Fields),
-                                            ft.FilledButton(text="Generar Reporte", width=120, bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), text_style={
+                                            ft.ElevatedButton(text="Generar Reporte", bgcolor=self.color_teal, color="#0a0a0a", style=ft.ButtonStyle(side=ft.BorderSide(1.5, color="#181818"), padding=10, text_style={
                                                 ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                ft.ControlState.PRESSED: ft.TextStyle(size=6)
+                                                ft.ControlState.PRESSED: ft.TextStyle(size=10)
                                             }), on_click=self.generar_Reporte)
                                         ]
                                     )
@@ -2034,7 +2033,7 @@ class UI(ft.UserControl):
                                 ),
                             ]
                         ),
-                        ft.Column(# Campos de texto y archivos
+                         ft.Column(# Campos de texto y archivos
                             expand=True,
                             controls=[
                                 ft.Container(
@@ -2081,22 +2080,34 @@ class UI(ft.UserControl):
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Cargar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.ADD),
+                                                                        content=ft.ElevatedButton(text="Cargar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.ADD, icon_color="black", style=ft.ButtonStyle(text_style={
+                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                                                        })),
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Exportar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.UPLOAD, on_click=self.create_ReportePDF),
+                                                                        content=ft.ElevatedButton(text="Exportar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.UPLOAD, icon_color="black", style=ft.ButtonStyle(text_style={
+                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                                                        }), on_click=self.create_ReportePDF),
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Borrar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.DELETE),
+                                                                        content=ft.ElevatedButton(text="Borrar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.DELETE, icon_color="black", style=ft.ButtonStyle(text_style={
+                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                                                        })),
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Limpiar Campos", bgcolor=self.color_teal, color="black", icon=ft.Icons.CLEAR_ALL, on_click=self.reset_fieldsText),
+                                                                        content=ft.ElevatedButton(text="Limpiar Campos", bgcolor=self.color_teal, color="black", icon=ft.Icons.CLEAR_ALL, icon_color="black", style=ft.ButtonStyle(text_style={
+                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+                                                                        }), on_click=self.reset_fieldsText),
                                                                     ),
                                                                 ]
                                                             )
@@ -2367,14 +2378,14 @@ class UI(ft.UserControl):
         pdf = FPDF(orientation="P", unit="mm", format="A4")
         pdf.add_page()
         
-        pdf.set_font("Arial", "", 12)
+        pdf.set_font("Arial", "", 10)
         
-        pdf.image("FresaReporte.png", 10, 10, 20)
-        pdf.cell(0, 7, f'{self.fecha_Formateada}', 0, 1, "R")
+        pdf.image("../Images/Images_Program/FresaReporte.png", 10, 7, 20)
+        pdf.cell(187, 5, f'{self.fecha_Formateada}', 0, 1, "R")
         
         # Titulo
-        pdf.cell(0, 20, f'Reporte {self.pdv}'.upper(), 0, 1, 'C')
-        pdf.line(70, 30, 140, 30)
+        pdf.cell(0, 25, f'Reporte {self.pdv}'.upper(), 0, 1, 'C')
+        pdf.line(70, 28, 140, 28)
         
         # Vasos Chicos
         pdf.cell(160, 7, 'Tapas Chicas Iniciales', 1, 0)
@@ -2397,7 +2408,7 @@ class UI(ft.UserControl):
         pdf.cell(30, 7, '0', 1, 1, 'C')
         
         # Separador con celda
-        pdf.cell(0, 7, '', 0, 1)
+        pdf.cell(0, 4, '', 0, 1)
         
         # Vasos Medianos
         pdf.cell(160, 7, 'Tapas Medianas Iniciales', 1, 0)
@@ -2420,7 +2431,7 @@ class UI(ft.UserControl):
         pdf.cell(30, 7, '0', 1, 1, 'C')
         
         # Separador con celda
-        pdf.cell(0, 7, '', 0, 1)
+        pdf.cell(0, 4, '', 0, 1)
         
         # Vasos Grandes
         pdf.cell(160, 7, 'Tapas Grandes Iniciales', 1, 0)
@@ -2442,8 +2453,21 @@ class UI(ft.UserControl):
         pdf.cell(160, 7, 'VENTA TOTAL VASOS ', 1, 0)
         pdf.cell(30, 7, '0', 1, 1, 'C')
         
+        # Fresa
+        pdf.cell(160, 7, 'Fresa Picada Inicial (Botes)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(160, 7, 'Fresa Picada Final (Botes)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(160, 7, 'Fresa Entera Inicial (Botes)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(160, 7, 'Fresa Entera Final (Botes)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(160, 7, 'Fresa Remanente (Botes)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(160, 7, 'TOTAL DE FRESA VENDIDA (BOTES)', 1, 0)
+        pdf.cell(30, 7, '0', 1, 1, 'C')
         
-        pdf.output(f"{self.fecha_Formateada_RN} - Reporte {self.pdv}.pdf")
+        pdf.output(f"../Reportes_PDV's/{self.fecha_Formateada_RN} - Reporte {self.pdv}.pdf")
     
     # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
 
@@ -2726,6 +2750,7 @@ class UI(ft.UserControl):
     def reset_fieldsText(self, e):
         self.report_field.value = ""
         self.sales_field.value = ""
+        self.update()
 
     # ***** FUNCTION CONSTRUCTORA (NO ME QUEDA CLARO PARA QUE Y PORQUE SE HACE, TENGO QUE INVESTIGAR A FONDO) *****
 

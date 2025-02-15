@@ -16,8 +16,8 @@ def create_Boton_Switch():
         inactive_thumb_color=ft.Colors.BLUE,
         inactive_track_color=ft.Colors.BLUE_GREY_500,
         thumb_icon={
-            ft.MaterialState.HOVERED: ft.icons.DARK_MODE_SHARP,
-            ft.MaterialState.SELECTED: ft.icons.DARK_MODE
+            ft.ControlState.HOVERED: ft.icons.DARK_MODE_SHARP,
+            ft.ControlState.SELECTED: ft.icons.DARK_MODE
         }
     )
 
