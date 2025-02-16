@@ -676,7 +676,7 @@ def main(page: Page):
         animation_duration=300,
         scrollable=False,
         indicator_tab_size=True,
-        indicator_thickness=10,
+        indicator_thickness=1,
         tabs=[
             Tab(
                 text="Ventas",
