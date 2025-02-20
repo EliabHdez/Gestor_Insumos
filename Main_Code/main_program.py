@@ -238,22 +238,27 @@ class UI(ft.ResponsiveRow):
                             on_change=self.change_page,
                             selected_index=0,
                             indicator_color=self.color_teal_2,
+                            # selected_label_text_style=ft.TextStyle(color=self.color_teal_2),
                             destinations=[
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.HOME,
-                                    label_content=ft.Text("INICIO", size=8)
+                                    label_content=ft.Text("INICIO", size=8),
+                                    selected_icon=ft.Icon(ft.icons.HOME, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.POINT_OF_SALE_SHARP,
                                     label_content=ft.Text("VENTAS", size=8),
+                                    selected_icon=ft.Icon(ft.icons.POINT_OF_SALE_SHARP, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.ACCOUNT_TREE_ROUNDED,
                                     label_content=ft.Text("PDV's", size=8),
+                                    selected_icon=ft.Icon(ft.icons.ACCOUNT_TREE_ROUNDED, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.icons.INVENTORY,
-                                    label_content=ft.Text("STOCK", size=8)
+                                    label_content=ft.Text("STOCK", size=8),
+                                    selected_icon=ft.Icon(ft.icons.INVENTORY, color="#2e2e2e")
                                 )
                             ]
                         )
@@ -315,7 +320,6 @@ class UI(ft.ResponsiveRow):
                     #     height=2,
                     #     border_radius=2.5
                     # ),
-                    
                     ft.Tabs(
                         selected_index=1,
                         label_color="blue",
