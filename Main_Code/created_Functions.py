@@ -37,23 +37,59 @@ def create_radio(Value, Label):
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, Color="#d3d3d3", text_Size=20, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None):
+def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), Color="#d3d3d3", text_Size=20, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
     return ft.TextField(
-        height=60,
-        width=100,
+        # height=30,
+        width=Width,
         # color="#dc0000", # rojo
         text_align="center",
         # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
         # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
-        label_style=ft.TextStyle(color="#a2a2a2", size=12), # color = gris claro
-        content_padding=3,
+        label_style=label_Style, # color = gris claro
+        # content_padding=2,
         # bgcolor="white",
-        bgcolor=ft.colors.BLUE_GREY_900,
-        cursor_height=25,
+        # bgcolor=ft.colors.BLUE_GREY_900,
+        cursor_height=22,
         # cursor_color="#747474", # gris oscuro
         cursor_color="#a8a8a8", # gris oscuro
         focused_border_color=focused_Border_Color,
-        focused_border_width=1.7,
+        # focused_border_color="#00ebab",
+        focused_border_width=2,
+        on_focus=on_Focus,
+        label=Label,
+        color=Color,
+        text_size=text_Size,
+        prefix_text=prefix_Text,
+        prefix_style=prefix_Style,
+        border=ft.InputBorder.UNDERLINE,
+        border_color=border_Color,
+        border_width=border_Width,
+        hint_text=hint_Text,
+        hint_style=hint_Style,
+        suffix_text=suffix_Text,
+        suffix_style=suffix_Style,
+        read_only=read_Only,
+        # filled=True,
+        on_change=on_Change
+    )
+
+def create_textfield_WB(Label, Color="#d3d3d3", text_Size=25, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
+    return ft.TextField(
+        height=40,
+        # width=200,
+        # color="#dc0000", # rojo
+        text_align="center",
+        # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
+        # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
+        label_style=ft.TextStyle(color="#a2a2a2", size=14), # color = gris claro
+        content_padding=3,
+        # bgcolor="white",
+        bgcolor="#292929",
+        cursor_height=18,
+        # cursor_color="#747474", # gris oscuro
+        cursor_color="#a8a8a8", # gris oscuro
+        focused_border_color=focused_Border_Color,
+        focused_border_width=.5,
         label=Label,
         color=Color,
         text_size=text_Size,
@@ -61,6 +97,8 @@ def create_textfield(Label, Color="#d3d3d3", text_Size=20, border_Color="#11b78a
         prefix_style=prefix_Style,
         border_color=border_Color,
         border_width=border_Width,
+        suffix_text=suffix_Text,
+        suffix_style=suffix_Style,
         hint_text=hint_Text,
         hint_style=hint_Style,
         read_only=read_Only,
@@ -106,3 +144,9 @@ def create_textField_RyV(counter_Text, read_Only=True):
          read_only=read_Only
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )
+
+# Funciones de control para los elementos creados
+
+def Focus(e):
+    e.control.label = "Cantidad"
+    e.control.update()
