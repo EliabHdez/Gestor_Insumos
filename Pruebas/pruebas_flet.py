@@ -15,7 +15,7 @@ def main(page: Page):
     page.window_min_height = 650
     page.window_min_width = 450
 
-    page.bgcolor = "#0a0a0a"
+    page.bgcolor = "white"
     page.title = "MyProgram"
     page.theme_mode = 'dark'
     page.horizontal_alignment = CrossAxisAlignment.CENTER
@@ -639,8 +639,8 @@ def main(page: Page):
 
     _select_device_to_configure_container = Container(
         border=border.all(width=4, color="red"),
-        width=page.window_width / 2.5,
-        height=page.window_height - 250,
+        width=page.window_min_width / 2.5,
+        height=page.window_min_height - 250,
         border_radius=20,
         padding=20,
         adaptive=True,
@@ -656,8 +656,8 @@ def main(page: Page):
 
     _configure_device_container = Container(
         border=border.all(width=4, color="blue"),
-        width=page.window_width / 2.5,
-        height=page.window_height - 250,
+        width=page.window_min_width / 2.5,
+        height=page.window_min_height - 250,
         border_radius=20,
         padding=20,
         adaptive=True,

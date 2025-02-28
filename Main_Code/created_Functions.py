@@ -145,8 +145,42 @@ def create_textField_RyV(counter_Text, read_Only=True):
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )
 
+def create_Bg_Containers():
+    return ft.Container(
+        # col=4,
+        bgcolor=ft.Colors.BLUE_GREY_900,
+        height=70,
+        padding=50,
+        width=1600,
+        # border_radius=10,
+        ink=False,
+        # opacity=100,
+        ignore_interactions=True,
+        # on_hover=onHover_Containers,
+        # on_click=onFocus_Containers
+    )
+
+
 # Funciones de control para los elementos creados
 
 def Focus(e):
     e.control.label = "Cantidad"
     e.control.update()
+
+# def onHover_Containers(e):
+#     print(f"{e.data}")
+#     if e.data == "true":
+#         e.control.bgcolor = ft.Colors.with_opacity(0.2, "#cdcdcd")
+#     else:
+#         e.control.bgcolor = ft.Colors.TRANSPARENT
+
+#     e.control.bgcolor = e.control.bgcolor
+#     e.control.update()
+
+# def onHover_Containers(e):
+#     e.control.bgcolor = ft.Colors.with_opacity(0.2, "#cdcdcd") if e.data == "true" else ft.Colors.TRANSPARENT
+#     e.control.update()
+
+# def onFocus_Containers(e):
+#     e.control.bgcolor = "#29926f" if e.data == "true" else ft.Colors.TRANSPARENT
+#     e.control.update()
