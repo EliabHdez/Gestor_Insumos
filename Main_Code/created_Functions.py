@@ -16,8 +16,8 @@ def create_Boton_Switch():
         inactive_thumb_color=ft.Colors.BLUE,
         inactive_track_color=ft.Colors.BLUE_GREY_500,
         thumb_icon={
-            ft.ControlState.HOVERED: ft.icons.DARK_MODE_SHARP,
-            ft.ControlState.SELECTED: ft.icons.DARK_MODE
+            ft.ControlState.HOVERED: ft.Icons.DARK_MODE_SHARP,
+            ft.ControlState.SELECTED: ft.Icons.DARK_MODE
         }
     )
 
@@ -48,7 +48,7 @@ def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), 
         label_style=label_Style, # color = gris claro
         # content_padding=2,
         # bgcolor="white",
-        # bgcolor=ft.colors.BLUE_GREY_900,
+        # bgcolor=ft.Colors.BLUE_GREY_900,
         cursor_height=22,
         # cursor_color="#747474", # gris oscuro
         cursor_color="#a8a8a8", # gris oscuro
@@ -73,9 +73,9 @@ def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), 
         on_change=on_Change
     )
 
-def create_textfield_WB(Label, Color="#d3d3d3", text_Size=25, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
+def create_textfield_WB(Label, Height=40, Color="#d3d3d3", text_Size=25, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
     return ft.TextField(
-        height=40,
+        height=Height,
         # width=200,
         # color="#dc0000", # rojo
         text_align="center",
@@ -115,7 +115,7 @@ def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border
         height=Height,
         border_color=border_Color,
         # "#0c52ff" # Color del border_Color a aplicar en una actualizacion a posteriori como predeterminado en lugar del None
-        bgcolor=ft.colors.BLUE_GREY_900,
+        bgcolor=ft.Colors.BLUE_GREY_900,
         cursor_height=15,
         cursor_color="#a8a8a8", # gris oscuro
         content_padding=0,
@@ -128,7 +128,7 @@ def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border
 
 def create_textField_RyV(counter_Text, read_Only=True):
     return ft.TextField(
-        #  bgcolor=ft.colors.BLUE_GREY_700,
+        #  bgcolor=ft.Colors.BLUE_GREY_700,
          bgcolor="#292929",
          color="white",
          multiline=True,
@@ -145,19 +145,19 @@ def create_textField_RyV(counter_Text, read_Only=True):
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )
 
-def create_Bg_Containers():
-    return ft.Container(
-        # col=4,
-        bgcolor=ft.Colors.BLUE_GREY_900,
-        height=70,
-        padding=50,
-        width=1600,
-        # border_radius=10,
-        ink=False,
-        # opacity=100,
-        ignore_interactions=True,
-        # on_hover=onHover_Containers,
-        # on_click=onFocus_Containers
+def created_Button(Text, bgColor, Icon, on_Click=None):
+    return ft.ElevatedButton(
+        text=Text,
+        bgcolor=bgColor,
+        color="black",
+        icon=Icon,
+        icon_color="black",
+        style=ft.ButtonStyle(text_style={
+            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+            }
+        ),
+        on_click=on_Click
     )
 
 

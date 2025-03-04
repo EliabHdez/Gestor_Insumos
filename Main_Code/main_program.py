@@ -22,7 +22,7 @@ class UI(ft.ResponsiveRow):
         # *** Variables Iconos Inferiores Barra de Navegacion Lateral ***
 
         self.profiles = ft.IconButton(# Ventana Perfiles / Cuentas
-            icon=ft.icons.ACCOUNT_CIRCLE_SHARP,
+            icon=ft.Icons.ACCOUNT_CIRCLE_SHARP,
             icon_color="white",
             tooltip="Cuenta",
             on_click=lambda e: page.open(
@@ -37,7 +37,7 @@ class UI(ft.ResponsiveRow):
         )
 
         self.configuration = ft.IconButton(# Ventana Configuraciones
-            icon=ft.icons.SETTINGS,
+            icon=ft.Icons.SETTINGS,
             icon_color="white",
             tooltip="Configuraciones",
             on_click=lambda e: page.open(
@@ -141,7 +141,7 @@ class UI(ft.ResponsiveRow):
 
         # Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.vtv = created_Functions.create_textfield_WB("Vendidos", Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Vasos ", read_Only=True)
+        self.vtv = created_Functions.create_textfield_WB(Label="Vendidos", Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Vasos ", read_Only=True)
         self.vvmt = created_Functions.create_textfield_WB(Label="Venta Total", Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#ffffff", size=12), suffix_Text="MX ", read_Only=True)
 
         # ***** VARIABLES FRUTAS *****
@@ -155,7 +155,7 @@ class UI(ft.ResponsiveRow):
         self.fpf = created_Functions.create_textfield("Picada Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
         self.fei = created_Functions.create_textfield("Entera Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
         self.fef = created_Functions.create_textfield("Entera Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
-        self.fv = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True)
+        self.fv = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
         # self.fr = created_Functions.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Uva
@@ -164,7 +164,7 @@ class UI(ft.ResponsiveRow):
         self.upf = created_Functions.create_textfield("Picada Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
         self.uei = created_Functions.create_textfield("Entera Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
         self.uef = created_Functions.create_textfield("Entera Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
-        self.uv = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True)
+        self.uv = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
         # self.ur = created_Functions.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # ***** VARIABLES CREMAS *****
@@ -179,15 +179,22 @@ class UI(ft.ResponsiveRow):
 
         # Crema Chocolate
 
-        self.cchi = created_Functions.create_textfield("Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_co)
-        self.cchf = created_Functions.create_textfield("Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_co)
+        self.cchi = created_Functions.create_textfield("Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_cch)
+        self.cchf = created_Functions.create_textfield("Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_cch)
         self.cchv = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True)
 
         # Crema Cafe
 
-        self.ccai = created_Functions.create_textfield("Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_co)
-        self.ccaf = created_Functions.create_textfield("Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_co)
+        self.ccai = created_Functions.create_textfield("Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_cca)
+        self.ccaf = created_Functions.create_textfield("Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_cca)
         self.ccav = created_Functions.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True)
+
+        # Variables Venta Total Vasos
+
+        # Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
+
+        self.fruven = created_Functions.create_textfield_WB(Label="Fruta", Height=25, Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Botes ", read_Only=True)
+        self.creven = created_Functions.create_textfield_WB(Label="Cremas", Height=25, Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Botes ", read_Only=True)
         
         # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
@@ -235,15 +242,15 @@ class UI(ft.ResponsiveRow):
         self.navigation_bar = ft.Container(# Barra lateral de navegacion principal
             col=.7,
             # bgcolor=self.color_teal,
-            bgcolor=ft.colors.BLUE_GREY_800,
+            bgcolor=ft.Colors.BLUE_GREY_800,
             border_radius=10,
             content=ft.Column(
                 controls=[
                     ft.Container(
                         expand=True,
                         content=ft.NavigationRail(
-                            # bgcolor=ft.colors.BLUE_GREY_900,
-                            bgcolor=ft.colors.BLUE_GREY_800,
+                            # bgcolor=ft.Colors.BLUE_GREY_900,
+                            bgcolor=ft.Colors.BLUE_GREY_800,
                             expand=True,
                             on_change=self.change_page,
                             selected_index=0,
@@ -251,24 +258,24 @@ class UI(ft.ResponsiveRow):
                             # selected_label_text_style=ft.TextStyle(color=self.color_teal_2),
                             destinations=[
                                 ft.NavigationRailDestination(
-                                    icon = ft.icons.HOME,
+                                    icon = ft.Icons.HOME,
                                     label_content=ft.Text("INICIO", size=8),
-                                    selected_icon=ft.Icon(ft.icons.HOME, color="#2e2e2e")
+                                    selected_icon=ft.Icon(ft.Icons.HOME, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
-                                    icon = ft.icons.POINT_OF_SALE_SHARP,
+                                    icon = ft.Icons.POINT_OF_SALE_SHARP,
                                     label_content=ft.Text("VENTAS", size=8),
-                                    selected_icon=ft.Icon(ft.icons.POINT_OF_SALE_SHARP, color="#2e2e2e")
+                                    selected_icon=ft.Icon(ft.Icons.POINT_OF_SALE_SHARP, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
-                                    icon = ft.icons.ACCOUNT_TREE_ROUNDED,
+                                    icon = ft.Icons.ACCOUNT_TREE_ROUNDED,
                                     label_content=ft.Text("PDV's", size=8),
-                                    selected_icon=ft.Icon(ft.icons.ACCOUNT_TREE_ROUNDED, color="#2e2e2e")
+                                    selected_icon=ft.Icon(ft.Icons.ACCOUNT_TREE_ROUNDED, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
-                                    icon = ft.icons.INVENTORY,
+                                    icon = ft.Icons.INVENTORY,
                                     label_content=ft.Text("STOCK", size=8),
-                                    selected_icon=ft.Icon(ft.icons.INVENTORY, color="#2e2e2e")
+                                    selected_icon=ft.Icon(ft.Icons.INVENTORY, color="#2e2e2e")
                                 )
                             ]
                         )
@@ -293,7 +300,7 @@ class UI(ft.ResponsiveRow):
 
         self.select_Bar_Sucursales = ft.Container(# Puntos de venta
             alignment=ft.alignment.center,
-            bgcolor=ft.colors.BLUE_GREY_800,
+            bgcolor=ft.Colors.BLUE_GREY_800,
             border_radius=10,
             content=ft.Column(
                 horizontal_alignment="center",
@@ -306,7 +313,7 @@ class UI(ft.ResponsiveRow):
         # ***** AREA DE CAPTURA DE INSUMOS / ICONO HOME *****
 
         self.home = ft.Container(# Ventana Inicio
-            bgcolor=ft.colors.BLUE_GREY_800,
+            bgcolor=ft.Colors.BLUE_GREY_800,
             # height=638,
             # width=1500,
             # padding=10,
@@ -314,7 +321,7 @@ class UI(ft.ResponsiveRow):
             clip_behavior=ft.ClipBehavior.NONE,
             # alignment=ft.alignment.center,
             content=ft.Stack(
-                height=638,
+                height=640,
                 width=1500,
                 # alignment="start"
                 # scroll=ft.ScrollMode.AUTO,
@@ -362,20 +369,20 @@ class UI(ft.ResponsiveRow):
                                 text="Frutas y Cremas",
                                 content=ft.Column(
                                     controls=[
-                                        ft.Container(
+                                        ft.Container(# Frutas
                                             content=ft.ResponsiveRow(
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 controls=[
-                                                    ft.Container(# Fresa
-                                                        col=6,
-                                                        margin=ft.Margin(top=10, bottom=0, left=60, right=30),
+                                                    ft.Container(# Frutas
+                                                        col=12,
+                                                        margin=ft.Margin(top=20, bottom=0, left=30, right=30),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
                                                             # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                             # horizontal_alignment="center",
                                                             controls=[
-                                                                ft.Container(# Fresa
+                                                                ft.Container(# Frutas
                                                                     # margin=ft.margin.symmetric(horizontal=5, vertical=10),
                                                                     # height=250,
                                                                     # width=600,
@@ -388,14 +395,14 @@ class UI(ft.ResponsiveRow):
                                                                     shadow=ft.BoxShadow(
                                                                         spread_radius=1,
                                                                         blur_radius=15,
-                                                                        color=ft.colors.BLUE_GREY_100,
+                                                                        color=ft.Colors.BLUE_GREY_100,
                                                                         offset=ft.Offset(0, 0),
                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                                     ),
                                                                     content=ft.Column(
                                                                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                         controls=[
-                                                                            ft.Container(# Titulo
+                                                                            ft.Container(# Titulo Fresa
                                                                                 alignment=ft.alignment.center,
                                                                                 height=15,
                                                                                 # padding=7,
@@ -416,9 +423,9 @@ class UI(ft.ResponsiveRow):
                                                                                     ]
                                                                                 )
                                                                             ),
-                                                                                ft.Container(# Fresa Picada
+                                                                                ft.Container(# Fresa
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
+                                                                                margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
                                                                                 # padding=ft.padding.symmetric(horizontal=0, vertical=5),
                                                                                 # border_radius=20,
@@ -428,7 +435,7 @@ class UI(ft.ResponsiveRow):
                                                                                     controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -439,7 +446,7 @@ class UI(ft.ResponsiveRow):
                                                                                         ),
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -448,22 +455,9 @@ class UI(ft.ResponsiveRow):
                                                                                                 content=self.fpf
                                                                                             ),
                                                                                         ),
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(# Fresa Entera
-                                                                                alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
-                                                                                # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                                                                    vertical_alignment="center",
-                                                                                    controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -474,7 +468,7 @@ class UI(ft.ResponsiveRow):
                                                                                         ),
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -483,22 +477,9 @@ class UI(ft.ResponsiveRow):
                                                                                                 content=self.fef
                                                                                             ),
                                                                                         ),
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(# Fresa Venta Total
-                                                                                alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
-                                                                                # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    alignment=ft.MainAxisAlignment.CENTER,
-                                                                                    vertical_alignment="center",
-                                                                                    controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=6,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -510,42 +491,7 @@ class UI(ft.ResponsiveRow):
                                                                                     ]
                                                                                 )
                                                                             ),
-                                                                        ]
-                                                                    )
-                                                                )
-                                                            ]
-                                                        )
-                                                    ),
-                                                    ft.Container(# Uva
-                                                        col=6,
-                                                        margin=ft.Margin(top=10, bottom=0, left=30, right=60),
-                                                        # padding=ft.padding.symmetric(horizontal=5, vertical=5),
-                                                        # bgcolor="blue",
-                                                        content=ft.Column(
-                                                            # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-                                                            # horizontal_alignment="center",
-                                                            controls=[
-                                                                ft.Container(# Uva
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    margin=10,
-                                                                    alignment=ft.alignment.center,
-                                                                    bgcolor="#292929",
-                                                                    border=ft.border.all(width=3, color="white"),
-                                                                    border_radius=5,
-                                                                    padding=ft.Padding(top=5, bottom=7, left=0, right=0),
-                                                                    shadow=ft.BoxShadow(
-                                                                        spread_radius=1,
-                                                                        blur_radius=15,
-                                                                        color=ft.colors.BLUE_GREY_100,
-                                                                        offset=ft.Offset(0, 0),
-                                                                        blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                    ),
-                                                                    content=ft.Column(
-                                                                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                                                        controls=[
-                                                                            ft.Container(# Titulo
+                                                                            ft.Container(# Titulo Uva
                                                                                 alignment=ft.alignment.center,
                                                                                 height=15,
                                                                                 # padding=7,
@@ -566,7 +512,7 @@ class UI(ft.ResponsiveRow):
                                                                                     ]
                                                                                 )
                                                                             ),
-                                                                            ft.Container(# Uva Picada
+                                                                            ft.Container(# Uva
                                                                                 alignment=ft.alignment.center,
                                                                                 # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
@@ -578,7 +524,7 @@ class UI(ft.ResponsiveRow):
                                                                                     controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -589,7 +535,7 @@ class UI(ft.ResponsiveRow):
                                                                                         ),
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -598,22 +544,9 @@ class UI(ft.ResponsiveRow):
                                                                                                 content=self.upf
                                                                                             ),
                                                                                         ),
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(# Uva entera
-                                                                                alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
-                                                                                # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                                                                    vertical_alignment="center",
-                                                                                    controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -624,7 +557,7 @@ class UI(ft.ResponsiveRow):
                                                                                         ),
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=4,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -633,22 +566,9 @@ class UI(ft.ResponsiveRow):
                                                                                                 content=self.uef
                                                                                             ),
                                                                                         ),
-                                                                                    ]
-                                                                                )
-                                                                            ),
-                                                                            ft.Container(# Uva venta total
-                                                                                alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
-                                                                                # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    alignment=ft.MainAxisAlignment.CENTER,
-                                                                                    vertical_alignment="center",
-                                                                                    controls=[
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
-                                                                                            col=6,
+                                                                                            col=2,
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
@@ -662,20 +582,20 @@ class UI(ft.ResponsiveRow):
                                                                             ),
                                                                         ]
                                                                     )
-                                                                )
+                                                                ),
                                                             ]
                                                         )
                                                     ),
                                                 ]
                                             )
                                         ),
-                                        ft.Container(
+                                        ft.Container(# Cremas
                                             content=ft.ResponsiveRow(
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 controls=[
                                                     ft.Container(# Crema Original
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=20, right=3),
+                                                        margin=ft.Margin(top=5, bottom=0, left=30, right=2),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
@@ -686,7 +606,7 @@ class UI(ft.ResponsiveRow):
                                                                     # margin=ft.margin.symmetric(horizontal=5, vertical=10),
                                                                     # height=250,
                                                                     # width=600,
-                                                                    margin=8,
+                                                                    margin=6,
                                                                     alignment=ft.alignment.center,
                                                                     bgcolor="#292929",
                                                                     border=ft.border.all(width=3, color="white"),
@@ -695,7 +615,7 @@ class UI(ft.ResponsiveRow):
                                                                     shadow=ft.BoxShadow(
                                                                         spread_radius=1,
                                                                         blur_radius=15,
-                                                                        color=ft.colors.BLUE_GREY_100,
+                                                                        color=ft.Colors.BLUE_GREY_100,
                                                                         offset=ft.Offset(0, 0),
                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                                     ),
@@ -790,7 +710,7 @@ class UI(ft.ResponsiveRow):
                                                     ),
                                                     ft.Container(# Crema Chocolate
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=5, right=5),
+                                                        margin=ft.Margin(top=5, bottom=0, left=4, right=4),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
@@ -801,7 +721,7 @@ class UI(ft.ResponsiveRow):
                                                                     # margin=ft.margin.symmetric(horizontal=5, vertical=10),
                                                                     # height=250,
                                                                     # width=600,
-                                                                    margin=8,
+                                                                    margin=6,
                                                                     alignment=ft.alignment.center,
                                                                     bgcolor="#292929",
                                                                     border=ft.border.all(width=3, color="white"),
@@ -810,7 +730,7 @@ class UI(ft.ResponsiveRow):
                                                                     shadow=ft.BoxShadow(
                                                                         spread_radius=1,
                                                                         blur_radius=15,
-                                                                        color=ft.colors.BLUE_GREY_100,
+                                                                        color=ft.Colors.BLUE_GREY_100,
                                                                         offset=ft.Offset(0, 0),
                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                                     ),
@@ -905,7 +825,7 @@ class UI(ft.ResponsiveRow):
                                                     ),
                                                     ft.Container(# Crema Cafe
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=3, right=20),
+                                                        margin=ft.Margin(top=5, bottom=0, left=2, right=30),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
@@ -916,7 +836,7 @@ class UI(ft.ResponsiveRow):
                                                                     # margin=ft.margin.symmetric(horizontal=5, vertical=10),
                                                                     # height=250,
                                                                     # width=600,
-                                                                    margin=8,
+                                                                    margin=6,
                                                                     alignment=ft.alignment.center,
                                                                     bgcolor="#292929",
                                                                     border=ft.border.all(width=3, color="white"),
@@ -925,7 +845,7 @@ class UI(ft.ResponsiveRow):
                                                                     shadow=ft.BoxShadow(
                                                                         spread_radius=1,
                                                                         blur_radius=15,
-                                                                        color=ft.colors.BLUE_GREY_100,
+                                                                        color=ft.Colors.BLUE_GREY_100,
                                                                         offset=ft.Offset(0, 0),
                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                                     ),
@@ -1021,6 +941,130 @@ class UI(ft.ResponsiveRow):
                                                 ]
                                             )
                                         ),
+                                        ft.Container(# Venta Total Frutas y Cremas
+                                            content=ft.ResponsiveRow(
+                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                vertical_alignment="center",
+                                                controls=[
+                                                    ft.Container(# Reset Button
+                                                        col=2,
+                                                        alignment=ft.alignment.center,
+                                                        margin=ft.margin.only(left=50),
+                                                        content=created_Functions.created_Button(Text="Limpiar Campos", bgColor=self.color_teal, Icon=ft.Icons.CLEAR_ALL, on_Click=self.reset_Fields)
+                                                    ),
+                                                    ft.Container(# Venta General Frutas y Cremas
+                                                        col=8,
+                                                        margin=ft.Margin(top=5, bottom=0, left=5, right=5),
+                                                        # padding=ft.padding.symmetric(horizontal=5, vertical=5),
+                                                        # bgcolor="blue",
+                                                        content=ft.Column(
+                                                            # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                            # horizontal_alignment="center",
+                                                            controls=[
+                                                                ft.Container(
+                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
+                                                                    # height=250,
+                                                                    # width=600,
+                                                                    margin=8,
+                                                                    alignment=ft.alignment.center,
+                                                                    bgcolor="#292929",
+                                                                    border=ft.border.all(width=3, color="white"),
+                                                                    border_radius=10,
+                                                                    padding=ft.Padding(top=7, bottom=7, left=3, right=3),
+                                                                    shadow=ft.BoxShadow(
+                                                                        spread_radius=1,
+                                                                        blur_radius=15,
+                                                                        color=ft.Colors.BLUE_GREY_100,
+                                                                        offset=ft.Offset(0, 0),
+                                                                        blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                    ),
+                                                                    content=ft.Column(
+                                                                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                        controls=[
+                                                                            ft.Container(# Titulo
+                                                                                alignment=ft.alignment.center,
+                                                                                height=30,
+                                                                                # padding=7,
+                                                                                # bgcolor="blue",
+                                                                                # border_radius=20,
+                                                                                # width=180,
+                                                                                content=ft.Column(
+                                                                                    # horizontal_alignment="center",
+                                                                                    controls=[
+                                                                                        ft.Text("<<< VENTA GENERAL FRUTAS Y CREMAS >>>", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
+                                                                                        # ft.Divider(# Separador de seccion con Divider
+                                                                                        #     height=1,
+                                                                                        #     color="white",
+                                                                                        #     thickness=.5,
+                                                                                        #     leading_indent=400,
+                                                                                        #     trailing_indent=400
+                                                                                        # ),
+                                                                                    ]
+                                                                                )
+                                                                            ),
+                                                                            ft.Container(# Venta Total Frutas y Cremas
+                                                                                alignment=ft.alignment.center,
+                                                                                margin=ft.margin.only(bottom=5),
+                                                                                # margin=ft.margin.only(bottom=20),
+                                                                                # bgcolor="pink",
+                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
+                                                                                # border_radius=20,
+                                                                                content=ft.ResponsiveRow(
+                                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                                    vertical_alignment="center",
+                                                                                    controls=[
+                                                                                        ft.Container(# Fruta total vendida (botes)
+                                                                                            col=3.5,
+                                                                                            alignment=ft.alignment.center,
+                                                                                            bgcolor="#292929",
+                                                                                            padding=2.5,
+                                                                                            border=ft.border.all(width=1, color="#292929"),
+                                                                                            border_radius=5,
+                                                                                            margin=ft.margin.only(right=60),
+                                                                                            shadow=ft.BoxShadow(
+                                                                                                spread_radius=.5,
+                                                                                                blur_radius=5,
+                                                                                                color="#0042e8",
+                                                                                                offset=ft.Offset(0, 0),
+                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                            ),
+                                                                                            content=self.fruven
+                                                                                        ),
+                                                                                        ft.Container(# Crema total vendida (botes)
+                                                                                            col=3.5,
+                                                                                            alignment=ft.alignment.center,
+                                                                                            bgcolor="#292929",
+                                                                                            padding=2.5,
+                                                                                            border=ft.border.all(width=1, color="#292929"),
+                                                                                            border_radius=5,
+                                                                                            margin=ft.margin.only(left=60),
+                                                                                            shadow=ft.BoxShadow(
+                                                                                                spread_radius=.5,
+                                                                                                blur_radius=5,
+                                                                                                color="#ff0707",
+                                                                                                offset=ft.Offset(0, 0),
+                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                            ),
+                                                                                            content=self.creven
+                                                                                        ),
+                                                                                    ]
+                                                                                )
+                                                                            ),
+                                                                        ]
+                                                                    )
+                                                                )
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(# Report Button
+                                                        col=2,
+                                                        alignment=ft.alignment.center,
+                                                        margin=ft.margin.only(right=50),
+                                                        content=created_Functions.created_Button(Text="Generar Reporte", bgColor=self.color_teal, Icon=ft.Icons.REPORT, on_Click=self.generar_Reporte)
+                                                    ),
+                                                ]
+                                            )
+                                        ),
                                     ]
                                 )
                             ),
@@ -1040,18 +1084,18 @@ class UI(ft.ResponsiveRow):
                                                 controls=[
                                                     ft.Container(# Vasos Chicos
                                                         # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                        height=530,
+                                                        height=540,
                                                         width=1300,
-                                                        margin=10,
+                                                        # margin=5,
                                                         alignment=ft.alignment.center,
                                                         bgcolor="#292929",
                                                         border=ft.border.all(width=3, color="white"),
-                                                        border_radius=5,
+                                                        border_radius=10,
                                                         padding=ft.Padding(top=5, bottom=5, left=0, right=0),
                                                         shadow=ft.BoxShadow(
                                                             spread_radius=1,
                                                             blur_radius=15,
-                                                            color=ft.colors.BLUE_GREY_100,
+                                                            color=ft.Colors.BLUE_GREY_100,
                                                             offset=ft.Offset(0, 0),
                                                             blur_style=ft.ShadowBlurStyle.OUTER,
                                                         ),
@@ -1434,7 +1478,7 @@ class UI(ft.ResponsiveRow):
 
         self.sales = ft.Container(# Ventana Ventas
             col=12,
-            bgcolor=ft.colors.BLUE_GREY_800,
+            bgcolor=ft.Colors.BLUE_GREY_800,
             border_radius=10,
             content=ft.Container(
                 margin=3,
@@ -1507,7 +1551,7 @@ class UI(ft.ResponsiveRow):
                                                             ]
                                                         )
                                                     ),
-                                                    ft.Container(
+                                                    ft.Container(# Dias
                                                         col=3,
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
@@ -1559,7 +1603,7 @@ class UI(ft.ResponsiveRow):
                                                             ]
                                                         )
                                                     ),
-                                                    ft.Container(
+                                                    ft.Container(# Meses
                                                         col=3,
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
@@ -1592,7 +1636,7 @@ class UI(ft.ResponsiveRow):
                                                             ]
                                                         )
                                                     ),
-                                                    ft.Container(
+                                                    ft.Container(# Años
                                                         col=3,
                                                         padding=5,
                                                         # border_radius=5,
@@ -1614,6 +1658,11 @@ class UI(ft.ResponsiveRow):
                                                             options=[
                                                                 ft.dropdown.Option("2024"),
                                                                 ft.dropdown.Option("2025"),
+                                                                ft.dropdown.Option("2026"),
+                                                                ft.dropdown.Option("2027"),
+                                                                ft.dropdown.Option("2028"),
+                                                                ft.dropdown.Option("2029"),
+                                                                ft.dropdown.Option("2030"),
                                                             ]
                                                         )
                                                     ),
@@ -1646,7 +1695,7 @@ class UI(ft.ResponsiveRow):
                                                     shadow=ft.BoxShadow(
                                                         spread_radius=1,
                                                         blur_radius=15,
-                                                        color=ft.colors.BLUE_GREY_100,
+                                                        color=ft.Colors.BLUE_GREY_100,
                                                         offset=ft.Offset(0, 0),
                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                     ),
@@ -1671,34 +1720,22 @@ class UI(ft.ResponsiveRow):
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Cargar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.ADD, icon_color="black", style=ft.ButtonStyle(text_style={
-                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
-                                                                        })),
+                                                                        content=created_Functions.created_Button(Text="Cargar Archivo", bgColor=self.color_teal, Icon=ft.Icons.ADD)
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Exportar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.UPLOAD, icon_color="black", style=ft.ButtonStyle(text_style={
-                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
-                                                                        }), on_click=self.create_ReportePDF),
+                                                                        content=created_Functions.created_Button(Text="Exportar Archivo", bgColor=self.color_teal, Icon=ft.Icons.UPLOAD, on_Click=self.create_ReportePDF)
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Borrar Archivo", bgcolor=self.color_teal, color="black", icon=ft.Icons.DELETE, icon_color="black", style=ft.ButtonStyle(text_style={
-                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
-                                                                        })),
+                                                                        content=created_Functions.created_Button(Text="Borrar Archivo", bgColor=self.color_teal, Icon=ft.Icons.DELETE)
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=ft.ElevatedButton(text="Limpiar Campos", bgcolor=self.color_teal, color="black", icon=ft.Icons.CLEAR_ALL, icon_color="black", style=ft.ButtonStyle(text_style={
-                                                                            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
-                                                                            ft.ControlState.PRESSED: ft.TextStyle(size=10)
-                                                                        }), on_click=self.reset_fieldsText),
+                                                                        content=created_Functions.created_Button(Text="Limpiar Campos", bgColor=self.color_teal, Icon=ft.Icons.CLEAR_ALL, on_Click=self.reset_textFields)
                                                                     ),
                                                                 ]
                                                             )
@@ -1719,7 +1756,7 @@ class UI(ft.ResponsiveRow):
                                                     shadow=ft.BoxShadow(
                                                         spread_radius=1,
                                                         blur_radius=15,
-                                                        color=ft.colors.BLUE_GREY_100,
+                                                        color=ft.Colors.BLUE_GREY_100,
                                                         offset=ft.Offset(0, 0),
                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                     ),
@@ -1741,7 +1778,7 @@ class UI(ft.ResponsiveRow):
             controls=[
                 ft.Container(
                     expand=True,
-                    bgcolor=ft.colors.BLUE_GREY_800,
+                    bgcolor=ft.Colors.BLUE_GREY_800,
                     border_radius=10,
                     content=ft.Container(
                         expand=True,
@@ -1776,7 +1813,7 @@ class UI(ft.ResponsiveRow):
             controls=[
                 ft.Container(
                     expand=True,
-                    bgcolor=ft.colors.BLUE_GREY_800,
+                    bgcolor=ft.Colors.BLUE_GREY_800,
                     border_radius=10,
                     content=ft.Container(
                         expand=True,
@@ -1839,12 +1876,14 @@ class UI(ft.ResponsiveRow):
 
     # ***** FUNCIONES *****
 
-    # Funcion para el manejo del cambio de ventanas mediante la barra lateral de navegacion
+    #  *** Funcion para el manejo del cambio de ventanas mediante la barra lateral de navegacion ***
 
     def change_page(self, e):
         index = e.control.selected_index
         self.main_container.content = self.pages_containers[index]
         self.update()
+
+    # *** Funcion para el manejo de los radios boton's y la seleccion de las sucursales ***
 
     def pdv_selection(self, e):
         if e.control.value == "glorieta":
@@ -1871,7 +1910,7 @@ class UI(ft.ResponsiveRow):
         if e.control.value == "lapiedad":
             self.pdv = "Suc. La Piedad"
 
-    # ***** Funcion para el manejo de los radios boton's y la seleccion de las sucursales
+    # *** Funcion para el generar el reporte y cargarlo en el textfield de la ventana de ventas ***
 
     def generar_Reporte(self, e):
         # print(f"La sucursal seleccionada es: {e.control.value}")
@@ -1884,83 +1923,37 @@ class UI(ft.ResponsiveRow):
         self.report_field.value = (
                                 f"                                                   {self.fecha_Formateada}\n\n"
                                 f"<<< {self.pdv} >>>\n\n"
-                                f"Tapas Chicas Iniciales: {self.tci.value}\n"  
-                                f"Tapas Chicas Finales: {self.tcf.value}\n"   
-                                f"Tapas Chicas Diferencia: {self.tcdif.value}\n"
-                                f"Vasos Chicos Iniciales: {self.vci.value}\n"  
-                                f"Vasos Chicos Finales: {self.vcf.value}\n"   
-                                f"Vasos Chicos Diferencia: {self.vcdif.value}\n"
-                                f"Vasos Chicos Sin Vender: {self.vcsv.value}\n"  
-                                f"VASOS CHICOS VENDIDOS: {self.vcven.value}\n"   
-                                f"VENTA TOTAL VASOS CHICOS: $ {self.vcvt.value}\n\n"
-
-                                f"Tapas Medianas Iniciales: {self.tmi.value}\n"  
-                                f"Tapas Medianas Finales: {self.tmf.value}\n"   
-                                f"Tapas Medianas Diferencia: {self.tmdif.value}\n"
-                                f"Vasos Medianos Iniciales: {self.vmi.value}\n"  
-                                f"Vasos Medianos Finales: {self.vmf.value}\n"   
-                                f"Vasos Medianos Diferencia: {self.vmdif.value}\n"
-                                f"Vasos Medianos Sin Vender: {self.vmsv.value}\n"  
-                                f"VASOS MEDIANOS VENDIDOS: {self.vmven.value}\n"   
-                                f"VENTA TOTAL VASOS MEDIANOS: $ {self.vmvt.value}\n\n"
-
-                                f"Tapas Grandes Iniciales: {self.tgi.value}\n"  
-                                f"Tapas Grandes Finales: {self.tgf.value}\n"   
-                                f"Tapas Grandes Diferencia: {self.tgdif.value}\n"
-                                f"Vasos Grandes Iniciales: {self.vgi.value}\n"  
-                                f"Vasos Grandes Finales: {self.vgf.value}\n"   
-                                f"Vasos Grandes Diferencia: {self.vgdif.value}\n"
-                                f"Vasos Grandes Sin Vender: {self.vgsv.value}\n"  
-                                f"VASOS GRANDES VENDIDOS: {self.vgven.value}\n"   
-                                f"VENTA TOTAL VASOS GRANDES: $ {self.vgvt.value}\n\n"
-
-                                f"Fresa Picada Inicial (Botes): {self.fpi.value}\n"  
-                                f"Fresa Picada Final (Botes): {self.fpf.value}\n"   
-                                f"Fresa Entera Inicial (Botes): {self.fei.value}\n"
-                                f"Fresa Entera Final (Botes): {self.fef.value}\n"  
-                                f"Fresa Remanente (Botes): {self.fr.value}\n"   
-                                f"TOTAL FRESA VENDIDA (BOTES): {self.fv.value}\n\n"
-
-                                f"Uva Picada Inicial (Botes): {self.upi.value}\n"  
-                                f"Uva Picada Final (Botes): {self.upf.value}\n"   
-                                f"Uva Entera Inicial (Botes): {self.uei.value}\n"
-                                f"Uva Entera Final (Botes): {self.uef.value}\n"  
-                                f"Uva Remanente (Botes): {self.ur.value}\n"   
-                                f"TOTAL UVA VENDIDA (BOTES): {self.uv.value}\n\n"
-
-                                f"Crema Original Inicial (Botes): {self.coi.value}\n"  
-                                f"Crema Original Final (Botes): {self.cof.value}\n"   
-                                f"CREMA ORIGINAL VENDIDA (Botes): {self.cov.value}\n\n"
-
-                                f"Crema Chocolate Inicial (Botes): {self.cchi.value}\n"  
-                                f"Crema Chocolate Final (Botes): {self.cchf.value}\n"   
-                                f"CREMA CHOCOLATE VENDIDA (Botes): {self.cchv.value}\n\n"
-                                
-                                f"Crema Cafe Inicial (Botes): {self.ccai.value}\n"  
-                                f"Crema Cafe Final (Botes): {self.ccaf.value}\n"   
-                                f"CREMA CAFE VENDIDA (Botes): {self.ccav.value}\n\n"
-
-                                f"Topping Extra de $5: {self.t5.value}\n"
-                                f"Topping Extra de $10: {self.t10.value}\n"   
-                                f"TOTAL TOPPINGS EXTRA: $ {self.tt.value}\n\n"
-
-                                f"Servicio a Domicilio de $25: {self.sd25.value}\n"  
-                                f"Servicio a Domicilio de $35: {self.sd35.value}\n"   
-                                f"TOTAL SERVICIOS A DOMICILIO: $ {self.sdt.value}\n\n"
-
-                                f"No. de Transferencias: {self.trn.value}\n"  
-                                f"MONTO TOTAL TRANSFERENCIAS: $ {self.trt.value}\n\n"
-
-                                f"No. de Gastos / Retiros: {self.grn.value}\n"
-                                f"MONTO TOTAL GASTOS / RETIROS: $ {self.grt.value}\n\n"
-
-                                f"Total de Ingresos: $ {self.bgi.value}\n"
-                                f"Diferencia entre I/G/R/T: $ {self.bgd.value}\n\n"
-                                f"TOTAL EFECTIVO PDV: $ {self.bgt.value}\n\n"
+                                f"- VASOS -\n\n"
+                                f"Vasos Chicos: TI-{self.tci.value} / TP-{self.tcf.value} / VI-{self.vci.value} / VF-{self.vcf.value} / VV-{self.vcven.value}\n / Venta: ${self.vcvt.value}\n"
+                                f"Vasos Medianos: TI-{self.tmi.value} / TP-{self.tmf.value} / VI-{self.vmi.value} / VF-{self.vmf.value} / VV-{self.vmven.value}\n / Venta: ${self.vmvt.value}\n"
+                                f"Vasos Grandes: TI-{self.tgi.value} / TP-{self.tgf.value} / VI-{self.vgi.value} / VF-{self.vgf.value} / VV-{self.vgven.value}\n / Venta: ${self.vgvt.value}\n\n"
+                                f"- FRUTA -\n\n"
+                                f"Fresa: PI-{self.fpi.value} / PF-{self.fpf.value} / EI-{self.fei.value} / EF-{self.fef.value} / Vendida-{self.fv.value}\n"
+                                f"Uva: PI-{self.upi.value} / PF-{self.upf.value} / EI-{self.uei.value} / EF-{self.uef.value} / Vendida-{self.uv.value}\n\n"
+                                f"- CREMAS -\n\n"
+                                f"Crema Original: I-{self.coi.value} / F-{self.cof.value} / Vendida-{self.cov.value}\n\n"
+                                f"Crema Chocolate: I-{self.cchi.value} / F-{self.cchf.value} / Vendida-{self.cchv.value}\n\n"
+                                f"Crema Cafe: I-{self.ccai.value} / F-{self.ccaf.value} / Vendida-{self.ccav.value}\n\n"
+                                f"- TOPPINGS -\n\n"
+                                f"Toppings Extras: TE5-{self.t5.value} / TE10-{self.t10.value} / Total: ${self.tt.value}\n\n"
+                                f"- SERVICIOS A DOMICILIO -\n\n"
+                                f"Servivios a Domicilio: SD25-{self.sd25.value} / SD35-{self.sd35.value} / Total: ${self.sdt.value}\n\n"
+                                f"- TRANSFERENCIAS -\n\n"
+                                f"Transferencias: No TRANSFERENCIAS-{self.trn.value} / Monto Total: ${self.trt.value}\n\n"
+                                f"- GASTOS / RETIROS -\n\n"
+                                f"Gastos y/o Retiros: Cantidad-{self.grn.value} / Monto Total: ${self.grt.value}\n\n"
+                                f"- INGRESOS / EGRESOS -\n\n"
+                                f"Ingresos: Monto Total: ${self.bgi.value}\n"
+                                f"Egresos (G/R/T): Monto Total: ${self.bgd.value}\n\n"
+                                f"- TOTAL DIA PDV -\n\n"
+                                f"Total General: ${self.bgi.value}\n"
+                                f"Total Efectivo: ${self.bgt.value}\n\n"
 
                                 f"<<< FIN DEL REPORTE >>>"
                             )
         
+    # *** Funcion creadora del reporte del dia en formato PDF ***
+
     def create_ReportePDF(self, e):
         self.fecha_Actual = dt.datetime.today().date()
 
@@ -1978,91 +1971,250 @@ class UI(ft.ResponsiveRow):
         
         # Titulo
         pdf.cell(0, 25, f'Reporte {self.pdv}'.upper(), 0, 1, 'C')
-        pdf.line(70, 28, 140, 28)
+        pdf.line(70, 30, 140, 30)
+
+        # pdf.cell(0, 5, '', 0, 1)
         
-        # Vasos Chicos
-        pdf.cell(160, 7, 'Tapas Chicas Iniciales', 1, 0)
-        pdf.cell(30, 7, f'{self.tci.value}', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Chicas Finales', 1, 0)
-        pdf.cell(30, 7, f'{self.tcf.value}', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Chicas Diferencia', 1, 0)
-        pdf.cell(30, 7, f'{self.tcdif.value}', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Chicos Iniciales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Chicos Finales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Chicos Diferencia', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Chicos Sin Vender', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VASOS CHICOS VENDIDOS', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VENTA TOTAL VASOS CHICOS', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        
+        # Vasos
+        pdf.cell(70, 10, 'VASOS', 1, 0, "C")
+        pdf.cell(15, 10, f'TI', 1, 0, 'C')
+        pdf.cell(15, 10, f'TF', 1, 0, 'C')
+        pdf.cell(15, 10, f'VI', 1, 0, 'C')
+        pdf.cell(15, 10, f'VF', 1, 0, 'C')
+        pdf.cell(25, 10, f'VENDIDOS', 1, 0, 'C')
+        pdf.cell(35, 10, f'MONTO VENTA', 1, 1, 'C')
+        pdf.cell(70, 8, 'VASOS CHICOS', 1, 0)
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 0, 'C')
+        pdf.cell(35, 8, f'$ ', 1, 1, 'C')
+        pdf.cell(70, 8, 'VASOS MEDIANOS', 1, 0)
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 0, 'C')
+        pdf.cell(35, 8, f'$ ', 1, 1, 'C')
+        pdf.cell(70, 8, 'VASOS GRANDES', 1, 0)
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(15, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 0, 'C')
+        pdf.cell(35, 8, f'$ ', 1, 1, 'C')
+
         # Separador con celda
-        pdf.cell(0, 4, '', 0, 1)
-        
-        # Vasos Medianos
-        pdf.cell(160, 7, 'Tapas Medianas Iniciales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Medianas Finales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Medianas Diferencia', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Medianos Iniciales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Medianos Finales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Medianos Diferencia', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Medianos Sin Vender', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VASOS MEDIANOS VENDIDOS', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VENTA TOTAL VASOS MEDIANOS', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        
+        pdf.cell(0, 5, '', 0, 1)
+
+        # Frutas Y Cremas
+        # pdf.cell(100, 10, 'FRUTAS', 1, 0, "C")
+
+        # pdf.cell(5, 10, '', 0, 0)
+
+        # pdf.cell(85, 10, 'CREMAS', 1, 1, "C")
+
+        pdf.cell(30, 10, f'FRUTA', 1, 0, 'C')
+        pdf.cell(11, 10, f'PI', 1, 0, 'C')
+        pdf.cell(11, 10, f'PF', 1, 0, 'C')
+        pdf.cell(11, 10, f'EI', 1, 0, 'C')
+        pdf.cell(11, 10, f'EF', 1, 0, 'C')
+        pdf.cell(26, 10, f'VENDIDOS', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(35, 10, f'CREMA', 1, 0, 'C')
+        pdf.cell(12.5, 10, f'IN', 1, 0, 'C')
+        pdf.cell(12.5, 10, f'FI', 1, 0, 'C')
+        pdf.cell(25, 10, f'VENDIDOS', 1, 1, 'C')
+
+        pdf.cell(30, 8, 'FRESA', 1, 0)
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(26, 8, f'', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(35, 8, 'CR ORIGINAL', 1, 0)
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 1, 'C')
+
+        pdf.cell(30, 8, 'UVA', 1, 0)
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(11, 8, f'', 1, 0, 'C')
+        pdf.cell(26, 8, f'', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(35, 8, 'CR CHOCOLATE', 1, 0)
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 1, 'C')
+
+        pdf.cell(30, 8, '', 0, 0)
+        pdf.cell(10, 8, f'', 0, 0,)
+        pdf.cell(10, 8, f'', 0, 0,)
+        pdf.cell(10, 8, f'', 0, 0,)
+        pdf.cell(10, 8, f'', 0, 0,)
+        pdf.cell(30, 8, f'', 0, 0,)
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(35, 8, 'CR CAFE', 1, 0)
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(12.5, 8, f'', 1, 0, 'C')
+        pdf.cell(25, 8, f'', 1, 1, 'C')
+
         # Separador con celda
-        pdf.cell(0, 4, '', 0, 1)
-        
-        # Vasos Grandes
-        pdf.cell(160, 7, 'Tapas Grandes Iniciales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Grandes Finales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Tapas Grandes Diferencia', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Grandes Iniciales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Grandes Finales', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Grandes Diferencia', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Vasos Grandes Sin Vender', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VASOS GRANDES VENDIDOS', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'VENTA TOTAL VASOS ', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        
-        # Fresa
-        pdf.cell(160, 7, 'Fresa Picada Inicial (Botes)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Fresa Picada Final (Botes)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Fresa Entera Inicial (Botes)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Fresa Entera Final (Botes)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'Fresa Remanente (Botes)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
-        pdf.cell(160, 7, 'TOTAL DE FRESA VENDIDA (BOTES)', 1, 0)
-        pdf.cell(30, 7, '0', 1, 1, 'C')
+        pdf.cell(0, 5, '', 0, 1)
+
+        pdf.cell(45, 10, f'TOPPINGS EXTRA', 1, 0, 'C')
+        pdf.cell(25, 10, f'CANTIDAD', 1, 0, 'C')
+        pdf.cell(20, 10, f'TOTAL', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(50, 10, f'SERVICIOS A DOMICILIO', 1, 0, 'C')
+        pdf.cell(25, 10, f'CANTIDAD', 1, 0, 'C')
+        pdf.cell(20, 10, f'TOTAL', 1, 1, 'C')
+
+        pdf.cell(45, 10, f'TOPPING 5', 1, 0, 'C')
+        pdf.cell(25, 10, f'', 1, 0, 'C')
+        pdf.cell(20, 10, f'$ ', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(50, 10, f'SERV DOM 25', 1, 0, 'C')
+        pdf.cell(25, 10, f'', 1, 0, 'C')
+        pdf.cell(20, 10, f'$ ', 1, 1, 'C')
+
+        pdf.cell(45, 10, f'TOPPING 10', 1, 0, 'C')
+        pdf.cell(25, 10, f'', 1, 0, 'C')
+        pdf.cell(20, 10, f'$ ', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(50, 10, f'SERV DOM 35', 1, 0, 'C')
+        pdf.cell(25, 10, f'', 1, 0, 'C')
+        pdf.cell(20, 10, f'$ ', 1, 1, 'C')
+
+        # Separador con celda
+        pdf.cell(0, 5, '', 0, 1)
+
+        pdf.cell(90, 10, f'TRANSFERENCIAS', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(95, 10, f'GASTOS Y RETIROS', 1, 1, 'C')
+
+        # pdf.cell(30, 10, f'MONTOS', 1, 0, 'C')
+        pdf.cell(60, 10, f'NO. DE TRANSFERENCIAS', 1, 0, 'C')
+        pdf.cell(30, 10, f'TOTAL', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        # pdf.cell(30, 10, f'MONTOS', 1, 0, 'C')
+        pdf.cell(60, 10, f'NO. DE GASTOS / RETIROS', 1, 0, 'C')
+        pdf.cell(35, 10, f'TOTAL', 1, 1, 'C')
+
+        pdf.cell(60, 10, f'', 1, 0, 'C')
+        pdf.cell(30, 10, f'$ ', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(60, 10, f'', 1, 0, 'C')
+        pdf.cell(35, 10, f'$ ', 1, 1, 'C')
+
+        # Separador con celda
+        pdf.cell(0, 5, '', 0, 1)
+
+        pdf.cell(90, 12, f'MONTOS TRANSFERENCIAS Y GASTOS / RETIROS', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(95, 12, f'INGRESOS Y EGRESOS', 1, 1, 'C')
+
+        pdf.cell(45, 7, f'TRANSFERENCIAS', 1, 0, 'C')
+        pdf.cell(45, 7, f'GASTOS / RETIROS', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(47.5, 7, f'CONCEPTO', 1, 0, 'C')
+        pdf.cell(47.5, 7, f'MONTO', 1, 1, 'C')
+
+        pdf.cell(45, 25, f'', 1, 0, 'C')
+        pdf.cell(45, 25, f'', 1, 0, 'C')
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(47.5, 10, f'INGRESOS', 1, 0, 'C')
+        pdf.cell(47.5, 10, f'$ ', 1, 1, 'C')
+
+        pdf.cell(45, 10, f'', 0, 0)
+        pdf.cell(45, 10, f'', 0, 0)
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(47.5, 10, f'EGRESOS', 1, 0, 'C')
+        pdf.cell(47.5, 10, f'$ ', 1, 1, 'C')
+
+        # Separador con celda
+        pdf.cell(0, 5, '', 0, 1)
+
+        pdf.cell(45, 10, f'', 0, 0)
+        pdf.cell(45, 10, f'', 0, 0)
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(95, 14, f'VENTA PDV', 1, 1, 'C')
+
+        pdf.cell(45, 10, f'', 0, 0)
+        pdf.cell(45, 10, f'', 0, 0)
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(47.5, 10, f'TOTAL DIA PDV', 1, 0, 'C')
+        pdf.cell(47.5, 10, f'$ ', 1, 1, 'C')
+
+        pdf.cell(45, 10, f'', 0, 0)
+        pdf.cell(45, 10, f'', 0, 0)
+
+        # Separador vertical con celda
+        pdf.cell(5, 10, '', 0, 0)
+
+        pdf.cell(47.5, 10, f'EFECTIVO DIA PDV', 1, 0, 'C')
+        pdf.cell(47.5, 10, f'$ ', 1, 1, 'C')
+
+        # Separador con celda
+        pdf.cell(0, 10, '', 0, 1)
+
+        pdf.cell(0, 25, f'* FIN REPORTE *'.upper(), 0, 1, 'C')
         
         pdf.output(f"../Reportes_PDV's/{self.fecha_Formateada_RN} - Reporte {self.pdv}.pdf")
     
-    # ***** Funciones para el manejo de los campos de texto de la seccion de vasos *****
+    # *** Funciones para el manejo de los campos de texto de la seccion de vasos ***
 
     # Vasos Chicos
 
@@ -2174,6 +2326,15 @@ class UI(ft.ResponsiveRow):
 
     def conversion_n_capture_fr(self, e):
         try:
+            if self.fpi.value == "" or self.fpf.value == "" or self.fei.value == "" or self.fef.value == "":
+                self.fv.value = 0
+                self.fv.update()
+                self.fv.on_change(e)
+                return
+        except:
+            pass
+
+        try:
             if "." in self.fpi.value or "." in self.fpf.value or "." in self.fei.value or "." in self.fef.value:
                 self.num_fpi = float(self.fpi.value)
                 self.num_fpf = float(self.fpf.value)
@@ -2197,12 +2358,24 @@ class UI(ft.ResponsiveRow):
 
             # self.fr.value = round(self.num_fr, 2)
             self.fv.value = round(self.num_fv, 2)
-        except ValueError:
+            self.fv.update()
+            self.fv.on_change(e)
+            self.venta_Total_Fruta_Crema()
+        except:
             pass
         finally:
             self.update()
 
     def conversion_n_capture_uva(self, e):
+        try:
+            if self.upi.value == "" or self.upf.value == "" or self.uei.value == "" or self.uef.value == "":
+                self.uv.value = 0
+                self.uv.update()
+                self.uv.on_change(e)
+                return
+        except:
+            pass
+
         try:
             if "." in self.upi.value or "." in self.upf.value or "." in self.uei.value or "." in self.uef.value:
                 self.num_upi = float(self.upi.value)
@@ -2227,10 +2400,59 @@ class UI(ft.ResponsiveRow):
 
             # self.ur.value = round(self.num_ur, 2)
             self.uv.value = round(self.num_uv, 2)
-        except ValueError:
+            self.uv.update()
+            self.uv.on_change(e)
+            self.venta_Total_Fruta_Crema()
+        except:
             pass
         finally:
             self.update()
+
+    def venta_Total_Fruta_Crema(self):
+        try:
+            if self.fpi.value == "" or self.fpf.value == "" or self.fei.value == "" or self.fef.value == "":
+                self.fv.value = 0
+                self.fv.update()
+        except:
+            pass
+
+        try:
+            if self.upi.value == "" or self.upf.value == "" or self.uei.value == "" or self.uef.value == "":
+                self.uv.value = 0
+                self.uv.update()
+        except:
+            pass
+
+        try:
+            if self.fv.value != 0 and self.uv.value != 0:
+                self.fruven.value = self.fv.value + self.uv.value
+                print("Valores en ambos")
+                print(self.fv.value)
+                print(self.uv.value)
+
+            if self.fv.value == "0" and self.uv.value == "0":
+                self.fruven.value = "0"
+                print("SIN Valor en ambos")
+                print(self.fv.value)
+                print(self.uv.value)
+            
+            if self.fv.value != "0" and self.uv.value == "0" or self.uv.value == "":
+                self.fruven.value = self.fv.value
+                print("Con Valor en FRESA")
+                print(self.fv.value)
+                print(self.uv.value)
+
+            if self.fv.value == "0" or self.fv.value == "" and self.uv.value != "0":
+                self.fruven.value = self.uv.value
+                print("Con Valor en UVA")
+                print(self.fv.value)
+                print(self.uv.value)
+
+            self.fruven.update()
+        except:
+            print("Error")
+            pass
+        self.update()
 
     # ***** Funciones para el manejo de los campos de texto de la seccion de cremas *****
 
@@ -2365,7 +2587,7 @@ class UI(ft.ResponsiveRow):
 
         self.update()
 
-    def reset_fieldsText(self, e):
+    def reset_textFields(self, e):
         self.report_field.value = ""
         self.sales_field.value = ""
         self.update()
@@ -2380,7 +2602,7 @@ class UI(ft.ResponsiveRow):
 def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.bgcolor = ft.colors.BLUE_GREY_900
+    page.bgcolor = ft.Colors.BLUE_GREY_900
     page.window_min_height = 680
     page.window_min_width = 920
     page.theme_mode = ft.ThemeMode.DARK
